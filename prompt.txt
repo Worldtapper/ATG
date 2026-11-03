@@ -1,0 +1,688 @@
+# ATG METAL WORKS & INTERIORS
+# SERVICES PAGE — PREMIUM DESIGN DISCOVERY & PRODUCT CATALOGUE EXPANSION
+
+## THE TASK
+
+I have already built the Services page for my ATG Metal Works & Interiors website.
+
+I now want you to **develop and expand the existing Services page** into a premium, full-page design-shopping experience inspired by modern furniture, interior design and e-commerce websites.
+
+Customers should be able to browse ATG’s metalwork, furniture, fabrication and interior product designs through clear categories.
+
+The experience should work like a premium online furniture store:
+
+1. The customer enters the Services page.
+2. They browse the category navigation.
+3. They select the category they are interested in.
+4. They explore many different designs in that category.
+5. Each design card displays its main image, name and price or quotation status.
+6. They click View Details to learn about the design, materials, finish and other specifications.
+7. They can save designs to the existing Favourites system.
+8. They can add selected designs to the existing Start Your Project enquiry.
+
+**This is an expansion of my existing Services page—not a replacement website.**
+
+Do not create a separate website or rebuild the existing page from scratch.
+
+---
+
+# 1. INSPECT THE EXISTING PROJECT FIRST
+
+Before coding, inspect the actual project files.
+
+Identify:
+
+- Existing Services page and filename.
+- Current layout, styles and functionality.
+- Existing design cards and catalogue data.
+- Existing design details modal.
+- Existing Favourites system and storage mechanism.
+- Existing Start Your Project page.
+- Global navbar and footer.
+- Existing CSS variables, typography and animations.
+- Existing image assets and folder structure.
+
+Reuse the existing code and components wherever possible.
+
+Do not create duplicate pages, duplicate design data or a second Favourites system.
+
+If a feature already exists, improve and extend it instead of replacing it.
+
+---
+
+# 2. MAINTAIN ATG’S EXISTING DESIGN QUALITY
+
+Use the established ATG brand colours:
+
+- Black: `#010102`
+- Cream: `#FCE7CC`
+- Gold: `#F4D194`
+
+Maintain the existing:
+
+- Typography.
+- Navbar design.
+- Button styles.
+- Spacing system.
+- Border treatments.
+- Image presentation.
+- Animation quality.
+- Responsive behaviour.
+
+The Services page must feel like a premium architectural metalwork, furniture and interior design catalogue.
+
+Use:
+
+- Large, high-quality product imagery.
+- Refined typography.
+- Elegant layouts.
+- Clear visual hierarchy.
+- Premium spacing.
+- Restrained gold accents.
+- Smooth transitions.
+- User-friendly category navigation.
+
+Do not make the page look like a generic online shop template.
+
+Do not introduce unrelated fonts, colours or design systems.
+
+---
+
+# 3. CREATE A FULL DESIGN-SHOPPING EXPERIENCE
+
+The Services page should include:
+
+1. Premium introductory hero.
+2. Category navigation.
+3. Dedicated browsing experience for each category.
+4. Many different designs within each category.
+5. Search and filtering.
+6. Premium design cards.
+7. View Details modal.
+8. Existing Favourites integration.
+9. Existing Start Your Project integration.
+
+Do not limit the page to a small number of generic service cards.
+
+---
+
+# 4. CATEGORY NAVIGATION
+
+Create a modern horizontal category navigation similar to a premium furniture and interior design store.
+
+Use the following proposed categories, adapting them to the existing project structure where appropriate.
+
+### METALWORK & ARCHITECTURAL DESIGNS
+
+- All Designs
+- Gates & Entrance Designs
+- Staircases
+- Railings & Balustrades
+- Metal Fabrication
+- Structural Steel
+
+### FURNITURE
+
+- Chairs
+- Tables
+- Custom Furniture
+
+### SHELVING & DISPLAY SOLUTIONS
+
+- Wall Shelves
+- Floating Shelves
+- Metal Shelves
+- Metal-and-Wood Shelves
+- Storage Shelving
+- Display Shelves
+- Boutique Garment Racks
+- Retail Display Stands
+
+### INTERIOR SOLUTIONS
+
+- Kitchen Cabinets
+- Wardrobes
+- Aluminium & Glass
+- Interior Solutions
+
+These categories are intended to organise the catalogue. Inspect the existing website and adapt the categories to ATG’s actual or planned services.
+
+Do not publish categories unrelated to ATG.
+
+### Category navigation behaviour
+
+- Every category must be clickable.
+- Selecting a category displays the relevant designs.
+- The active category must be visually distinct.
+- Category changes should feel smooth.
+- Search and category filtering must work together.
+- Customers must be able to return to All Designs.
+- The navigation must remain usable on mobile.
+
+If the existing architecture uses separate category pages, extend that structure.
+
+If the existing architecture uses dynamic filtering within the Services page, preserve that approach unless there is a clear technical reason to change it.
+
+The experience must feel like entering a dedicated category, even if it is rendered dynamically within the existing page.
+
+---
+
+# 5. ADD A SUBSTANTIAL VARIETY OF DESIGNS TO EACH CATEGORY
+
+Each major category should contain approximately **8–12 distinct design entries where suitable**.
+
+Do not simply duplicate the same card and change its name.
+
+Every design should have a distinct:
+
+- Name.
+- Image.
+- Description.
+- Category.
+- Materials.
+- Finish.
+- Design characteristics.
+
+If the project does not yet contain enough verified ATG designs, use clearly identified **design concepts or inspiration examples** rather than presenting them as completed ATG projects.
+
+Keep catalogue data separate from rendering logic so I can replace demo entries later.
+
+---
+
+# 6. SHELVES, STORAGE AND BOUTIQUE DISPLAY PRODUCTS
+
+This is an important addition to the catalogue.
+
+Create dedicated categories for shelving and display solutions.
+
+## A. WALL SHELVES
+
+Include varied concepts such as:
+
+- Minimalist wall-mounted metal shelf.
+- Industrial metal-and-wood wall shelf.
+- Geometric decorative shelf.
+- Multi-tier wall shelving.
+- Modern floating wall shelf.
+- Custom wall shelf.
+- Contemporary storage shelf.
+- Premium architectural wall shelving.
+
+## B. FLOATING SHELVES
+
+Include:
+
+- Minimalist floating shelf.
+- Metal-supported floating shelf.
+- Metal-and-wood floating shelf.
+- Multi-level floating shelf.
+- Decorative floating shelf.
+- Custom-size floating shelf.
+
+## C. METAL & STORAGE SHELVING
+
+Include:
+
+- Industrial storage shelving.
+- Modern open metal shelving.
+- Metal-and-wood storage unit.
+- Heavy-duty shelving concept.
+- Multi-tier storage rack.
+- Custom storage shelving.
+
+Do not make unsupported claims about weight capacity, load limits or structural performance. These specifications must be verified before publication.
+
+## D. DISPLAY SHELVES & RETAIL DISPLAY STANDS
+
+Include:
+
+- Boutique display shelf.
+- Retail product display stand.
+- Decorative display rack.
+- Metal-and-wood display unit.
+- Freestanding display shelving.
+- Wall-mounted retail display.
+- Custom showroom display.
+- Premium product presentation stand.
+
+## E. BOUTIQUE GARMENT RACKS
+
+These are the stands and racks boutiques use to hang clothes.
+
+Include varied concepts such as:
+
+- Minimalist metal garment rack.
+- Freestanding boutique clothing rack.
+- Wall-mounted garment rail.
+- Double-rail clothing rack.
+- Metal-and-wood garment rack.
+- Luxury retail clothing display.
+- Rolling garment rack.
+- Custom boutique display rack.
+- Contemporary showroom garment stand.
+- Space-saving garment rack.
+
+The designs should be visually distinct and suitable for boutique, showroom or retail environments.
+
+Do not use generic images of clothing stores when the card is supposed to show the actual rack design.
+
+The image should clearly show the product or display structure.
+
+---
+
+# 7. DESIGN CARD REQUIREMENTS
+
+Each card must display:
+
+1. Main design image.
+2. Design name.
+3. Category.
+4. Price, starting price or quotation status.
+5. Favourite button.
+6. View Details button.
+
+Example:
+
+**Modern Boutique Garment Rack**
+
+Category: Boutique Garment Racks
+
+Price: Starting from ₦XXX,XXX  
+or  
+Request a Quote
+
+Buttons:
+
+- View Details
+- Favourite
+
+### Card design
+
+- Large, high-quality images.
+- Consistent image ratios.
+- No distorted images.
+- Elegant typography.
+- Consistent spacing.
+- Subtle hover effects.
+- Smooth image transitions.
+- Accessible Favourite button.
+- Clear View Details button.
+- Responsive card layout.
+
+Do not overload cards with too much information.
+
+---
+
+# 8. HIGH-QUALITY IMAGE RESEARCH
+
+Images are extremely important.
+
+For each design card, search for a suitable high-quality image online or use an appropriate existing project asset.
+
+### Image requirements
+
+- Image must match the design name and category.
+- High resolution.
+- Professional product or architectural photography quality.
+- No blurry images.
+- No unrelated images.
+- Avoid heavily watermarked images.
+- Avoid reusing one image for multiple different designs.
+- Prefer realistic product photography over artificial-looking images.
+- Maintain consistent visual quality across the catalogue.
+
+### Image sourcing
+
+- Prefer reputable sources and images that can legally be used.
+- Use licensed, royalty-free or properly permitted images where possible.
+- Do not use images requiring unauthorised access.
+- Avoid unreliable hotlinked image URLs where a stable local asset is available.
+- Download and organise suitable assets into the project’s existing image folder when appropriate.
+- Use descriptive filenames.
+
+If an exact ATG product image is unavailable, use a relevant **reference or inspiration image** and clearly identify the design as a concept or inspiration example.
+
+Do not present reference images as actual completed ATG projects.
+
+---
+
+# 9. PRICING AND MATERIALS ACCURACY
+
+Do not invent exact prices or represent an estimate as an official ATG quotation.
+
+For every design, use one of these pricing formats:
+
+- Verified fixed price.
+- Defensible starting price.
+- Defensible price range.
+- Request a Quote.
+
+### Estimation requirements
+
+If an estimated price is included:
+
+- Research relevant materials.
+- Consider dimensions and complexity.
+- Consider fabrication and finishing.
+- Consider installation or delivery if relevant.
+- Use a reasonable, defensible estimate.
+- Store the assumptions in the catalogue data.
+- Clearly label it as an estimate.
+
+If the price cannot be estimated reliably, use:
+
+**Request a Quote**
+
+Do not block a design from being displayed simply because its final price is unknown.
+
+### Materials requirements
+
+Provide realistic materials where sufficient information exists.
+
+Possible materials include:
+
+- Mild steel.
+- Stainless steel.
+- Aluminium.
+- Tempered glass.
+- Hardwood.
+- MDF or suitable engineered wood.
+- Upholstery.
+- Powder-coated metal finish.
+- Stainless steel finish.
+- Wood veneer.
+
+For concept designs, use **Suggested Materials** rather than claiming the materials are confirmed for an actual ATG product.
+
+If the exact materials cannot be determined confidently, state that final material selection is subject to confirmation.
+
+---
+
+# 10. VIEW DETAILS — FUNCTIONAL DESIGN MODAL
+
+The View Details button must open a premium modal for the exact design selected.
+
+The modal must load its content using the selected design’s unique ID and catalogue data.
+
+### Modal content
+
+Include:
+
+1. Large main image.
+2. Design name.
+3. Category.
+4. Detailed description.
+5. Materials used or suggested materials.
+6. Finish.
+7. Price, estimate or quotation status.
+8. Dimensions, if available.
+9. Customisation possibilities.
+10. Design status, where relevant.
+11. Favourite button.
+12. Start Your Project or Enquire button.
+
+### Modal description
+
+Explain:
+
+- What the design is.
+- Its visual style.
+- Its intended use.
+- Its main design characteristics.
+- Why a customer might choose it.
+
+Avoid repetitive generic descriptions.
+
+### Modal interaction requirements
+
+- Correct design loads.
+- Close button works.
+- Clicking outside closes the modal where appropriate.
+- Escape key closes the modal.
+- Keyboard focus is managed correctly.
+- Background scrolling is controlled.
+- Focus returns to the original View Details button.
+- Modal works on mobile.
+- Content scrolls correctly on small screens.
+
+Maintain ATG’s established design quality.
+
+---
+
+# 11. FAVOURITES INTEGRATION
+
+Reuse the existing ATG Favourites system.
+
+Customers must be able to save designs from every category.
+
+Implement:
+
+- Working Favourite buttons on every card.
+- Correct saved and unsaved states.
+- Existing global Favourites icon integration.
+- Existing Favourites page integration.
+- Duplicate prevention.
+- Stable design IDs.
+- Safe handling of outdated or missing IDs.
+
+Do not create a second Favourites system.
+
+When a design is saved, it must appear in the existing Favourites page.
+
+When a design is removed, its state must update throughout the website.
+
+---
+
+# 12. START YOUR PROJECT INTEGRATION
+
+This is essential.
+
+The existing **Start Your Project** page must receive selected designs from the Services catalogue.
+
+When a customer clicks Start Your Project or Enquire on a design:
+
+- Pass the correct design ID.
+- Open the existing Start Your Project page.
+- Preselect the selected design.
+- Display its image, name, category and pricing status.
+- Preserve the selection throughout the project form.
+
+Customers must also be able to select multiple designs from Favourites and add them to one enquiry.
+
+Do not create a new project enquiry page.
+
+Do not rename the existing Start Your Project page.
+
+Do not break its current form structure or styling.
+
+---
+
+# 13. SEARCH, FILTERING AND SORTING
+
+Maintain and improve the existing search functionality.
+
+Customers should be able to search by:
+
+- Design name.
+- Category.
+- Description.
+- Material.
+- Finish.
+- Style.
+- Relevant keywords.
+
+Search must be case-insensitive and update without a page reload.
+
+Implement:
+
+- Category filtering.
+- Search and category filtering together.
+- Clear filters.
+- Result count.
+- Empty search state.
+- Sorting by name.
+- Sorting by price only when prices are comparable and valid.
+
+Do not sort quotation-only designs as though they have numeric prices.
+
+---
+
+# 14. RESPONSIVE DESIGN
+
+Test and optimise:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Ensure:
+
+- Responsive card grid.
+- Mobile-friendly category navigation.
+- No horizontal overflow.
+- Readable card text.
+- Accessible Favourite buttons.
+- Proper modal positioning.
+- Comfortable touch targets.
+- No content hidden behind the navbar.
+- Smooth performance on mobile.
+
+---
+
+# 15. ANIMATION AND INTERACTION QUALITY
+
+Maintain the existing ATG animation quality.
+
+Implement or refine:
+
+- Smooth category transitions.
+- Subtle card hover effects.
+- Image reveal or zoom effects.
+- Modal entrance and exit transitions.
+- Favourite interaction feedback.
+- Smooth search and filtering transitions.
+- Section reveal animations where appropriate.
+
+Use restrained, professional animation.
+
+Do not make browsing slower.
+
+Respect `prefers-reduced-motion`.
+
+---
+
+# 16. CODE STRUCTURE AND MAINTAINABILITY
+
+Keep catalogue information separate from rendering logic.
+
+Each design should use a clear data structure containing:
+
+- Unique ID.
+- Name.
+- Category.
+- Image path.
+- Description.
+- Price type.
+- Price or estimate.
+- Estimate assumptions.
+- Materials.
+- Finish.
+- Dimensions.
+- Customisation information.
+- Design status.
+- Search keywords.
+
+Use reusable functions for:
+
+- Design cards.
+- Category navigation.
+- Design details modal.
+- Favourite state.
+- Search and filtering.
+
+Do not hardcode a separate modal for every design.
+
+Make it easy for me to replace names, images, prices, descriptions and materials later.
+
+---
+
+# 17. STRICT PRESERVATION REQUIREMENTS
+
+Do not break:
+
+- Global navbar.
+- Our Work dropdown.
+- Direct Services navigation.
+- Direct Company navigation.
+- Start Your Project page.
+- Favourites page.
+- Floating Favourites icon.
+- Scroll-to-top button.
+- Homepage.
+- Company page.
+- Insights page.
+- Contact page.
+- Global footer.
+
+Do not redesign completed pages unnecessarily.
+
+Do not remove existing functionality to simplify implementation.
+
+---
+
+# 18. REQUIRED TESTING
+
+After implementation, test:
+
+1. Services page loads correctly.
+2. Every category can be selected.
+3. Each category displays the correct designs.
+4. Each major category contains a varied selection of designs.
+5. Shelves and display categories work.
+6. Boutique garment racks display relevant designs.
+7. Search works.
+8. Search and category filtering work together.
+9. Clear filters works.
+10. Every card displays the correct image, name and price status.
+11. Every View Details button opens the correct design.
+12. Modal materials and description match the selected design.
+13. Modal close controls work.
+14. Favourite buttons work.
+15. Favourites appear in the existing Favourites page.
+16. Start Your Project receives the correct selected design.
+17. Multiple designs can be added to one enquiry.
+18. Mobile layout works.
+19. Existing website pages continue working.
+
+Fix any issues discovered during testing.
+
+---
+
+# 19. FINAL IMPLEMENTATION REPORT
+
+When the work is complete, provide a concise report containing:
+
+- Files inspected.
+- Files created.
+- Files modified.
+- Categories implemented.
+- Approximate number of designs per category.
+- Shelving and boutique garment rack categories implemented.
+- Image sources or image sourcing method.
+- Pricing approach and estimates requiring verification.
+- Materials data approach.
+- Favourites integration status.
+- Start Your Project integration status.
+- Tests performed.
+- Remaining issues.
+
+Do not claim a feature is complete unless it has actually been implemented and tested.
+
+## FINAL OBJECTIVE
+
+Transform the existing ATG Services page into a premium, full-page design-shopping experience where customers can browse a wide variety of metalwork, furniture, shelving, storage, boutique garment racks and fabrication designs by category.
+
+Customers must be able to inspect detailed design information, understand materials and pricing status, save favourites and seamlessly start a project enquiry.
+
+**Actually implement the changes in my existing project. Do not just provide a plan, mockup or code snippets. Preserve the existing ATG website, its design quality and all completed functionality.**

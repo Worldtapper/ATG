@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Overview | ATG Metal Works & Interior Design</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/company.css">
+    <link rel="stylesheet" href="CSS/atg-transitions.css">
+</head>
+
+<body class="company-page">
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">ATG</a>
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-item">Home</a>
+            <a href="services.html" class="mobile-nav-item">Services</a>
+
+            <div class="mobile-accordion">
+                <button class="mobile-accordion-btn">Gallery <span class="arrow">▼</span></button>
+                <div class="mobile-accordion-content">
+                    <a href="gallery.html">All Projects</a>
+                    <a href="gallery.html?category=Metal%20Fabrication">Metal Fabrication</a>
+                    <a href="gallery.html?category=Interior%20Projects">Interior Projects</a>
+                    <a href="gallery.html?category=Furniture%20%26%20Joinery">Furniture &amp; Joinery</a>
+                    <a href="gallery.html?category=Commercial%20Projects">Commercial Projects</a>
+                    <a href="gallery.html?category=Residential%20Projects">Residential Projects</a>
+                </div>
+            </div>
+
+            <a href="company.html" class="mobile-nav-item active">Company</a>
+            <a href="insights.html" class="mobile-nav-item">Insights</a>
+            <a href="contact.html" class="mobile-nav-item">Contact</a>
+            <a href="favourites.html" class="mobile-nav-item">Saved Designs</a>
+        </div>
+        <div class="mobile-menu-footer">
+            <a href="start-your-project.html" class="btn btn-primary full-width">
+                Start Your Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <header class="navbar-wrapper" id="navbarWrapper">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                ATG
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="gallery.html" class="nav-link">Gallery <svg class="dropdown-arrow" width="10" height="10"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg></a>
+                    <div class="dropdown-menu image-dropdown">
+                        <div class="image-dropdown-inner">
+                            <div class="menu-column">
+                                <a href="gallery.html" class="dropdown-link">All Projects</a>
+                                <a href="gallery.html?category=Metal%20Fabrication" class="dropdown-link">Metal Fabrication</a>
+                                <a href="gallery.html?category=Interior%20Projects" class="dropdown-link">Interior Projects</a>
+                                <a href="gallery.html?category=Furniture%20%26%20Joinery" class="dropdown-link">Furniture &amp; Joinery</a>
+                                <a href="gallery.html?category=Commercial%20Projects" class="dropdown-link">Commercial Projects</a>
+                                <a href="gallery.html?category=Residential%20Projects" class="dropdown-link">Residential Projects</a>
+                                <a href="gallery.html" class="dropdown-link view-all">View All Projects <svg width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg></a>
+                            </div>
+                            <div class="dropdown-featured-image">
+                                <img src="images/dropdown_portfolio.png" alt="Featured Project Gallery">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="company.html" class="nav-link active">Company</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="insights.html" class="nav-link">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="start-your-project.html" class="btn btn-primary">
+                    Start Your Project
+                    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 3. Company Hero Section -->
+        <section class="co-hero">
+            <div class="co-hero-container co-fade-up">
+                <div class="co-hero-content">
+                    <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
+                        <a href="index.html">Home</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-current">Company Overview</span>
+                    </nav>
+
+                    <div class="hero-editorial-badge">
+                        Architectural Craftsmanship &bull; Spatial Integrity
+                    </div>
+
+                    <h1 class="co-hero-title">
+                        Crafting Strength. <br>
+                        Creating Spaces. <br>
+                        <span class="highlight">Building Lasting Impressions.</span>
+                    </h1>
+
+                    <p class="co-hero-desc">
+                        ATG Metal Works &amp; Interiors brings metal craftsmanship and interior design together to create distinctive solutions for modern spaces. From carefully executed metalwork to thoughtfully designed interiors, our focus is on combining functionality, precision and visual appeal.
+                    </p>
+
+                    <div class="co-hero-actions">
+                        <a href="#who-we-are" class="btn btn-primary">
+                            Discover Our Company
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </a>
+                        <a href="services.html" class="btn btn-secondary">
+                            Explore Our Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="co-hero-media">
+                    <img src="images/477207b1-285c-4915-88f1-40f09fe9c256.jpg" alt="Architectural Metal & Interior Design by ATG">
+                    <div class="co-hero-overlay-card">
+                        <span class="card-main">Bespoke Fabrication &amp; Interior Fit-Outs</span>
+                        <span class="card-accent">Precision Engineered</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Internal Section Navigation (Sticky Subnav) -->
+        <div class="co-subnav-wrapper" id="coSubnavWrapper">
+            <nav class="co-subnav" aria-label="Company sections">
+                <a href="#who-we-are" class="co-subnav-link is-active">Who We Are</a>
+                <a href="#philosophy" class="co-subnav-link">Our Philosophy</a>
+                <a href="#expertise" class="co-subnav-link">Areas of Expertise</a>
+                <a href="#approach" class="co-subnav-link">Our Approach</a>
+                <a href="#commitment" class="co-subnav-link">Our Commitment</a>
+            </nav>
+        </div>
+
+        <!-- 4. Who We Are Section -->
+        <section class="co-who-section company-section" id="who-we-are">
+            <div class="co-who-grid">
+                <div class="co-who-content co-fade-up">
+                    <div class="co-section-header">
+                        <div class="co-eyebrow">ABOUT ATG METAL WORKS &amp; INTERIORS</div>
+                        <h2 class="co-section-title">More Than Metalwork. A Commitment to Better Spaces.</h2>
+                        <p class="co-section-desc">
+                            ATG operates at the intersection of heavy structural metalcraft and delicate interior refinement. Rather than treating metal fabrication and interior styling as separate trades, we unite them under a singular architectural vision—where structural stability empowers aesthetic beauty, and thoughtful styling is reinforced by precision engineering.
+                        </p>
+                    </div>
+
+                    <div class="co-who-pillars">
+                        <div class="co-pillar-card">
+                            <div class="co-pillar-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3 class="co-pillar-title">Metal Works</h3>
+                            <p class="co-pillar-desc">
+                                We introduce structural metal craftsmanship, heavy fabrication, and architectural metal applications. From monumental pivot doors and motorized gates to sculptural staircases, structural steel frameworks, and laser-cut screens—engineered to endure and impress.
+                            </p>
+                        </div>
+
+                        <div class="co-pillar-card">
+                            <div class="co-pillar-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                </svg>
+                            </div>
+                            <h3 class="co-pillar-title">Interior Solutions</h3>
+                            <p class="co-pillar-desc">
+                                We curate thoughtful interior spaces, balancing spatial flow, light distribution, and tactile finishes. Our solutions incorporate bespoke timber joinery, custom architectural furniture, acoustic fluted panels, and executive fit-outs designed for human comfort and daily function.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="co-who-media co-fade-up">
+                    <img src="images/about_who_we_are.png" alt="ATG Master craftsman inspecting precision installation" loading="lazy">
+                    <div class="co-media-tag-floating">
+                        <h4>Harmonizing Metals &amp; Interiors</h4>
+                        <p>Combining heavy-duty engineering with artisanal joinery for luxury residential and commercial environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Our Philosophy Section -->
+        <section class="co-philosophy-section company-section" id="philosophy">
+            <div class="co-section-header center co-fade-up">
+                <div class="co-eyebrow">OUR CORE PRINCIPLES</div>
+                <h2 class="co-section-title">Where Precision Meets Design.</h2>
+                <p class="co-section-desc">
+                    Every project is anchored in three foundational principles that guide our conceptual sketches, workshop fabrication, and on-site assembly.
+                </p>
+            </div>
+
+            <div class="co-philosophy-panels">
+                <!-- Principle 1: Precision -->
+                <div class="co-philo-panel panel-precision co-fade-up">
+                    <span class="philo-tag">PRINCIPLE 01</span>
+                    <h3 class="philo-headline">Precision</h3>
+                    <p class="philo-desc">
+                        Attention to structural tolerances, accurate site measurements, and deliberate execution. In bespoke metalwork and luxury joinery, millimeter precision is the foundation that guarantees smooth mechanical movement, perfect alignment, and enduring structural integrity.
+                    </p>
+                    <div class="philo-badge-list">
+                        <span class="philo-chip">Structural Tolerances</span>
+                        <span class="philo-chip">Laser-Cut Accuracy</span>
+                        <span class="philo-chip">Calibrated Fitment</span>
+                    </div>
+                </div>
+
+                <!-- Principle 2: Design -->
+                <div class="co-philo-panel panel-design co-fade-up">
+                    <div class="panel-img-box">
+                        <img src="images/hero_interior.png" alt="Architectural Interior Design" loading="lazy">
+                    </div>
+                    <div class="panel-inner">
+                        <span class="philo-tag">PRINCIPLE 02</span>
+                        <h3 class="philo-headline">Design</h3>
+                        <p class="philo-desc">
+                            We champion the vital dialogue between visual elegance and practical functionality. Form never compromises utility; instead, thoughtful proportions, clean sightlines, and natural light optimization elevate the human experience of the space.
+                        </p>
+                        <div class="philo-badge-list">
+                            <span class="philo-chip">Visual Harmony</span>
+                            <span class="philo-chip">Spatial Flow</span>
+                            <span class="philo-chip">Practical Utility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Principle 3: Craftsmanship -->
+                <div class="co-philo-panel panel-craft co-fade-up">
+                    <span class="philo-tag">PRINCIPLE 03</span>
+                    <h3 class="philo-headline">Craftsmanship</h3>
+                    <p class="philo-desc">
+                        Engineering creates the geometry, but skilled hands impart soul. From continuous seamless weld grinding and hand-rubbed timber finishes to electrostatic powder seals, our dedication to surface finishing rewards both the eye and the touch.
+                    </p>
+                    <div class="philo-badge-list">
+                        <span class="philo-chip">Hand-Finished Welds</span>
+                        <span class="philo-chip">Protective Multi-Coats</span>
+                        <span class="philo-chip">Bespoke Patinas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Our Areas of Expertise Section -->
+        <section class="co-expertise-section company-section" id="expertise">
+            <div class="co-section-header co-fade-up">
+                <div class="co-eyebrow">WHAT WE BRING TOGETHER</div>
+                <h2 class="co-section-title">Two Distinct Disciplines. One Cohesive Vision.</h2>
+                <p class="co-section-desc">
+                    Explore how our metal fabrication facilities and bespoke interior design capabilities collaborate to deliver complete architectural solutions.
+                </p>
+            </div>
+
+            <div class="co-showcase-stack">
+                <!-- Showcase A: Metal Works & Fabrication -->
+                <div class="co-showcase-item co-fade-up">
+                    <div class="co-showcase-content">
+                        <div class="co-eyebrow">DISCIPLINE A</div>
+                        <h3 class="co-showcase-title">Metal Works &amp; Fabrication</h3>
+                        <p class="co-showcase-desc">
+                            Functional architectural metalwork engineered for structural permanence, perimeter security, and striking visual statements. We work across high-tensile carbon steel, architectural brass, and corrosion-resistant aluminium alloys.
+                        </p>
+                        <div class="co-showcase-bullets">
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Monumental Pivot &amp; Motorised Gates</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Cantilevered Pergolas &amp; Steel Structures</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Curved Spiral Staircases &amp; Railings</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Laser-Cut Facades &amp; Privacy Screens</span>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="services.html?category=Metal%20Fabrication" class="btn btn-secondary">
+                                Explore Metal Designs
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="co-showcase-media">
+                        <img src="images/e5c07175-a404-44a3-993f-c502c40bee47.png" alt="Metal Fabrication and Laser Cut Architectural Screens" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Showcase B: Interior Design & Solutions -->
+                <div class="co-showcase-item reversed co-fade-up">
+                    <div class="co-showcase-content">
+                        <div class="co-eyebrow">DISCIPLINE B</div>
+                        <h3 class="co-showcase-title">Interior Design &amp; Solutions</h3>
+                        <p class="co-showcase-desc">
+                            Crafting considered environments where material richness meets everyday comfort. We synthesize fine natural timbers, hand-honed marble, smoked glass, and integrated indirect lighting into bespoke joinery and commercial fit-outs.
+                        </p>
+                        <div class="co-showcase-bullets">
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Fluted Walnut &amp; Brass Wardrobes</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Bespoke Boardroom &amp; Dining Tables</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Chef-Grade Island Units &amp; Pantries</span>
+                            </div>
+                            <div class="co-bullet">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Crittall-Style Acoustic Office Pods</span>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="services.html?category=Interior%20Design" class="btn btn-secondary">
+                                Explore Interior Concepts
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="co-showcase-media">
+                        <img src="images/9961c37c-6daa-4a9c-b4b9-555509c9aaf4.png" alt="Bespoke Interior Design and Acoustic Wood Wall Panelling" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Our Approach Section (NEW GEN PINNED SCROLL SCRUBBER) -->
+        <section class="co-approach-scroll-container company-section" id="approach">
+            <div class="co-approach-sticky-stage" id="approachStickyStage">
+                <div class="co-approach-stage-inner">
+                    <!-- Top Stage Header & Progress Line -->
+                    <div class="co-approach-top-bar">
+                        <div class="co-approach-header-meta">
+                            <div class="co-eyebrow">OUR METHODOLOGY</div>
+                            <h2>From Concept to Creation.</h2>
+                        </div>
+                        <div class="co-scrub-indicator">
+                            <div class="co-step-counter">
+                                STAGE <span id="activeStepNum">01</span> <span class="co-counter-divider">/</span> 04
+                            </div>
+                            <div class="co-scrub-track" aria-hidden="true">
+                                <div class="co-scrub-fill" id="approachScrubFill">
+                                    <span class="co-scrub-thumb"></span>
+                                </div>
+                                <span class="co-track-mark" style="left: 25%;"></span>
+                                <span class="co-track-mark" style="left: 50%;"></span>
+                                <span class="co-track-mark" style="left: 75%;"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Split Stage View -->
+                    <div class="co-approach-body-grid">
+                        <!-- Left: Stack of 4 Stage Panes -->
+                        <div class="co-stages-card-stack">
+                            <!-- Stage 01 -->
+                            <div class="co-stage-pane is-active" data-step="1">
+                                <span class="co-stage-ghost-num">01</span>
+                                <div class="co-stage-badge">
+                                    <span class="co-stage-badge-dot"></span>
+                                    PHASE 01 &mdash; DISCOVERY
+                                </div>
+                                <h3 class="co-stage-title">Understanding the Vision</h3>
+                                <div class="co-stage-subtitle">Listening, Site Feasibility &amp; Architectural Intent</div>
+                                <p class="co-stage-description">
+                                    Every project starts by understanding your exact spatial goals. We conduct detailed site measurements, review architectural drawings, and discuss functional needs, material preferences, and aesthetic aspirations.
+                                </p>
+                                <div class="co-stage-deliverables">
+                                    <div class="co-deliverable-head">
+                                        <div class="co-deliverable-label">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            Key Deliverables
+                                        </div>
+                                        <span class="co-deliverable-pill">Phase Output</span>
+                                    </div>
+                                    <div class="co-deliverable-chips">
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Dimensional Site Survey</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Spatial Brief Alignment</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Feasibility Evaluation</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stage 02 -->
+                            <div class="co-stage-pane" data-step="2">
+                                <span class="co-stage-ghost-num">02</span>
+                                <div class="co-stage-badge">
+                                    <span class="co-stage-badge-dot"></span>
+                                    PHASE 02 &mdash; ENGINEERING
+                                </div>
+                                <h3 class="co-stage-title">Planning &amp; Design</h3>
+                                <div class="co-stage-subtitle">Material Specification, CAD Modeling &amp; Joint Detailing</div>
+                                <p class="co-stage-description">
+                                    Our design team translates your requirements into comprehensive technical blueprints. We select structural steel profiles, calculate load factors, specify timber cuts and brass hardware, and confirm finish formulations.
+                                </p>
+                                <div class="co-stage-deliverables">
+                                    <div class="co-deliverable-head">
+                                        <div class="co-deliverable-label">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            Key Deliverables
+                                        </div>
+                                        <span class="co-deliverable-pill">Phase Output</span>
+                                    </div>
+                                    <div class="co-deliverable-chips">
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Technical Shop Drawings</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Material &amp; Patina Samples</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> 3D Structural Modeling</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stage 03 -->
+                            <div class="co-stage-pane" data-step="3">
+                                <span class="co-stage-ghost-num">03</span>
+                                <div class="co-stage-badge">
+                                    <span class="co-stage-badge-dot"></span>
+                                    PHASE 03 &mdash; FABRICATION
+                                </div>
+                                <h3 class="co-stage-title">Craftsmanship &amp; Execution</h3>
+                                <div class="co-stage-subtitle">Precision Cutting, Structural Welding &amp; Custom Joinery</div>
+                                <p class="co-stage-description">
+                                    In our workshop, skilled fabricators and joiners bring the plans into physical reality. Precision laser cutting, TIG/MIG welding, and fine carpentry come together with strict dimensional checks at every milestone.
+                                </p>
+                                <div class="co-stage-deliverables">
+                                    <div class="co-deliverable-head">
+                                        <div class="co-deliverable-label">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            Key Deliverables
+                                        </div>
+                                        <span class="co-deliverable-pill">Phase Output</span>
+                                    </div>
+                                    <div class="co-deliverable-chips">
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> CNC Profile Cutting</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Welded Sub-Assemblies</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Workshop Bench Fitting</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stage 04 -->
+                            <div class="co-stage-pane" data-step="4">
+                                <span class="co-stage-ghost-num">04</span>
+                                <div class="co-stage-badge">
+                                    <span class="co-stage-badge-dot"></span>
+                                    PHASE 04 &mdash; INSTALLATION
+                                </div>
+                                <h3 class="co-stage-title">Finishing &amp; Delivery</h3>
+                                <div class="co-stage-subtitle">Surface Treatment, Protected Transport &amp; On-Site Assembly</div>
+                                <p class="co-stage-description">
+                                    Workpieces receive multi-coat protective finishes, from electrostatic powder coatings to hand-rubbed timber oils. Our installation specialists coordinate logistics and complete the on-site mounting with meticulous care.
+                                </p>
+                                <div class="co-stage-deliverables">
+                                    <div class="co-deliverable-head">
+                                        <div class="co-deliverable-label">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            Key Deliverables
+                                        </div>
+                                        <span class="co-deliverable-pill">Phase Output</span>
+                                    </div>
+                                    <div class="co-deliverable-chips">
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Protective Surface Coat</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Crated Logistics Transport</span>
+                                        <span class="co-chip"><span class="co-chip-bullet"></span> Calibrated Site Handover</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Crossfading Visual Window -->
+                        <div class="co-approach-visual-window">
+                            <!-- Precision Viewfinder Corner Accents -->
+                            <span class="co-viewfinder-corner top-left"></span>
+                            <span class="co-viewfinder-corner top-right"></span>
+                            <span class="co-viewfinder-corner bottom-left"></span>
+                            <span class="co-viewfinder-corner bottom-right"></span>
+
+                            <img src="images/477207b1-285c-4915-88f1-40f09fe9c256.jpg" alt="Phase 01 Architectural site survey" class="co-stage-img-layer is-active" data-step="1">
+                            <img src="images/service_steel.png" alt="Phase 02 Structural engineering and design" class="co-stage-img-layer" data-step="2">
+                            <img src="images/e5c07175-a404-44a3-993f-c502c40bee47.png" alt="Phase 03 Workshop fabrication and welding" class="co-stage-img-layer" data-step="3">
+                            <img src="images/dropdown_portfolio.png" alt="Phase 04 Completed luxury installation" class="co-stage-img-layer" data-step="4">
+
+                            <div class="co-approach-img-badge">
+                                <div class="co-live-pill">
+                                    <span class="co-pulse-dot"></span>
+                                    <span class="co-live-text" id="approachImgPhase">Phase 01 &bull; Discovery</span>
+                                </div>
+                                <span class="co-studio-code" id="approachStudioCode">STAGE 01 OF 04 &bull; ATG SPEC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom: Interactive Step Navigation -->
+                    <div class="co-approach-stepper-nav" role="tablist" aria-label="Process stages">
+                        <div class="co-stepper-track-line" aria-hidden="true"></div>
+                        <button type="button" class="co-step-btn is-active" data-step="1" role="tab" aria-selected="true">
+                            <span class="co-step-bar"></span>
+                            <div class="co-step-btn-header">
+                                <span class="co-step-btn-num">01</span>
+                                <span class="co-step-status-dot"></span>
+                            </div>
+                            <span class="co-step-btn-title">Understanding the Vision</span>
+                        </button>
+                        <button type="button" class="co-step-btn" data-step="2" role="tab" aria-selected="false">
+                            <span class="co-step-bar"></span>
+                            <div class="co-step-btn-header">
+                                <span class="co-step-btn-num">02</span>
+                                <span class="co-step-status-dot"></span>
+                            </div>
+                            <span class="co-step-btn-title">Planning &amp; Design</span>
+                        </button>
+                        <button type="button" class="co-step-btn" data-step="3" role="tab" aria-selected="false">
+                            <span class="co-step-bar"></span>
+                            <div class="co-step-btn-header">
+                                <span class="co-step-btn-num">03</span>
+                                <span class="co-step-status-dot"></span>
+                            </div>
+                            <span class="co-step-btn-title">Craftsmanship &amp; Execution</span>
+                        </button>
+                        <button type="button" class="co-step-btn" data-step="4" role="tab" aria-selected="false">
+                            <span class="co-step-bar"></span>
+                            <div class="co-step-btn-header">
+                                <span class="co-step-btn-num">04</span>
+                                <span class="co-step-status-dot"></span>
+                            </div>
+                            <span class="co-step-btn-title">Finishing &amp; Delivery</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Our Commitment Section -->
+        <section class="co-commitment-section company-section" id="commitment">
+            <div class="co-commitment-container co-fade-up">
+                <div class="co-eyebrow">OUR COMMITMENT</div>
+                <h2 class="co-section-title">Designed with Purpose. Made with Care.</h2>
+                <p class="co-commitment-statement">
+                    &ldquo;Every curve of steel, joint of timber, and custom finish is crafted with purpose. We believe that true luxury lies in the harmony between <em>uncompromising structural strength</em> and <em>deliberate aesthetic restraint</em>.&rdquo;
+                </p>
+
+                <div class="co-commitment-pillars">
+                    <div class="co-commit-card">
+                        <div class="co-commit-num">01</div>
+                        <h4 class="co-commit-title">Material Sincerity</h4>
+                        <p class="co-commit-desc">
+                            We specify genuine structural metals, kiln-dried seasoned hardwoods, and certified finishes calibrated to withstand high humidity and prolonged exterior exposure.
+                        </p>
+                    </div>
+
+                    <div class="co-commit-card">
+                        <div class="co-commit-num">02</div>
+                        <h4 class="co-commit-title">Architectural Harmony</h4>
+                        <p class="co-commit-desc">
+                            Our fabrications never compete with the architecture they serve. Each element is scaled, proportioned, and detailed to elevate the overall architectural narrative.
+                        </p>
+                    </div>
+
+                    <div class="co-commit-card">
+                        <div class="co-commit-num">03</div>
+                        <h4 class="co-commit-title">Disciplined Execution</h4>
+                        <p class="co-commit-desc">
+                            From preliminary site measurements to handover, we maintain clear client communication, clean work areas, and unwavering respect for agreed project specifications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Final Call to Action Section -->
+        <section class="co-final-cta co-fade-up">
+            <div class="co-cta-box">
+                <div class="co-eyebrow">START A CONVERSATION</div>
+                <h2 class="co-cta-title">Have a Project in Mind? Let&rsquo;s Bring It to Life.</h2>
+                <p class="co-cta-desc">
+                    Explore our curated collection of architectural metalwork and bespoke interior concepts, or reach out directly to discuss tailoring an original design to your project requirements.
+                </p>
+                <div class="co-cta-actions">
+                    <a href="services.html" class="btn btn-secondary">
+                        Explore Design Catalogue
+                    </a>
+                    <a href="start-your-project.html" class="btn btn-primary">
+                        Start Your Project
+                        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Standardized Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-massive-text">ATG METAL WORKS</div>
+        <div class="footer-container">
+            <div class="footer-top">
+                <!-- Brand -->
+                <div class="footer-column brand-column">
+                    <a href="index.html" class="footer-logo">ATG</a>
+                    <p class="footer-bio">Elevating architectural visions with uncompromising quality, precision metal fabrication, and luxury interior solutions across Nigeria.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Design Catalogue</a></li>
+                        <li><a href="services.html?category=Gates%20%26%20Fencing">Gates &amp; Fencing</a></li>
+                        <li><a href="services.html?category=Railings%20%26%20Staircases">Railings &amp; Staircases</a></li>
+                        <li><a href="services.html?category=Metal%20Fabrication">Metal Fabrication</a></li>
+                        <li><a href="services.html?category=Structural%20Steel">Structural Steel</a></li>
+                        <li><a href="services.html?category=Custom%20Furniture">Custom Furniture</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="company.html">About ATG</a></li>
+                        <li><a href="company.html#approach">Our Process</a></li>
+                        <li><a href="favourites.html">Saved Designs</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2348023358828">+234 802 335 8828</a></li>
+                        <li><a href="https://wa.me/2348023358828" target="_blank" rel="noopener">WhatsApp Us</a></li>
+                        <li><a href="mailto:info@atgmetalworks.com">info@atgmetalworks.com</a></li>
+                        <li class="footer-address">Jabi, Abuja 900108<br>FCT, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 ATG Metal Works &amp; Interior Design. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="JS/index.js"></script>
+    <script src="JS/favourites.js"></script>
+    <script src="JS/company.js"></script>
+    <script src="JS/atg-transitions.js"></script>
+</body>
+
+</html>
+

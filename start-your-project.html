@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Project | ATG Metal Works & Interiors</title>
+    <meta name="description"
+        content="Begin your architectural metalwork or luxury interior design project with ATG. Configure project handling, select catalogue designs or bring your custom idea, and submit a tailored specification.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/services.css">
+    <link rel="stylesheet" href="CSS/start-your-project.css">
+    <link rel="stylesheet" href="CSS/atg-transitions.css">
+</head>
+
+<body class="syp-page-body">
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">ATG</a>
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-item">Home</a>
+            <a href="services.html" class="mobile-nav-item">Services</a>
+
+            <div class="mobile-accordion">
+                <button class="mobile-accordion-btn">Gallery <span class="arrow">▼</span></button>
+                <div class="mobile-accordion-content">
+                    <a href="gallery.html">All Projects</a>
+                    <a href="gallery.html?category=Metal%20Fabrication">Metal Fabrication</a>
+                    <a href="gallery.html?category=Interior%20Projects">Interior Projects</a>
+                    <a href="gallery.html?category=Furniture%20%26%20Joinery">Furniture &amp; Joinery</a>
+                    <a href="gallery.html?category=Commercial%20Projects">Commercial Projects</a>
+                    <a href="gallery.html?category=Residential%20Projects">Residential Projects</a>
+                </div>
+            </div>
+
+            <a href="company.html" class="mobile-nav-item">Company</a>
+            <a href="insights.html" class="mobile-nav-item">Insights</a>
+            <a href="contact.html" class="mobile-nav-item">Contact</a>
+            <a href="favourites.html" class="mobile-nav-item">Saved Designs</a>
+        </div>
+        <div class="mobile-menu-footer">
+            <a href="start-your-project.html" class="btn btn-primary full-width">
+                Start Your Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Global Navbar -->
+    <header class="navbar-wrapper" id="navbarWrapper">
+        <nav class="navbar">
+            <a href="index.html" class="logo">ATG</a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="gallery.html" class="nav-link">Gallery <svg class="dropdown-arrow" width="10" height="10"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg></a>
+                    <div class="dropdown-menu image-dropdown">
+                        <div class="image-dropdown-inner">
+                            <div class="menu-column">
+                                <a href="gallery.html" class="dropdown-link">All Projects</a>
+                                <a href="gallery.html?category=Metal%20Fabrication" class="dropdown-link">Metal Fabrication</a>
+                                <a href="gallery.html?category=Interior%20Projects" class="dropdown-link">Interior Projects</a>
+                                <a href="gallery.html?category=Furniture%20%26%20Joinery" class="dropdown-link">Furniture &amp; Joinery</a>
+                                <a href="gallery.html?category=Commercial%20Projects" class="dropdown-link">Commercial Projects</a>
+                                <a href="gallery.html?category=Residential%20Projects" class="dropdown-link">Residential Projects</a>
+                                <a href="gallery.html" class="dropdown-link view-all">View All Projects <svg width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg></a>
+                            </div>
+                            <div class="dropdown-featured-image">
+                                <img src="images/dropdown_portfolio.png" alt="Featured Project Gallery">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="company.html" class="nav-link">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a href="insights.html" class="nav-link">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="start-your-project.html" class="btn btn-primary active-cta">
+                    Start Your Project
+                    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="mainContent">
+
+        <!-- 1. Hero Section -->
+        <section class="syp-hero">
+            <div class="syp-hero-backdrop" aria-hidden="true">
+                <div class="syp-hero-glow"></div>
+                <div class="syp-hero-mesh"></div>
+            </div>
+
+            <div class="syp-container syp-hero-container">
+                <nav class="syp-breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="syp-breadcrumb-sep">/</span>
+                    <span class="syp-breadcrumb-current">Start Your Project</span>
+                </nav>
+
+                <div class="syp-hero-content">
+                    <div class="syp-pill-badge">
+                        <span class="syp-radar-dot"></span>
+                        <span>Project Initiation &amp; Consultation Portal</span>
+                    </div>
+
+                    <h1 class="syp-hero-title">Let's Bring Your Vision to Life.</h1>
+
+                    <p class="syp-hero-desc">
+                        Every great project begins with an idea. Whether you've discovered a design you love or have
+                        something completely unique in mind, let's turn your vision into something exceptional.
+                    </p>
+
+                    <div class="syp-hero-actions">
+                        <a href="#handlingSection" class="btn btn-primary syp-btn-scroll" id="heroStartBtn">
+                            Start a Project
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </a>
+                        <a href="services.html" class="btn btn-secondary">
+                            Explore Our Designs
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Showcase Card -->
+                <div class="syp-hero-visual-card">
+                    <div class="syp-visual-window">
+                        <img src="images/hero_interior.png" alt="ATG Architectural Metalwork Showcase"
+                            class="syp-visual-img">
+                        <div class="syp-visual-overlay"></div>
+                        <div class="syp-visual-meta">
+                            <span class="syp-meta-tag">ATG FABRICATION STUDIO</span>
+                            <span class="syp-meta-title">Precision Metal Craft &bull; Luxury Interiors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="syp-scroll-indicator" aria-hidden="true">
+                <span class="syp-mouse-icon">
+                    <span class="syp-mouse-wheel"></span>
+                </span>
+                <span class="syp-scroll-text">Scroll to Configure Project</span>
+            </div>
+        </section>
+
+
+        <!-- 2. Section: Project Handling Options -->
+        <section class="syp-section syp-handling-section" id="handlingSection">
+            <div class="syp-container">
+                <div class="syp-section-header">
+                    <div class="syp-section-eyebrow">STEP 0 &bull; PROJECT EXECUTION SCOPE</div>
+                    <h2 class="syp-section-title">How Would You Like Us to Handle Your Project?</h2>
+                    <p class="syp-section-desc">
+                        Every project is different. Tell us how you'd like us to bring your idea to life.
+                    </p>
+                </div>
+
+                <div class="syp-handling-grid" role="radiogroup" aria-label="Project Handling Method">
+
+                    <!-- Option A: Supply & Delivery -->
+                    <div class="syp-handling-card is-selected" role="radio" aria-checked="true" tabindex="0"
+                        data-handling="supply_delivery" id="cardHandlingDelivery">
+                        <div class="syp-card-top">
+                            <div class="syp-handling-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                            </div>
+                            <span class="syp-selection-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Selected</span>
+                            </span>
+                        </div>
+                        <div class="syp-card-body">
+                            <div class="syp-handling-code">OPTION A</div>
+                            <h3 class="syp-handling-title">Supply &amp; Delivery</h3>
+                            <p class="syp-handling-desc">
+                                I have a design or product in mind and would like it supplied and delivered to my
+                                preferred location.
+                            </p>
+                        </div>
+                        <div class="syp-handling-footer">
+                            <span class="syp-footer-pill">Custom Fabricated &bull; Secure Crated Transport</span>
+                        </div>
+                    </div>
+
+                    <!-- Option B: Supply & Installation -->
+                    <div class="syp-handling-card" role="radio" aria-checked="false" tabindex="0"
+                        data-handling="supply_installation" id="cardHandlingInstallation">
+                        <div class="syp-card-top">
+                            <div class="syp-handling-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="syp-selection-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Selected</span>
+                            </span>
+                        </div>
+                        <div class="syp-card-body">
+                            <div class="syp-handling-code">OPTION B</div>
+                            <h3 class="syp-handling-title">Supply &amp; Installation</h3>
+                            <p class="syp-handling-desc">
+                                I would like ATG to provide the product or design and handle its installation at my
+                                home, office or project location.
+                            </p>
+                        </div>
+                        <div class="syp-handling-footer">
+                            <span class="syp-footer-pill">Full Turnkey &bull; Master Site Engineers</span>
+                        </div>
+                    </div>
+
+                    <!-- Option C: Custom Project -->
+                    <div class="syp-handling-card" role="radio" aria-checked="false" tabindex="0"
+                        data-handling="custom_project" id="cardHandlingCustom">
+                        <div class="syp-card-top">
+                            <div class="syp-handling-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                                </svg>
+                            </div>
+                            <span class="syp-selection-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Selected</span>
+                            </span>
+                        </div>
+                        <div class="syp-card-body">
+                            <div class="syp-handling-code">OPTION C</div>
+                            <h3 class="syp-handling-title">Custom Project</h3>
+                            <p class="syp-handling-desc">
+                                I have my own idea or a unique requirement and would like to discuss how it can be
+                                designed and developed.
+                            </p>
+                        </div>
+                        <div class="syp-handling-footer">
+                            <span class="syp-footer-pill">Bespoke Engineering &bull; Concept to Build</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. Section: Choose How to Start Your Project -->
+        <section class="syp-section syp-creation-section" id="creationSection">
+            <div class="syp-container">
+                <div class="syp-section-header">
+                    <div class="syp-section-eyebrow">DESIGN DISCOVERY &amp; CONCEPT INTAKE</div>
+                    <h2 class="syp-section-title">What Would You Like to Create?</h2>
+                    <p class="syp-section-desc">
+                        Start with a verified design concept from our studio, select from your saved favourites, or describe your custom idea.
+                    </p>
+                </div>
+
+                <!-- Active Design Paths Tabs -->
+                <div class="syp-path-tabs" role="tablist" aria-label="Design Intake Paths">
+                    <button type="button" class="syp-path-tab is-active" id="tabPathDesigns" role="tab"
+                        aria-selected="true" aria-controls="panelPathDesigns">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span>Path A &bull; Choose from Our Designs</span>
+                        <span class="syp-path-count" id="activeDesignSelectionCount">0 selected</span>
+                    </button>
+
+                    <button type="button" class="syp-path-tab" id="tabPathCustom" role="tab" aria-selected="false"
+                        aria-controls="panelPathCustom">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                        <span>Path B &bull; Bring Your Own Idea</span>
+                    </button>
+                </div>
+
+                <!-- Path A Panel: Choose from Our Designs / Favourites -->
+                <div class="syp-path-panel is-active" id="panelPathDesigns" role="tabpanel"
+                    aria-labelledby="tabPathDesigns">
+
+                    <!-- Selected Designs Tray (Visible when 1+ designs chosen) -->
+                    <div class="syp-selected-tray" id="selectedDesignsTray" style="display: none;">
+                        <div class="syp-tray-header">
+                            <div class="syp-tray-title">
+                                <span class="syp-pulse-dot"></span>
+                                <strong>Designs Selected for This Project</strong>
+                                <span class="syp-tray-counter" id="trayCounterBadge">0 Designs</span>
+                            </div>
+                            <button type="button" class="syp-tray-clear-btn" id="trayClearAllBtn">
+                                Clear Selection
+                            </button>
+                        </div>
+                        <div class="syp-tray-list" id="selectedDesignsList">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Filter / Sub-source Bar (Catalogue vs Favourites) -->
+                    <div class="syp-source-bar">
+                        <div class="syp-source-pills">
+                            <button type="button" class="syp-source-pill is-active" id="pillViewCatalogue">
+                                Studio Catalogue (<span id="catTotalCount">135</span>)
+                            </button>
+                            <button type="button" class="syp-source-pill" id="pillViewFavourites">
+                                Saved in Favourites (<span id="favTotalCount">0</span>)
+                            </button>
+                        </div>
+
+                        <!-- Search & Quick Filter Controls -->
+                        <div class="syp-catalogue-search-wrap">
+                            <svg class="syp-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="sypSearchInput" class="syp-search-input"
+                                placeholder="Search by design title, metal or style...">
+                            <button type="button" class="syp-clear-search-btn" id="sypClearSearchBtn"
+                                aria-label="Clear Search" style="display: none;">&times;</button>
+                        </div>
+                    </div>
+
+                    <!-- Category Pills Filter -->
+                    <div class="syp-cat-chips-scroll" id="sypCategoryChips">
+                        <button type="button" class="syp-cat-chip is-active" data-cat="all">All Disciplines</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Gates">Gates</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Doors">Doors</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Staircases">Staircases</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Railings &amp; Balustrades">Railings &amp; Balustrades</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Metal Fabrication">Metal Fabrication</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Structural Steel">Structural Steel</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Chairs">Chairs</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Tables">Tables</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Custom Furniture">Custom Furniture</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Shelves &amp; Storage">Shelves &amp; Storage</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Boutique Garment Racks &amp; Retail Displays">Boutique Racks &amp; Displays</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Kitchen Cabinets">Kitchen Cabinets</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Wardrobes">Wardrobes</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Aluminium &amp; Glass">Aluminium &amp; Glass</button>
+                        <button type="button" class="syp-cat-chip" data-cat="Interior Solutions">Interior Solutions</button>
+                    </div>
+
+                    <!-- Design Cards Grid -->
+                    <div class="syp-designs-grid" id="sypDesignsGrid">
+                        <!-- Populated dynamically from window.ATG_CATALOGUE_DATA -->
+                    </div>
+
+                    <!-- Empty Favourites State (shown when Favourites tab active but 0 saved) -->
+                    <div class="syp-empty-state" id="sypEmptyFavouritesState" style="display: none;">
+                        <div class="syp-empty-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="syp-empty-title">No Favourite Designs Yet.</h3>
+                        <p class="syp-empty-desc">
+                            Save the designs you love while exploring our collection. They'll be waiting here when you're
+                            ready to start your project.
+                        </p>
+                        <a href="services.html" class="btn btn-secondary">
+                            Explore Our Designs
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- External Catalogue Link Box -->
+                    <div class="syp-catalogue-external-bar">
+                        <div class="syp-cat-external-text">
+                            <strong>Want to browse our complete collection in full-page mode?</strong>
+                            <span>You can save favourites or click "Start Enquiry" on any design to return here with that selection.</span>
+                        </div>
+                        <a href="services.html" class="btn btn-secondary btn-sm">
+                            Browse Services Catalogue &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Path B Panel: Bring Your Own Idea -->
+                <div class="syp-path-panel" id="panelPathCustom" role="tabpanel" aria-labelledby="tabPathCustom">
+                    <div class="syp-custom-concept-card">
+                        <div class="syp-custom-header">
+                            <div class="syp-custom-badge">CUSTOM ARCHITECTURAL CONCEPT</div>
+                            <h3 class="syp-custom-title">Bring Your Own Concept to Life</h3>
+                            <p class="syp-custom-desc">
+                                Have an architectural drawing, sketch, Pinterest reference, or a bespoke dimensional requirement? 
+                                We engineer and fabricate one-of-a-kind structural metalwork and luxury interiors from scratch.
+                            </p>
+                        </div>
+
+                        <div class="syp-custom-fields-grid">
+                            <div class="syp-field-group">
+                                <label for="customProjectCategory" class="syp-label">Project Discipline / Category <span
+                                        class="syp-req">*</span></label>
+                                <select id="customProjectCategory" class="syp-select">
+                                    <option value="" disabled selected>Select category...</option>
+                                    <option value="Gates & Fencing">Architectural Gates &amp; Perimeter Fencing</option>
+                                    <option value="Railings & Staircases">Precision Railings &amp; Monolithic Staircases</option>
+                                    <option value="Metal Fabrication">Bespoke Architectural Metal Fabrication</option>
+                                    <option value="Structural Steel">Heavy Structural Steel &amp; Canopies</option>
+                                    <option value="Custom Furniture">Luxury Metal, Timber &amp; Glass Furniture</option>
+                                    <option value="Shelving & Display Solutions">Boutique Garment Racks, Shelving &amp; Displays</option>
+                                    <option value="Kitchen Cabinets & Wardrobes">Luxury Kitchen Cabinets &amp; Wardrobes</option>
+                                    <option value="Interior Partitions">Steel Framed Glass Partitions &amp; Doors</option>
+                                    <option value="Other">Other Bespoke Metal &amp; Interior Solution</option>
+                                </select>
+                            </div>
+
+                            <div class="syp-field-group">
+                                <label for="customProjectGoal" class="syp-label">Intended Purpose &amp; Desired Outcome</label>
+                                <input type="text" id="customProjectGoal" class="syp-input"
+                                    placeholder="e.g. Grand entrance pivot door for high-end residential villa">
+                            </div>
+
+                            <div class="syp-field-group full-width">
+                                <label for="customProjectDescription" class="syp-label">Describe Your Custom Idea <span
+                                        class="syp-req">*</span></label>
+                                <textarea id="customProjectDescription" class="syp-textarea" rows="4"
+                                    placeholder="Tell us about the design style, spatial features, aesthetics, patterns, or special functionality you envision..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="syp-custom-note">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <span>You can upload sketches, architectural drawings and mood boards in the upload section below.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 4. Section: Complete Multi-Step Project Form -->
+        <section class="syp-section syp-form-section" id="formSection">
+            <div class="syp-container">
+
+                <div class="syp-form-shell">
+
+                    <!-- Progress Stepper Header -->
+                    <div class="syp-stepper-header">
+                        <div class="syp-step-track">
+                            <div class="syp-step-node is-active" id="stepNode1" data-step="1">
+                                <div class="syp-node-circle">01</div>
+                                <div class="syp-node-label">
+                                    <span class="syp-node-sub">STEP 1</span>
+                                    <span class="syp-node-name">Project Details</span>
+                                </div>
+                            </div>
+
+                            <div class="syp-step-line" id="stepLine1"></div>
+
+                            <div class="syp-step-node" id="stepNode2" data-step="2">
+                                <div class="syp-node-circle">02</div>
+                                <div class="syp-node-label">
+                                    <span class="syp-node-sub">STEP 2</span>
+                                    <span class="syp-node-name">Materials &amp; Preferences</span>
+                                </div>
+                            </div>
+
+                            <div class="syp-step-line" id="stepLine2"></div>
+
+                            <div class="syp-step-node" id="stepNode3" data-step="3">
+                                <div class="syp-node-circle">03</div>
+                                <div class="syp-node-label">
+                                    <span class="syp-node-sub">STEP 3</span>
+                                    <span class="syp-node-name">Customer Information</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Container -->
+                    <form id="sypProjectForm" novalidate autocomplete="on">
+
+                        <!-- ============================================== -->
+                        <!-- STEP 1: PROJECT DETAILS                        -->
+                        <!-- ============================================== -->
+                        <div class="syp-form-step is-active" id="formStep1" data-step="1">
+                            <!-- Referenced Gallery Project Card (Shown when arriving from Gallery) -->
+                            <div class="syp-gallery-ref-card" id="sypGalleryRefCard" style="display: none;">
+                                <div class="ref-card-content">
+                                    <span class="ref-card-eyebrow">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        Referenced Gallery Commission
+                                    </span>
+                                    <h4 class="ref-card-title" id="sypRefTitle">Project Title</h4>
+                                    <div class="ref-card-meta">
+                                        <span id="sypRefLocation">Location</span> &bull; <span id="sypRefCategory">Category</span>
+                                    </div>
+                                    <p class="ref-card-note">Your project brief has been pre-configured with references to this verified ATG architectural commission.</p>
+                                </div>
+                                <div class="ref-card-media">
+                                    <img id="sypRefImg" src="" alt="Referenced Project Preview" class="ref-card-thumb">
+                                </div>
+                            </div>
+                            <div class="syp-step-intro">
+                                <span class="syp-step-eyebrow">STEP 01 OF 03</span>
+                                <h3 class="syp-step-heading">Tell Us About Your Project.</h3>
+                                <p class="syp-step-desc">
+                                    Define the physical context, location, and dimensions of your installation.
+                                </p>
+                            </div>
+
+                            <div class="syp-fields-row">
+                                <!-- Project Type: Residential or Commercial -->
+                                <div class="syp-field-group full-width">
+                                    <label class="syp-label">Project Type <span class="syp-req">*</span></label>
+                                    <div class="syp-pill-radio-group" role="radiogroup" aria-label="Project Type">
+                                        <label class="syp-pill-radio is-checked">
+                                            <input type="radio" name="projectType" value="Residential" checked>
+                                            <span class="syp-radio-dot"></span>
+                                            <span>Residential (Private Home / Villa / Penthouse)</span>
+                                        </label>
+                                        <label class="syp-pill-radio">
+                                            <input type="radio" name="projectType" value="Commercial">
+                                            <span class="syp-radio-dot"></span>
+                                            <span>Commercial (Corporate / Retail / Hospitality)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Project Title -->
+                                <div class="syp-field-group">
+                                    <label for="projectTitle" class="syp-label">Project Title / Name <span
+                                            class="syp-req">*</span></label>
+                                    <input type="text" id="projectTitle" class="syp-input"
+                                        placeholder="e.g. Asokoro Villa Grand Metal Entrance" required>
+                                    <span class="syp-field-error" id="errProjectTitle"></span>
+                                </div>
+
+                                <!-- Project Discipline / Category -->
+                                <div class="syp-field-group">
+                                    <label for="projectCategory" class="syp-label">Primary Category <span
+                                            class="syp-req">*</span></label>
+                                    <select id="projectCategory" class="syp-select" required>
+                                        <option value="" disabled selected>Select category...</option>
+                                        <option value="Gates & Fencing">Gates &amp; Perimeter Fencing</option>
+                                        <option value="Railings & Staircases">Railings &amp; Monolithic Staircases</option>
+                                        <option value="Metal Fabrication">Bespoke Architectural Fabrication</option>
+                                        <option value="Structural Steel">Heavy Structural Steel &amp; Pergolas</option>
+                                        <option value="Custom Furniture">Luxury Metal, Timber &amp; Glass Furniture</option>
+                                        <option value="Shelving & Display Solutions">Boutique Garment Racks, Shelving &amp; Displays</option>
+                                        <option value="Kitchen Cabinets & Wardrobes">Luxury Kitchen Cabinets &amp; Wardrobes</option>
+                                        <option value="Interior Partitions">Steel Framed Glass Partitions &amp; Doors</option>
+                                        <option value="Multiple Works">Full Multi-Discipline Package</option>
+                                    </select>
+                                    <span class="syp-field-error" id="errProjectCategory"></span>
+                                </div>
+
+                                <!-- Project Location / City -->
+                                <div class="syp-field-group">
+                                    <label for="projectLocation" class="syp-label">Project City &amp; State <span
+                                            class="syp-req">*</span></label>
+                                    <input type="text" id="projectLocation" class="syp-input"
+                                        placeholder="e.g. Abuja, FCT / Lagos / Port Harcourt" required>
+                                    <span class="syp-field-error" id="errProjectLocation"></span>
+                                </div>
+
+                                <!-- Quantity -->
+                                <div class="syp-field-group">
+                                    <label for="projectQuantity" class="syp-label">Approximate Quantity / Units</label>
+                                    <input type="text" id="projectQuantity" class="syp-input"
+                                        placeholder="e.g. 1 Grand Gate, 40m Railings, 2 Pivot Doors">
+                                </div>
+
+                                <!-- Dimensions -->
+                                <div class="syp-field-group full-width">
+                                    <label for="projectDimensions" class="syp-label">Estimated Dimensions / Measurements
+                                        <span class="syp-hint">(Optional — e.g. 4.2m W x 2.8m H)</span></label>
+                                    <input type="text" id="projectDimensions" class="syp-input"
+                                        placeholder="Enter height, width, run length or leave blank if ATG should measure on site">
+                                </div>
+
+                                <!-- Project Description -->
+                                <div class="syp-field-group full-width">
+                                    <label for="projectDescription" class="syp-label">Project Description &amp; Scope <span
+                                            class="syp-req">*</span></label>
+                                    <textarea id="projectDescription" class="syp-textarea" rows="4"
+                                        placeholder="Provide any specific architectural vision, aesthetic goals, or structural requirements for your project..."
+                                        required></textarea>
+                                    <span class="syp-field-error" id="errProjectDescription"></span>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields Container (dynamically toggled based on Handling Option) -->
+                            <div class="syp-conditional-box" id="conditionalFieldsBox">
+
+                                <!-- Condition A: Supply & Delivery -->
+                                <div class="syp-condition-block is-visible" id="conditionDelivery">
+                                    <div class="syp-cond-header">
+                                        <div class="syp-cond-badge">SUPPLY &amp; DELIVERY SPECIFICATIONS</div>
+                                        <p class="syp-cond-subtitle">Logistics and offloading destination details</p>
+                                    </div>
+                                    <div class="syp-fields-row">
+                                        <div class="syp-field-group full-width">
+                                            <label for="deliveryAddress" class="syp-label">Delivery Street Address / Site
+                                                Drop-off Point</label>
+                                            <input type="text" id="deliveryAddress" class="syp-input"
+                                                placeholder="Specific street address, estate name, or landmark">
+                                        </div>
+                                        <div class="syp-field-group full-width">
+                                            <label for="deliveryInstructions" class="syp-label">Special Delivery / Offloading
+                                                Instructions</label>
+                                            <textarea id="deliveryInstructions" class="syp-textarea" rows="2"
+                                                placeholder="e.g. Crane required for offloading, wide vehicle gate clearance, scheduled weekend delivery..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Condition B: Supply & Installation -->
+                                <div class="syp-condition-block" id="conditionInstallation" style="display: none;">
+                                    <div class="syp-cond-header">
+                                        <div class="syp-cond-badge">SUPPLY &amp; ON-SITE INSTALLATION SPECIFICATIONS</div>
+                                        <p class="syp-cond-subtitle">Structural site parameters for our master installation crew</p>
+                                    </div>
+                                    <div class="syp-fields-row">
+                                        <div class="syp-field-group">
+                                            <label for="installPropertyStatus" class="syp-label">Site Construction Status</label>
+                                            <select id="installPropertyStatus" class="syp-select">
+                                                <option value="New Construction (Shell/Carcass)">New Construction (Shell / Carcass stage)</option>
+                                                <option value="Active Renovation">Active Renovation</option>
+                                                <option value="Existing Occupied Building">Existing Occupied Building</option>
+                                                <option value="Structural Land / Ground Breaking">Structural Land / Ground Breaking</option>
+                                            </select>
+                                        </div>
+                                        <div class="syp-field-group">
+                                            <label for="installSiteAccess" class="syp-label">Vertical &amp; Floor Access</label>
+                                            <select id="installSiteAccess" class="syp-select">
+                                                <option value="Ground Floor / Exterior Perimeter">Ground Floor / Exterior Perimeter</option>
+                                                <option value="Upper Floor (Service Elevator Available)">Upper Floor (Service Elevator Available)</option>
+                                                <option value="Upper Floor (Stairwell Carry Only)">Upper Floor (Stairwell Carry Only)</option>
+                                                <option value="Rooftop / High Elevation (Scaffolding/Crane)">Rooftop / High Elevation (Scaffolding/Crane)</option>
+                                            </select>
+                                        </div>
+                                        <div class="syp-field-group full-width">
+                                            <label for="installRequirements" class="syp-label">Special Mounting or Anchor
+                                                Requirements</label>
+                                            <textarea id="installRequirements" class="syp-textarea" rows="2"
+                                                placeholder="e.g. Core drilling into reinforced concrete slab, concealed base plate mounting, coordination with tiling contractors..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Condition C: Custom Project -->
+                                <div class="syp-condition-block" id="conditionCustom" style="display: none;">
+                                    <div class="syp-cond-header">
+                                        <div class="syp-cond-badge">BESPOKE ARCHITECTURAL INTAKE</div>
+                                        <p class="syp-cond-subtitle">Creative and functional parameters for custom development</p>
+                                    </div>
+                                    <div class="syp-fields-row">
+                                        <div class="syp-field-group">
+                                            <label for="customOutcomeGoal" class="syp-label">Desired Architectural Outcome</label>
+                                            <input type="text" id="customOutcomeGoal" class="syp-input"
+                                                placeholder="e.g. Modernist geometric focal point with organic bronze patina">
+                                        </div>
+                                        <div class="syp-field-group">
+                                            <label for="customConstraints" class="syp-label">Known Constraints / Load Limits</label>
+                                            <input type="text" id="customConstraints" class="syp-input"
+                                                placeholder="e.g. Cantilever weight limit, coastal salt air resistance, high-wind zone">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Step 1 Navigation Actions -->
+                            <div class="syp-step-actions">
+                                <div></div>
+                                <button type="button" class="btn btn-primary syp-btn-next" id="btnStep1Next">
+                                    Continue to Materials &amp; Preferences
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- ============================================== -->
+                        <!-- STEP 2: MATERIALS AND PREFERENCES              -->
+                        <!-- ============================================== -->
+                        <div class="syp-form-step" id="formStep2" data-step="2">
+                            <div class="syp-step-intro">
+                                <span class="syp-step-eyebrow">STEP 02 OF 03</span>
+                                <h3 class="syp-step-heading">Let's Understand Your Requirements.</h3>
+                                <p class="syp-step-desc">
+                                    Select your preferred metals, architectural finishes, colour palette, and investment framework.
+                                </p>
+                            </div>
+
+                            <div class="syp-fields-row">
+
+                                <!-- Preferred Materials -->
+                                <div class="syp-field-group full-width">
+                                    <label class="syp-label">Preferred Materials <span class="syp-hint">(Select all that apply)</span></label>
+                                    <div class="syp-checkbox-chips" id="materialChips">
+                                        <label class="syp-chip-check is-checked">
+                                            <input type="checkbox" name="materials" value="Structural Mild Steel" checked>
+                                            <span>Mild Steel / Heavy Wrought Iron</span>
+                                        </label>
+                                        <label class="syp-chip-check">
+                                            <input type="checkbox" name="materials" value="Architectural Stainless Steel (304/316)">
+                                            <span>Stainless Steel (304 / Marine 316)</span>
+                                        </label>
+                                        <label class="syp-chip-check">
+                                            <input type="checkbox" name="materials" value="Solid Brass / Bronze Accents">
+                                            <span>Solid Brass &amp; Patinated Bronze</span>
+                                        </label>
+                                        <label class="syp-chip-check">
+                                            <input type="checkbox" name="materials" value="Toughened Architectural Glass & Metal">
+                                            <span>Toughened Glass &amp; Metal Frame</span>
+                                        </label>
+                                        <label class="syp-chip-check">
+                                            <input type="checkbox" name="materials" value="Hardwood Inlays (Teak / Iroko / Walnut)">
+                                            <span>Hardwood Inlays (Teak / Iroko / Walnut)</span>
+                                        </label>
+                                        <label class="syp-chip-check">
+                                            <input type="checkbox" name="materials" value="Not sure yet — Need ATG Recommendation">
+                                            <span>Not sure yet &mdash; Guide me</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Desired Finish -->
+                                <div class="syp-field-group">
+                                    <label for="preferredFinish" class="syp-label">Desired Surface Finish</label>
+                                    <select id="preferredFinish" class="syp-select">
+                                        <option value="Electrostatic Matte Powder Coat (Anti-Corrosion)" selected>Electrostatic Matte Powder Coat</option>
+                                        <option value="Architectural Gloss / Fine Texture Powder Coat">Fine Texture Powder Coat</option>
+                                        <option value="Hand-Rubbed Patinated Antique Brass">Hand-Rubbed Patinated Antique Brass</option>
+                                        <option value="Brushed Satin Hairline Finish">Brushed Satin Hairline Finish</option>
+                                        <option value="Polished Mirror Chrome / Gold PVD">Polished Mirror Chrome / Gold PVD</option>
+                                        <option value="Raw Industrial Clear-Coated Steel">Raw Industrial Clear-Coated Steel</option>
+                                        <option value="Not sure yet — Need ATG Recommendation">Not sure yet &mdash; Recommend for me</option>
+                                    </select>
+                                </div>
+
+                                <!-- Preferred Colour Tone -->
+                                <div class="syp-field-group">
+                                    <label for="preferredColour" class="syp-label">Preferred Colour Palette</label>
+                                    <select id="preferredColour" class="syp-select">
+                                        <option value="Obsidian Matte Black (ATG Standard)" selected>Obsidian Matte Black</option>
+                                        <option value="Warm Champagne Gold / Brass Tone">Warm Champagne Gold / Brass Tone</option>
+                                        <option value="Deep Architectural Charcoal / Graphite">Deep Architectural Charcoal</option>
+                                        <option value="Earthy Antique Bronze">Earthy Antique Bronze</option>
+                                        <option value="Pure Architectural White / Cream">Pure Architectural White / Cream</option>
+                                        <option value="Custom RAL Architectural Code">Custom RAL Specified Code</option>
+                                    </select>
+                                </div>
+
+                                <!-- Optional Estimated Budget -->
+                                <div class="syp-field-group">
+                                    <label for="budgetRange" class="syp-label">Estimated Budget Framework <span
+                                            class="syp-hint">(Optional)</span></label>
+                                    <select id="budgetRange" class="syp-select">
+                                        <option value="Flexible / To be estimated by ATG" selected>Flexible / Provide estimate from specification</option>
+                                        <option value="₦1,500,000 - ₦3,500,000">₦1,500,000 &ndash; ₦3,500,000</option>
+                                        <option value="₦3,500,000 - ₦7,500,000">₦3,500,000 &ndash; ₦7,500,000</option>
+                                        <option value="₦7,500,000 - ₦15,000,000">₦7,500,000 &ndash; ₦15,000,000</option>
+                                        <option value="₦15,000,000 - ₦30,000,000">₦15,000,000 &ndash; ₦30,000,000</option>
+                                        <option value="₦30,000,000+ (Comprehensive Architectural Fitout)">₦30,000,000+ (High-end architectural fitout)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Preferred Timeframe -->
+                                <div class="syp-field-group">
+                                    <label for="preferredTimeframe" class="syp-label">Target Completion Timeframe</label>
+                                    <select id="preferredTimeframe" class="syp-select">
+                                        <option value="Flexible / High Quality Priority" selected>Flexible &bull; Focus on highest craftsmanship</option>
+                                        <option value="Immediate Fabrication (Within 3 - 4 Weeks)">Urgent &bull; Within 3 - 4 Weeks</option>
+                                        <option value="1 - 2 Months">1 &ndash; 2 Months</option>
+                                        <option value="2 - 4 Months (Aligned with construction)">2 &ndash; 4 Months (Aligned with construction)</option>
+                                        <option value="Planning & Feasibility Phase">Planning &amp; Feasibility Phase</option>
+                                    </select>
+                                </div>
+
+                                <!-- Additional Customisation Requirements -->
+                                <div class="syp-field-group full-width">
+                                    <label for="customisationNotes" class="syp-label">Additional Customisation Requirements &amp; Notes</label>
+                                    <textarea id="customisationNotes" class="syp-textarea" rows="3"
+                                        placeholder="Note any specific hardware, automated motorisation, smart lock integration, timber types, or acoustic damping preferences..."></textarea>
+                                </div>
+                            </div>
+
+
+                            <!-- ============================================== -->
+                            <!-- REFERENCE FILE UPLOADER                        -->
+                            <!-- ============================================== -->
+                            <div class="syp-uploader-card">
+                                <div class="syp-uploader-header">
+                                    <div class="syp-uploader-title-box">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                        <strong>Reference Sketches, Plans &amp; Images</strong>
+                                    </div>
+                                    <span class="syp-uploader-badge">JPG, PNG, WEBP, PDF &bull; Max 10MB per file</span>
+                                </div>
+
+                                <!-- Drag and Drop Target -->
+                                <div class="syp-dropzone" id="sypDropzone">
+                                    <input type="file" id="sypFileInput" class="syp-file-input" multiple
+                                        accept="image/png,image/jpeg,image/webp,application/pdf">
+                                    <div class="syp-dropzone-inner">
+                                        <div class="syp-drop-icon">
+                                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1.6">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div class="syp-drop-text">
+                                            <span class="syp-drop-main">Drag and drop your drawings or reference photos here</span>
+                                            <span class="syp-drop-sub">or <button type="button" class="syp-browse-trigger"
+                                                    id="browseTriggerBtn">browse files from your device</button></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Uploaded Files Preview Tray -->
+                                <div class="syp-files-tray" id="sypFilesTray" style="display: none;">
+                                    <div class="syp-tray-label">Attached References (<span id="fileCountBadge">0</span>)</div>
+                                    <div class="syp-files-grid" id="sypFilesGrid">
+                                        <!-- Populated dynamically via JS -->
+                                    </div>
+                                </div>
+
+                                <div class="syp-uploader-disclaimer">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                    <span>Files are verified and previewed locally in your browser session for this consultation. Cloud upload connects securely upon final consultation scheduling.</span>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 Navigation Actions -->
+                            <div class="syp-step-actions">
+                                <button type="button" class="btn btn-secondary syp-btn-prev" id="btnStep2Prev">
+                                    &larr; Back to Project Details
+                                </button>
+                                <button type="button" class="btn btn-primary syp-btn-next" id="btnStep2Next">
+                                    Continue to Customer Information
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- ============================================== -->
+                        <!-- STEP 3: CUSTOMER INFORMATION & REVIEW          -->
+                        <!-- ============================================== -->
+                        <div class="syp-form-step" id="formStep3" data-step="3">
+                            <div class="syp-step-intro">
+                                <span class="syp-step-eyebrow">STEP 03 OF 03</span>
+                                <h3 class="syp-step-heading">Where Can We Reach You?</h3>
+                                <p class="syp-step-desc">
+                                    Provide your direct contact details so our principal engineering estimator can contact you with tailored consultation insights.
+                                </p>
+                            </div>
+
+                            <div class="syp-fields-row">
+                                <!-- Full Name -->
+                                <div class="syp-field-group">
+                                    <label for="custFullName" class="syp-label">Full Name <span class="syp-req">*</span></label>
+                                    <input type="text" id="custFullName" class="syp-input"
+                                        placeholder="e.g. Arc. Ibrahim Bello / Dr. Ngozi Adeleke" required>
+                                    <span class="syp-field-error" id="errCustFullName"></span>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="syp-field-group">
+                                    <label for="custPhone" class="syp-label">Phone Number (with WhatsApp) <span
+                                            class="syp-req">*</span></label>
+                                    <input type="tel" id="custPhone" class="syp-input"
+                                        placeholder="e.g. +234 802 335 8828 / 08023358828" required>
+                                    <span class="syp-field-error" id="errCustPhone"></span>
+                                </div>
+
+                                <!-- Email Address -->
+                                <div class="syp-field-group">
+                                    <label for="custEmail" class="syp-label">Email Address <span class="syp-req">*</span></label>
+                                    <input type="email" id="custEmail" class="syp-input"
+                                        placeholder="e.g. client@domain.com" required>
+                                    <span class="syp-field-error" id="errCustEmail"></span>
+                                </div>
+
+                                <!-- Preferred Contact Method -->
+                                <div class="syp-field-group">
+                                    <label for="custContactMethod" class="syp-label">Preferred Contact Channel</label>
+                                    <select id="custContactMethod" class="syp-select">
+                                        <option value="WhatsApp" selected>WhatsApp Direct &bull; Fast communication</option>
+                                        <option value="Phone Call">Phone Call &bull; Direct conversation</option>
+                                        <option value="Email">Email &bull; Formal written brief</option>
+                                    </select>
+                                </div>
+
+                                <!-- Additional Message / Notes -->
+                                <div class="syp-field-group full-width">
+                                    <label for="custMessage" class="syp-label">Additional Consultation Instructions or Questions</label>
+                                    <textarea id="custMessage" class="syp-textarea" rows="3"
+                                        placeholder="Any specific consultation questions, site visit scheduling preferences, or architectural project team notes..."></textarea>
+                                </div>
+                            </div>
+
+
+                            <!-- ============================================== -->
+                            <!-- LIVE PROJECT REVIEW SCREEN                     -->
+                            <!-- ============================================== -->
+                            <div class="syp-review-section" id="reviewSection">
+                                <div class="syp-review-header">
+                                    <div class="syp-review-eyebrow">FINAL VERIFICATION</div>
+                                    <h4 class="syp-review-title">Review Your Project Details.</h4>
+                                    <p class="syp-review-desc">
+                                        Ensure all specifications match your architectural intent. You can click any Edit button to jump back and refine details.
+                                    </p>
+                                </div>
+
+                                <div class="syp-review-cards-grid">
+                                    <!-- Review 1: Handling Method -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">01 &bull; HANDLING SCOPE</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="1"
+                                                data-jump-target="#handlingSection">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revHandling">Supply &amp; Delivery</div>
+                                        <div class="syp-review-sub" id="revHandlingSub">Option A &bull; Direct Studio Delivery</div>
+                                    </div>
+
+                                    <!-- Review 2: Selected Designs / Concept -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">02 &bull; DESIGN CONCEPTS</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="1"
+                                                data-jump-target="#creationSection">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revDesigns">Custom Idea / No Studio Selection</div>
+                                        <div class="syp-review-sub" id="revDesignsSub">Path B &bull; Bespoke Architectural Concept</div>
+                                    </div>
+
+                                    <!-- Review 3: Project Information & Scope -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">03 &bull; PROJECT SCOPE</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="1">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revTitle">Project Title</div>
+                                        <div class="syp-review-sub" id="revScopeSummary">Residential &bull; Gates &amp; Fencing &bull; Abuja</div>
+                                    </div>
+
+                                    <!-- Review 4: Materials & Finishes -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">04 &bull; SPECIFICATIONS</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="2">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revMaterials">Structural Mild Steel</div>
+                                        <div class="syp-review-sub" id="revFinishSummary">Electrostatic Matte Powder Coat &bull; Obsidian Black</div>
+                                    </div>
+
+                                    <!-- Review 5: Budget & Timeframe -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">05 &bull; TIMELINE &amp; BUDGET</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="2">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revBudget">Flexible / To be estimated</div>
+                                        <div class="syp-review-sub" id="revTimeframe">Standard Quality Priority</div>
+                                    </div>
+
+                                    <!-- Review 6: Attachments & Contact -->
+                                    <div class="syp-review-card">
+                                        <div class="syp-review-card-head">
+                                            <span class="syp-review-pill">06 &bull; CLIENT &amp; FILES</span>
+                                            <button type="button" class="syp-edit-link" data-jump-step="3">Edit</button>
+                                        </div>
+                                        <div class="syp-review-val" id="revClient">Client Name</div>
+                                        <div class="syp-review-sub" id="revClientSub">WhatsApp &bull; 0 Files Attached</div>
+                                    </div>
+                                </div>
+
+                                <!-- Accuracy Confirmation Checkbox -->
+                                <div class="syp-confirm-box">
+                                    <label class="syp-confirm-label">
+                                        <input type="checkbox" id="chkConfirmAccuracy" class="syp-checkbox" required>
+                                        <span class="syp-checkbox-custom"></span>
+                                        <span class="syp-confirm-text">
+                                            I confirm that the information provided is accurate and represents my project intent for ATG architectural review.
+                                        </span>
+                                    </label>
+                                    <span class="syp-field-error" id="errConfirmAccuracy"></span>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 Actions (Submit Project Enquiry) -->
+                            <div class="syp-step-actions">
+                                <button type="button" class="btn btn-secondary syp-btn-prev" id="btnStep3Prev">
+                                    &larr; Back to Materials
+                                </button>
+                                <button type="submit" class="btn btn-primary syp-btn-submit" id="btnSubmitProject">
+                                    Complete Project Enquiry
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                    <!-- ============================================== -->
+                    <!-- SUBMISSION SUCCESS SCREEN (Polished State)     -->
+                    <!-- ============================================== -->
+                    <div class="syp-success-screen" id="successScreen" style="display: none;">
+                        <div class="syp-success-inner">
+                            <div class="syp-success-badge">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+
+                            <div class="syp-success-meta">
+                                <span class="syp-ref-label">CONSULTATION INTAKE REFERENCE</span>
+                                <h3 class="syp-ref-code" id="successRefCode">ATG-PRJ-2026-8842</h3>
+                            </div>
+
+                            <h2 class="syp-success-heading">Your Project Is Ready for the Next Step.</h2>
+                            <p class="syp-success-desc">
+                                Thank you for sharing your vision with ATG Metal Works &amp; Interiors. Your project details
+                                have been prepared for the next stage.
+                            </p>
+
+                            <!-- Process Next Steps -->
+                            <div class="syp-success-steps">
+                                <div class="syp-suc-step">
+                                    <span class="syp-suc-num">01</span>
+                                    <div class="syp-suc-text">
+                                        <strong>Architectural Review</strong>
+                                        <span>Our technical estimation team in Abuja reviews your spatial scope, materials and preliminary dimensions.</span>
+                                    </div>
+                                </div>
+                                <div class="syp-suc-step">
+                                    <span class="syp-suc-num">02</span>
+                                    <div class="syp-suc-text">
+                                        <strong>Direct Consultation</strong>
+                                        <span>A dedicated ATG design director contacts you via your preferred channel to confirm project timeline and site access.</span>
+                                    </div>
+                                </div>
+                                <div class="syp-suc-step">
+                                    <span class="syp-suc-num">03</span>
+                                    <div class="syp-suc-text">
+                                        <strong>Concept &amp; Estimate</strong>
+                                        <span>You receive a structured fabrication quotation, material sample boards, and scheduled site survey timeline.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Backend Limitation Notice -->
+                            <div class="syp-backend-notice">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                                <div>
+                                    <strong>Frontend Demonstration &amp; Data Pipeline Ready</strong>
+                                    <p>Your full project specification payload has been validated and compiled in-memory. In this frontend mode, no backend database or email server is connected. When deployed with ATG's API endpoint, this payload submits directly to the Abuja production management system.</p>
+                                </div>
+                            </div>
+
+                            <!-- Success Actions -->
+                            <div class="syp-success-actions">
+                                <button type="button" class="btn btn-primary" id="btnDownloadSummary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download Consultation Brief (.JSON)
+                                </button>
+                                <a href="index.html" class="btn btn-secondary">
+                                    Return to Homepage
+                                </a>
+                                <a href="services.html" class="btn btn-secondary">
+                                    Explore More Designs
+                                </a>
+                                <button type="button" class="syp-restart-btn" id="btnStartAnotherProject">
+                                    &circlearrowleft; Start Another Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-massive-text">ATG METAL WORKS</div>
+        <div class="footer-container">
+            <div class="footer-top">
+                <!-- Brand -->
+                <div class="footer-column brand-column">
+                    <a href="index.html" class="footer-logo">ATG</a>
+                    <p class="footer-bio">Elevating architectural visions with uncompromising quality, precision metal
+                        fabrication, and luxury interior solutions across Nigeria.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="currentColor"><path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Design Catalogue</a></li>
+                        <li><a href="services.html?category=Gates%20%26%20Fencing">Gates &amp; Fencing</a></li>
+                        <li><a href="services.html?category=Railings%20%26%20Staircases">Railings &amp; Staircases</a></li>
+                        <li><a href="services.html?category=Metal%20Fabrication">Metal Fabrication</a></li>
+                        <li><a href="services.html?category=Structural%20Steel">Structural Steel</a></li>
+                        <li><a href="services.html?category=Custom%20Furniture">Custom Furniture</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="company.html">About ATG</a></li>
+                        <li><a href="company.html#approach">Our Process</a></li>
+                        <li><a href="favourites.html">Saved Designs</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2348023358828">+234 802 335 8828</a></li>
+                        <li><a href="https://wa.me/2348023358828" target="_blank" rel="noopener">WhatsApp Us</a></li>
+                        <li><a href="mailto:info@atgmetalworks.com">info@atgmetalworks.com</a></li>
+                        <li class="footer-address">Jabi, Abuja 900108<br>FCT, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 ATG Metal Works &amp; Interior Design. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- Core Scripts -->
+    <script src="JS/index.js"></script>
+    <script src="JS/catalogue-data.js"></script>
+    <script src="JS/favourites.js"></script>
+    <script src="JS/catalogue-ui.js"></script>
+    <script src="JS/gallery-data.js"></script>
+    <script src="JS/start-your-project.js"></script>
+    <script src="JS/atg-transitions.js"></script>
+</body>
+
+</html>
+

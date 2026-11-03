@@ -1,0 +1,300 @@
+/* ============================================================
+   ATG Page Transition Concepts — showcase interface styles
+   ============================================================ */
+
+:root {
+  --atg-black: #010102;
+  --atg-cream: #FCE7CC;
+  --atg-gold: #F4D194;
+  --line: rgba(252, 231, 204, .14);
+  --line-soft: rgba(252, 231, 204, .08);
+  --text-dim: rgba(252, 231, 204, .62);
+  --text-faint: rgba(252, 231, 204, .42);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font: 16px/1.65 "Manrope", "Helvetica Neue", Arial, sans-serif;
+  color: var(--atg-cream);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(244, 209, 148, .05), transparent 60%),
+    var(--atg-black);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+:focus-visible {
+  outline: 2px solid var(--atg-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button { cursor: pointer; font: inherit; color: inherit; }
+
+/* ---------- header ---------- */
+
+.site-head { border-bottom: 1px solid var(--line-soft); }
+.site-head__inner {
+  max-width: 1240px; margin: 0 auto;
+  padding: 22px 24px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: baseline; gap: 14px; }
+.brand__mark {
+  font-family: "Marcellus", "Times New Roman", serif;
+  font-size: 22px; letter-spacing: .3em; text-indent: .3em;
+  color: var(--atg-gold);
+}
+.brand__name {
+  font-size: 12px; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.brand__name em { font-style: normal; color: var(--atg-gold); }
+.site-head__note { font-size: 12px; letter-spacing: .08em; color: var(--text-faint); }
+
+/* ---------- intro ---------- */
+
+.page { flex: 1; width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+.intro { padding: 64px 0 40px; max-width: 760px; }
+.intro__kicker {
+  font-size: 12px; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--atg-gold); margin-bottom: 18px;
+}
+.intro h1 {
+  font-family: "Marcellus", "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 22px;
+}
+.intro__lede { color: var(--text-dim); font-size: 17px; max-width: 66ch; }
+.intro__lede strong { color: var(--atg-cream); font-weight: 600; }
+
+/* ---------- lab layout ---------- */
+
+.lab {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+
+.lab__heading {
+  font-family: "Marcellus", "Times New Roman", serif; font-weight: 400;
+  font-size: 20px; margin-bottom: 18px;
+}
+
+/* ---------- concept selector ---------- */
+
+.concept-list { display: flex; flex-direction: column; gap: 10px; }
+
+.concept-card {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%;
+  padding: 16px 18px;
+  text-align: left;
+  background: rgba(252, 231, 204, .025);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.concept-card:hover {
+  border-color: rgba(244, 209, 148, .4);
+  background: rgba(244, 209, 148, .04);
+}
+.concept-card[aria-pressed="true"] {
+  border-color: var(--atg-gold);
+  background: rgba(244, 209, 148, .07);
+}
+.concept-card__num {
+  font-family: "Marcellus", "Times New Roman", serif;
+  font-size: 22px;
+  color: var(--text-faint);
+  min-width: 34px;
+  transition: color .2s ease;
+}
+.concept-card[aria-pressed="true"] .concept-card__num { color: var(--atg-gold); }
+.concept-card__body { display: flex; flex-direction: column; gap: 3px; }
+.concept-card__name { font-size: 16px; font-weight: 600; letter-spacing: .04em; }
+.concept-card__char { font-size: 12px; letter-spacing: .06em; color: var(--text-faint); }
+
+/* ---------- concept detail ---------- */
+
+.concept-detail {
+  margin-top: 22px;
+  padding: 18px;
+  border-left: 1px solid var(--atg-gold);
+  background: rgba(252, 231, 204, .02);
+}
+.concept-detail__selected {
+  display: flex; align-items: center; gap: 10px;
+  font-family: "Marcellus", "Times New Roman", serif;
+  font-size: 18px; margin-bottom: 10px;
+}
+.chip {
+  font-family: "Manrope", sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--atg-black);
+  background: var(--atg-gold);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.concept-detail__desc { font-size: 14px; color: var(--text-dim); }
+
+/* ---------- action buttons ---------- */
+
+.lab__actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+.btn {
+  padding: 13px 26px;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.btn--primary { background: var(--atg-gold); color: var(--atg-black); }
+.btn--primary:hover { background: var(--atg-cream); }
+.btn--ghost {
+  background: transparent; color: var(--atg-cream);
+  border-color: var(--line);
+}
+.btn--ghost:hover:not(:disabled) { border-color: var(--atg-gold); color: var(--atg-gold); }
+.btn:disabled { opacity: .35; cursor: not-allowed; }
+
+.lab__hint { margin-top: 16px; font-size: 12.5px; color: var(--text-faint); max-width: 40ch; }
+
+/* ---------- stage (simulated browser) ---------- */
+
+.lab__stage-col { min-width: 0; }
+
+.stage {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--atg-black);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+}
+.stage__chrome {
+  display: flex; align-items: center; gap: 7px;
+  padding: 10px 14px;
+  background: rgba(252, 231, 204, .04);
+  border-bottom: 1px solid var(--line-soft);
+}
+.stage__dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(252, 231, 204, .18);
+}
+.stage__url {
+  margin-left: 12px;
+  font-size: 11.5px; letter-spacing: .06em;
+  color: var(--text-faint);
+  background: rgba(1, 1, 2, .6);
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 3px 14px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: 1;
+  max-width: 340px;
+}
+
+.stage__viewport {
+  position: relative;
+  height: clamp(380px, 56vh, 560px);
+  overflow: hidden;
+}
+
+/* ---------- mock website inside the stage ---------- */
+
+.mock-nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.mock-nav__brand {
+  font-family: "Marcellus", "Times New Roman", serif;
+  letter-spacing: .3em; text-indent: .3em;
+  color: var(--atg-gold); font-size: 16px;
+}
+.mock-nav__links { display: flex; gap: 4px; flex-wrap: wrap; }
+.mock-link {
+  background: none; border: none;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 8px 10px;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.mock-link:hover { color: var(--atg-cream); }
+.mock-link[aria-current="page"] { color: var(--atg-gold); border-bottom-color: var(--atg-gold); }
+
+.mock-page { padding: 34px 26px; }
+.mock-page__kicker {
+  font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--atg-gold); margin-bottom: 12px;
+}
+.mock-page__title {
+  font-family: "Marcellus", "Times New Roman", serif; font-weight: 400;
+  font-size: clamp(26px, 3.6vw, 40px);
+  line-height: 1.15; margin-bottom: 14px;
+}
+.mock-page__text { font-size: 14px; color: var(--text-dim); max-width: 52ch; margin-bottom: 26px; }
+.mock-page__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.mock-tile {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line-soft);
+  background:
+    linear-gradient(150deg, rgba(244, 209, 148, .07), transparent 55%),
+    rgba(252, 231, 204, .02);
+  display: flex; align-items: flex-end; padding: 12px;
+}
+.mock-tile span {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.stage__caption { margin-top: 12px; font-size: 12.5px; color: var(--text-faint); }
+
+/* ---------- footer ---------- */
+
+.site-foot {
+  border-top: 1px solid var(--line-soft);
+  padding: 26px 24px 40px;
+  text-align: center;
+  font-size: 12.5px; color: var(--text-faint);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 960px) {
+  .lab { grid-template-columns: 1fr; }
+  .lab__controls { order: 1; }
+  .lab__stage-col { order: 2; }
+  .concept-list { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .concept-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+@media (max-width: 560px) {
+  .intro { padding: 44px 0 30px; }
+  .concept-list { grid-template-columns: 1fr; }
+  .concept-card { flex-direction: row; align-items: center; gap: 16px; min-height: 44px; }
+  .mock-nav { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .mock-page__grid { grid-template-columns: repeat(2, 1fr); }
+  .stage__viewport { height: 420px; }
+  .btn { flex: 1; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: .01ms !important; }
+}

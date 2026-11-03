@@ -1,0 +1,194 @@
+/* ============================================================
+   ATG METAL FABRICATIONS & INTERIORS — BLUEPRINT PRELOADER
+   ============================================================ */
+:root {
+  --preloader-black: #010102;
+  --preloader-cream: #FCE7CC;
+  --preloader-gold: #F4D194;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-luxe: cubic-bezier(0.65, 0, 0.15, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.1, 1);
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+
+body.preloader-locked {
+    overflow: hidden !important;
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--preloader-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1.2s var(--ease-soft);
+}
+
+/* Exit Animation */
+#preloader.is-exiting {
+    opacity: 0;
+    filter: blur(18px);
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+/* ============================================================
+   PRELOADER 03 — CONSTRUCTION PROCESS (blueprint → logo)
+   ============================================================ */
+.v {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.v3 .bp-grid {
+    position: absolute;
+    inset: -3%;
+    opacity: 0;
+    transform: scale(1.045);
+    background-image:
+        linear-gradient(rgba(252,231,204,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(252,231,204,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(252,231,204,0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(252,231,204,0.09) 1px, transparent 1px);
+    background-size: 26px 26px, 26px 26px, 130px 130px, 130px 130px;
+    animation: v3grid 1.1s var(--ease-out) 0.05s forwards;
+}
+
+@keyframes v3grid {
+    to { opacity: 1; transform: scale(1); }
+}
+
+.v3-svg {
+    width: min(86vw, 660px);
+    height: auto;
+    display: block;
+    z-index: 1;
+}
+
+.v3 .sl {
+    stroke: rgba(252,231,204,0.75);
+    stroke-width: 1.4;
+    fill: none;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.7s var(--ease-luxe) forwards;
+}
+
+@keyframes draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes preloaderFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes ndIn {
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wmIn {
+    to { opacity: 1; filter: blur(0); }
+}
+
+.v3 .col { animation-delay: 0.3s; }
+.v3 .beam { animation-delay: 0.55s; }
+.v3 .brace { animation-delay: 0.8s; }
+
+.v3 .cd {
+    stroke: rgba(252,231,204,0.3);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 5 6;
+    opacity: 0;
+    animation: preloaderFadeIn 0.7s 0.7s forwards;
+}
+
+.v3 .jn circle {
+    fill: var(--preloader-gold);
+    opacity: 0;
+    transform: scale(0);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ndIn 0.4s var(--ease-out) forwards;
+}
+
+.v3 .j1 { animation-delay: 1.05s; }
+.v3 .j2 { animation-delay: 1.10s; }
+.v3 .j3 { animation-delay: 1.15s; }
+.v3 .j4 { animation-delay: 1.20s; }
+.v3 .j5 { animation-delay: 1.25s; }
+.v3 .j6 { animation-delay: 1.30s; }
+
+.v3 .st {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: v3st 0.55s var(--ease-soft) 1.4s forwards;
+}
+
+@keyframes v3st {
+    to { opacity: 0; transform: scale(0.965); }
+}
+
+.v3 .lt {
+    stroke: var(--preloader-cream);
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 0.65s var(--ease-luxe) forwards;
+}
+
+.v3 .l1 { animation-delay: 1.35s; }
+.v3 .l2 { animation-delay: 1.5s; }
+.v3 .l3 { animation-delay: 1.65s; }
+
+.v3 .nd {
+    fill: var(--preloader-gold);
+    opacity: 0;
+    transform: scale(0);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ndIn 0.4s var(--ease-out) forwards;
+}
+
+.v3 .n1 { animation-delay: 2.15s; }
+.v3 .n2 { animation-delay: 2.2s; }
+.v3 .n3 { animation-delay: 2.25s; }
+
+.v3 .lbl {
+    position: absolute;
+    font: 9px var(--mono);
+    letter-spacing: 0.22em;
+    color: rgba(252,231,204,0.32);
+    white-space: nowrap;
+    opacity: 0;
+    animation: preloaderFadeIn 0.8s forwards;
+}
+
+.v3 .la { top: 26px; left: 30px; animation-delay: 0.5s; }
+.v3 .lb { top: 26px; right: 30px; animation-delay: 0.65s; }
+.v3 .lc { bottom: 26px; right: 30px; animation-delay: 0.8s; }
+.v3 .ld { bottom: 58px; left: 30px; animation-delay: 0.95s; }
+
+.v3-word {
+    position: absolute;
+    bottom: 9vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 10.5px;
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
+    color: rgba(252,231,204,0.55);
+    white-space: nowrap;
+    opacity: 0;
+    filter: blur(5px);
+    animation: wmIn 0.8s var(--ease-out) 2s forwards;
+}

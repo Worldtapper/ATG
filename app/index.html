@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATG Page Transition Concepts — Preview Showcase</title>
+<meta name="description" content="Preview and compare four premium page-transition preloader concepts for ATG Metal Works & Interiors internal page navigation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/atg-transitions.css">
+<link rel="stylesheet" href="./assets/css/showcase.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head__inner">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">ATG</span>
+      <span class="brand__name">Metal Works <em>&amp;</em> Interiors</span>
+    </div>
+    <p class="site-head__note">Design preview environment — not connected to the live website</p>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="intro" aria-labelledby="page-title">
+    <p class="intro__kicker">Internal navigation system</p>
+    <h1 id="page-title">ATG Page Transition Concepts</h1>
+    <p class="intro__lede">
+      Four premium preloader concepts for transitions <strong>between internal pages</strong> — Services, Gallery,
+      Company, Insights, Contact and more. Select a concept below to experience how it looks and behaves,
+      then replay it as often as you like. Your existing initial preloader remains untouched; these concepts
+      run in preview mode only until you choose a final design.
+    </p>
+  </section>
+
+  <section class="lab" aria-label="Transition concept laboratory">
+
+    <div class="lab__controls">
+      <h2 class="lab__heading">Select a concept</h2>
+
+      <div class="concept-list" role="group" aria-label="Preloader concepts">
+        <button type="button" class="concept-card" data-concept="precision-line" aria-pressed="false">
+          <span class="concept-card__num">01</span>
+          <span class="concept-card__body">
+            <span class="concept-card__name">Precision Line</span>
+            <span class="concept-card__char">Minimal · Precise · Technical · Architectural</span>
+          </span>
+        </button>
+        <button type="button" class="concept-card" data-concept="golden-frame" aria-pressed="false">
+          <span class="concept-card__num">02</span>
+          <span class="concept-card__body">
+            <span class="concept-card__name">Golden Frame</span>
+            <span class="concept-card__char">Luxury · Cinematic · Refined</span>
+          </span>
+        </button>
+        <button type="button" class="concept-card" data-concept="material-reveal" aria-pressed="true">
+          <span class="concept-card__num">03</span>
+          <span class="concept-card__body">
+            <span class="concept-card__name">Material Reveal</span>
+            <span class="concept-card__char">Craftsmanship · Subtle depth · Elegant motion</span>
+          </span>
+        </button>
+        <button type="button" class="concept-card" data-concept="crafted-motion" aria-pressed="false">
+          <span class="concept-card__num">04</span>
+          <span class="concept-card__body">
+            <span class="concept-card__name">Crafted Motion</span>
+            <span class="concept-card__char">Modern · Structured · Confident</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="concept-detail" aria-live="polite">
+        <p class="concept-detail__selected"><span class="chip">Selected</span> <span id="detail-name">Material Reveal</span></p>
+        <p class="concept-detail__desc" id="detail-desc"></p>
+      </div>
+
+      <div class="lab__actions">
+        <button type="button" class="btn btn--primary" id="btn-preview">Preview Transition</button>
+        <button type="button" class="btn btn--ghost" id="btn-replay" disabled>Replay</button>
+      </div>
+      <p class="lab__hint">Tip: the links inside the preview window also trigger the selected transition, simulating real page-to-page navigation.</p>
+    </div>
+
+    <div class="lab__stage-col">
+      <div class="stage" id="stage">
+        <div class="stage__chrome" aria-hidden="true">
+          <span class="stage__dot"></span><span class="stage__dot"></span><span class="stage__dot"></span>
+          <span class="stage__url" id="stage-url">atgmetalworks.com/services</span>
+        </div>
+        <div class="stage__viewport" id="stage-viewport">
+          <nav class="mock-nav" aria-label="Simulated website pages">
+            <span class="mock-nav__brand">ATG</span>
+            <div class="mock-nav__links">
+              <button type="button" class="mock-link" data-page="services" aria-current="page">Services</button>
+              <button type="button" class="mock-link" data-page="gallery">Gallery</button>
+              <button type="button" class="mock-link" data-page="company">Company</button>
+              <button type="button" class="mock-link" data-page="insights">Insights</button>
+              <button type="button" class="mock-link" data-page="contact">Contact</button>
+            </div>
+          </nav>
+          <div class="mock-page" id="mock-page"><!-- mock destination content injected by JS --></div>
+        </div>
+      </div>
+      <p class="stage__caption">Simulated browser window — the transition overlay plays inside this frame.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <p>Preview mode only — no concept is active on the live website. Activation is a single configuration value once a final design is chosen.</p>
+</footer>
+
+<script src="./assets/js/atg-transitions.js"></script>
+<script src="./assets/js/showcase.js"></script>
+</body>
+</html>

@@ -1,0 +1,1621 @@
+const categoriesMeta = [
+  {
+    "name": "Gates",
+    "department": "Architectural Metalwork",
+    "headline": "Gates & Automated Entrance Systems",
+    "desc": "Monumental automated sliding, swing, and trackless cantilever estate gates fabricated with heavy structural steel and Italian motors."
+  },
+  {
+    "name": "Doors",
+    "department": "Architectural Metalwork",
+    "headline": "Architectural Pivot & French Glass Doors",
+    "desc": "Thermally insulated steel pivot portals, Crittall-style French double doors, and fluted teak composite entry doors."
+  },
+  {
+    "name": "Staircases",
+    "department": "Architectural Metalwork",
+    "headline": "Master Architectural Staircases",
+    "desc": "Engineered central spine floating stairs, wall-cantilevered treads, compact helical spirals, and monolithic steel curves."
+  },
+  {
+    "name": "Railings & Balustrades",
+    "department": "Architectural Metalwork",
+    "headline": "Railings & Architectural Balustrades",
+    "desc": "Frameless structural glass shoe channels, laser-cut geometric panels, marine 316 tension cables, and fluted brass spindles."
+  },
+  {
+    "name": "Metal Fabrication",
+    "department": "Architectural Metalwork",
+    "headline": "Precision Metal Fabrication & Cladding",
+    "desc": "Laser-cut architectural space dividers, brushed brass wall cladding, woven steel facades, and custom metalwork."
+  },
+  {
+    "name": "Structural Steel",
+    "department": "Architectural Metalwork",
+    "headline": "Structural Steel & Heavy Frameworks",
+    "desc": "Certified external fire escapes, cantilevered balcony outriggers, steel-glass porticos, outdoor pergolas, and industrial racks."
+  },
+  {
+    "name": "Chairs",
+    "department": "Furniture & Interiors",
+    "headline": "Sculptural Seating & Accent Chairs",
+    "desc": "Contemporary steel armchairs in bouclé, minimalist wire dining chairs, blackened steel counter stools, and leather lounge chairs."
+  },
+  {
+    "name": "Tables",
+    "department": "Furniture & Interiors",
+    "headline": "Executive Dining, Boardroom & Console Tables",
+    "desc": "Nero Marquina black marble tables, solid live-edge African hardwoods, honed travertine consoles, and 10-seater boardroom tables."
+  },
+  {
+    "name": "Custom Furniture",
+    "department": "Furniture & Interiors",
+    "headline": "Bespoke Architectural Furniture",
+    "desc": "Four-poster steel canopy beds, fluted timber media credenzas, full-length leaner mirrors, and mobile brass bar carts."
+  },
+  {
+    "name": "Shelves & Storage",
+    "department": "Shelving & Storage",
+    "headline": "Architectural Shelving & Storage Systems",
+    "desc": "Concealed-bracket floating oak ledges, folded steel book shelves, ceiling-hung brass kitchen racks, and room divider units."
+  },
+  {
+    "name": "Boutique Garment Racks & Retail Displays",
+    "department": "Shelving & Storage",
+    "headline": "Boutique Garment Rails & Retail Vitrines",
+    "desc": "Freestanding brushed brass apparel rails, tiered footwear towers, double-sided merchandising islands, and wall-mounted vitrines."
+  },
+  {
+    "name": "Kitchen Cabinets",
+    "department": "Cabinetry & Joinery",
+    "headline": "Contemporary Architectural Kitchen Cabinetry",
+    "desc": "Bespoke handleless flush cabinetry suites, dark graphite waterfall islands, two-tone metal suites, and chef prep gantries."
+  },
+  {
+    "name": "Wardrobes",
+    "department": "Cabinetry & Joinery",
+    "headline": "Bespoke Dressing Rooms & Wardrobes",
+    "desc": "Luxury walk-in dressing suites, fluted acoustic door wardrobes, sliding bronzed mirror suites, and sensor-illuminated organizers."
+  },
+  {
+    "name": "Aluminium & Glass",
+    "department": "Architectural Metalwork",
+    "headline": "Aluminium Systems & Architectural Glass",
+    "desc": "Floor-to-ceiling thermal sliding patio walls, structural walkable glass floors, Crittall studio screens, and wine cellars."
+  },
+  {
+    "name": "Interior Solutions",
+    "department": "Furniture & Interiors",
+    "headline": "Luxury Architectural Interior Solutions",
+    "desc": "Clean-burning steel bioethanol fireplaces, acoustic fluted timber media walls, reception concierge desks, and planter screens."
+  }
+];
+const fs = require('fs');
+
+const categoriesData = [
+  // 1. Gates
+  {
+    category: 'Gates',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'gate-modern-sliding-slats',
+        name: 'Modern Horizontal Slat Automated Sliding Gate',
+        image: 'images/gate-modern-sliding-slats.jpg',
+        priceEstimate: 'Starting at ₦2,250,000',
+        materials: 'Galvanised Box Steel & Aluminium Slats',
+        finish: 'Electrostatic Matte Black Powder Coat',
+        dimensions: '4.2m W × 2.1m H (Bespoke to site)',
+        description: 'Engineered automated sliding gate featuring horizontal acoustic-spaced slats, concealed top rollers, and integrated Italian high-torque motor drive.'
+      },
+      {
+        id: 'gate-brass-blackened-estate',
+        name: 'Blackened Steel & Brass Inlay Double Estate Gate',
+        image: 'images/gate-brass-blackened-estate.jpg',
+        priceEstimate: 'Starting at ₦2,450,000',
+        materials: 'Heavy Gauge Structural Steel & Brushed Brass',
+        finish: 'Dual-Tone Blackened Patina & Sealed Brass',
+        dimensions: '4.5m W × 2.4m H',
+        description: 'Monumental dual-swing entrance gate pairing deep blackened carbon steel plate with vertical satin brass fluted inlay bands.'
+      },
+      {
+        id: 'gate-cantilever-sliding',
+        name: 'Trackless Cantilever Architectural Sliding Gate',
+        image: 'images/gate-cantilever-sliding.jpg',
+        priceEstimate: 'Starting at ₦2,650,000',
+        materials: 'Heavy Galvanised Structural Steel',
+        finish: 'Polyester Powder Coat (Anti-Corrosion)',
+        dimensions: '5.0m Clear Opening × 2.2m H',
+        description: 'Trackless cantilever system floating above driveways with zero ground track maintenance, ideal for estate entries and security estates.'
+      },
+      {
+        id: 'gate-double-swing-black',
+        name: 'Contemporary Obsidian Double Swing Gate',
+        image: 'images/gate-double-swing-black.jpg',
+        priceEstimate: 'Starting at ₦1,750,000',
+        materials: '50mm Structural Box Section & Solid Plate',
+        finish: 'ATG Obsidian Matte Powder Coat',
+        dimensions: '4.0m W × 2.0m H',
+        description: 'Clean architectural double swing gate with precision concealed hinges, magnetic lock ready, and underground swing actuator integration.'
+      },
+      {
+        id: 'gate-horizontal-slat',
+        name: 'Architectural Privacy Louvered Steel Gate',
+        image: 'images/gate-horizontal-slat.jpg',
+        priceEstimate: 'Starting at ₦1,650,000',
+        materials: 'Cold-Formed Louvered Steel Channels',
+        finish: 'Zinc-Rich Epoxy Primer & Powder Topcoat',
+        dimensions: '3.8m W × 2.0m H',
+        description: 'Angled louvered steel slats providing 100% directional privacy while maintaining natural airflow and wind resistance.'
+      },
+      {
+        id: 'gate-palisade-perimeter',
+        name: 'High-Security Minimalist Perimeter Palisade Gate',
+        image: 'images/gate-palisade-perimeter.jpg',
+        priceEstimate: 'Starting at ₦1,450,000',
+        materials: 'Solid 25mm Square Steel Pickets',
+        finish: 'Hot-Dip Galvanised & Powder Coated',
+        dimensions: '4.0m W × 2.4m H',
+        description: 'Heavy architectural perimeter security gate combining anti-climb spiked finials with clean vertical sightlines.'
+      },
+      {
+        id: 'gate-ribbed-motorised',
+        name: 'Vertical Ribbed Industrial Bi-Fold Automated Gate',
+        image: 'images/gate-ribbed-motorised.jpg',
+        priceEstimate: 'Starting at ₦2,350,000',
+        materials: 'Ribbed Steel Sections & Industrial Bearings',
+        finish: 'Commercial Grade Polyurethane Matte Finish',
+        dimensions: '4.2m W × 2.2m H',
+        description: 'Rapid-opening bi-folding architectural gate engineered for compact driveway clearances and fast access cycles.'
+      },
+      {
+        id: 'gate-security-mesh',
+        name: 'High-Density Welded Mesh Security Gate',
+        image: 'images/gate-security-mesh.jpg',
+        priceEstimate: 'Starting at ₦1,250,000',
+        materials: 'Anti-Cut 358 High-Density Steel Mesh',
+        finish: 'Galvanised & Heavy Black Powder Coat',
+        dimensions: '3.6m W × 2.2m H',
+        description: 'Anti-cut, anti-climb welded security mesh gate providing exceptional perimeter security with high optical transparency.'
+      },
+      {
+        id: 'gate-prestige-entrance-portal',
+        name: 'Prestige Geometric Entrance Gate & Pedestrian Portal',
+        image: 'images/entrance-gate-01.jpg',
+        priceEstimate: 'Starting at ₦1,950,000',
+        materials: 'Cold-Rolled Mild Steel & Brass Accents',
+        finish: 'ATG Obsidian Black with Gold Highlights',
+        dimensions: '4.2m W × 2.2m H (Includes 1.0m Pedestrian Gate)',
+        description: 'Comprehensive entrance suite comprising a wide vehicular driveway gate and matching integrated pedestrian access gate.'
+      }
+    ]
+  },
+
+  // 2. Doors
+  {
+    category: 'Doors',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'door-black-steel-pivot',
+        name: 'Obsidian Black Steel Architectural Pivot Door',
+        image: 'images/door-black-steel-pivot.jpg',
+        priceEstimate: 'Starting at ₦1,250,000',
+        materials: '2.5mm Cold-Rolled Steel & Insulated Core',
+        finish: 'Electrostatic Matte Powder Coat',
+        dimensions: '1.4m W × 2.7m H',
+        description: 'Monumental exterior pivot door with concealed floor pivot, magnetic weather seals, and custom full-height vertical pull handle.'
+      },
+      {
+        id: 'door-crittall-double-french',
+        name: 'Crittall-Style Double French Steel Glass Doors',
+        image: 'images/door-crittall-double-french.jpg',
+        priceEstimate: 'Starting at ₦1,150,000',
+        materials: 'W20 Hot-Rolled Steel Profiles & 8mm Toughened Glass',
+        finish: 'Architectural Satin Black',
+        dimensions: '1.8m W × 2.4m H',
+        description: 'Ultra-slim heritage profile steel French double doors providing clean geometric sightlines and optimal light transmission.'
+      },
+      {
+        id: 'door-fluted-timber-metal',
+        name: 'Fluted Teak & Blackened Metal Composite Entrance Door',
+        image: 'images/door-fluted-timber-metal.jpg',
+        priceEstimate: 'Starting at ₦1,450,000',
+        materials: 'Nigerian Teak Timber & 3mm Steel Plate Spine',
+        finish: 'Natural Matte Hardwax Oil & Blackened Patina',
+        dimensions: '1.3m W × 2.6m H',
+        description: 'Luxury entrance door marrying vertical solid teak fluting with precision laser-profiled blackened metal side margins.'
+      },
+      {
+        id: 'door-arched-french-steel',
+        name: 'Arched Heritage French Steel Glass Door',
+        image: 'images/door-arched-french-steel.jpg',
+        priceEstimate: 'Starting at ₦1,380,000',
+        materials: 'Hand-Bent Architectural Steel & Laminated Glazing',
+        finish: 'Obsidian Satin Powder Coat',
+        dimensions: '1.6m W × 2.8m H',
+        description: 'Bespoke hand-crafted arched transom and steel French leafs with internal glazing bars and multipoint deadbolt security.'
+      },
+      {
+        id: 'door-minimal-concealed-pivot',
+        name: 'Minimalist Concealed Frame Oversized Pivot Door',
+        image: 'images/door-minimal-concealed-pivot.jpg',
+        priceEstimate: 'Starting at ₦1,180,000',
+        materials: 'Extruded Aluminium Subframe & Steel Clad Panel',
+        finish: 'Deep Charcoal Anodised Texture',
+        dimensions: '1.35m W × 2.8m H',
+        description: 'Zero-reveal concealed subframe door offering a seamless flush surface aligned perfectly with the surrounding interior wall.'
+      },
+      {
+        id: 'door-oversized-bronze-pivot',
+        name: 'Monolithic Bronze Patina Grand Pivot Door',
+        image: 'images/door-oversized-bronze-pivot.jpg',
+        priceEstimate: 'Starting at ₦1,850,000',
+        materials: 'Chemically Aged Bronze Sheet & Heavy Steel Core',
+        finish: 'Hand-Rubbed Antique Bronze Wax',
+        dimensions: '1.6m W × 3.0m H',
+        description: 'Prestigious oversized entrance portal finished in living antique bronze patina, operated on an internal 500kg heavy-duty floor damper.'
+      },
+      {
+        id: 'door-interior-french-pocket',
+        name: 'Interior Slimline Steel Glazed Pocket Double Door',
+        image: 'images/glass-french-door-interior.jpg',
+        priceEstimate: 'Starting at ₦850,000',
+        materials: 'Ultra-Slim 20mm Sightline Steel & Clear Glass',
+        finish: 'Matte Black Powder Coat',
+        dimensions: '1.6m W × 2.3m H',
+        description: 'Space-efficient double pocket sliding door sliding seamlessly into wall cavities to connect living and dining zones.'
+      },
+      {
+        id: 'door-partition-crittall-swing',
+        name: 'Crittall Studio Partition with Integrated Swing Door',
+        image: 'images/glass-partition-crittall-door.jpg',
+        priceEstimate: 'Starting at ₦920,000',
+        materials: 'Welded T-Section Mild Steel & Acoustic Glass',
+        finish: 'Satin Architectural Black',
+        dimensions: '2.4m W × 2.6m H',
+        description: 'Bespoke room-dividing screen with single central active door leaf, offering 38dB acoustic reduction for home offices.'
+      },
+      {
+        id: 'door-fluted-glass-pivot',
+        name: 'Architectural Fluted Glass Steel Pivot Door',
+        image: 'images/glass-pivot-architectural-door.jpg',
+        priceEstimate: 'Starting at ₦1,050,000',
+        materials: 'Reeded Architectural Glass & Satin Black Steel',
+        finish: 'ATG Obsidian Powder Coat',
+        dimensions: '1.2m W × 2.5m H',
+        description: 'Interior feature pivot door fitted with vertical fluted texture glass that softly diffuses interior light while ensuring privacy.'
+      }
+    ]
+  },
+
+  // 3. Staircases
+  {
+    category: 'Staircases',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'staircase-central-spine',
+        name: 'Central Steel Spine Floating Staircase',
+        image: 'images/staircase-central-spine.jpg',
+        priceEstimate: 'Starting at ₦3,400,000',
+        materials: '200×100mm Structural Box Spine & Solid Oak Treads',
+        finish: 'Matte Obsidian Steel & Hardwax Oil Treads',
+        dimensions: 'Floor-to-Floor 3.2m (Custom Run)',
+        description: 'Engineered single central spine staircase carrying cantilevered hardwood treads with open risers for dramatic light permeation.'
+      },
+      {
+        id: 'staircase-floating-cantilever',
+        name: 'Wall-Embedded Cantilevered Floating Staircase',
+        image: 'images/staircase-floating-cantilever.jpg',
+        priceEstimate: 'Starting at ₦3,850,000',
+        materials: 'Hidden 12mm Steel Stringer & Hardwood Treads',
+        finish: 'Concealed Structural Steel & Natural Timber',
+        dimensions: 'Custom Run (16 - 18 Risers)',
+        description: 'Minimalist floating stairs cantilevered directly from a concealed wall-anchored steel stringer, paired with frameless glass balustrades.'
+      },
+      {
+        id: 'staircase-curved-elliptical',
+        name: 'Curved Elliptical Monolithic Steel Staircase',
+        image: 'images/staircase-curved-elliptical.jpg',
+        priceEstimate: 'Starting at ₦5,200,000',
+        materials: 'Rolled 10mm Steel Plate Stringers & Closed Soffit',
+        finish: 'Smooth Continuous Powder Coat',
+        dimensions: 'Bespoke Double-Height Sweep',
+        description: 'Sculptural architectural master stair featuring rolled twin plate stringers, smooth plaster-ready underside soffit, and continuous handrail.'
+      },
+      {
+        id: 'staircase-compact-spiral',
+        name: 'Compact Architectural Steel Spiral Staircase',
+        image: 'images/staircase-compact-spiral.jpg',
+        priceEstimate: 'Starting at ₦1,650,000',
+        materials: 'Central Steel Column & Perforated Non-Slip Treads',
+        finish: 'Electrostatic Matte Black Powder Coat',
+        dimensions: '1.5m Diameter × 3.0m H',
+        description: 'Space-saving spiral staircase ideal for mezzanines, rooftop terraces, and private duplex suites with curved continuous handrail.'
+      },
+      {
+        id: 'staircase-geometric-metal-rail',
+        name: 'Modern Mono-Stringer Stair with Geometric Steel Balustrade',
+        image: 'images/staircase-geometric-metal-rail.jpg',
+        priceEstimate: 'Starting at ₦2,950,000',
+        materials: 'Welded Box Steel Stringer & Solid Iroko Treads',
+        finish: 'Black Powder Coat & Sealed Iroko Timber',
+        dimensions: 'Floor-to-Floor 3.0m',
+        description: 'Contemporary steel staircase featuring a bold mono-stringer beam and bespoke geometric vertical steel spindle safety balustrade.'
+      },
+      {
+        id: 'staircase-modern-industrial-helical',
+        name: 'Sculptural Helical Steel Feature Staircase',
+        image: 'images/staircase-modern-industrial-helical.jpg',
+        priceEstimate: 'Starting at ₦4,600,000',
+        materials: 'Dual Curved Outer Plate Beams & Timber Inlay',
+        finish: 'Matte Graphite & Natural White Oak',
+        dimensions: 'Grand Double-Height Entry (Bespoke)',
+        description: 'Curving helical stair geometry without a central support pole, delivering an unobstructed panoramic focal point for grand foyers.'
+      },
+      {
+        id: 'staircase-monostring-oak',
+        name: 'Heavy-Duty Mono-Stringer Staircase with Natural Oak',
+        image: 'images/staircase-monostring-oak.jpg',
+        priceEstimate: 'Starting at ₦2,750,000',
+        materials: 'Structural Channel Steel Spine & Seasoned Oak Treads',
+        finish: 'ATG Obsidian Black & Natural Matte Sealer',
+        dimensions: '17 Risers (3.1m Standard Drop)',
+        description: 'Straight-flight mono-beam staircase engineered with precision laser-cut tread brackets and 50mm solid seasoned oak steps.'
+      },
+      {
+        id: 'staircase-spiral-01',
+        name: 'Minimalist Floating Tread Spiral Staircase',
+        image: 'images/staircase-spiral-01.jpg',
+        priceEstimate: 'Starting at ₦1,850,000',
+        materials: 'Precision Turned Steel Core & Radiating Cantilevers',
+        finish: 'Matte Charcoal Grey Powder Coat',
+        dimensions: '1.6m Diameter × 3.1m H',
+        description: 'Airy circular stair design featuring radiating floating steel treads anchored to a central structural cylinder.'
+      },
+      {
+        id: 'staircase-spiral-02',
+        name: 'Executive Dual-Level Spiral Staircase with Solid Steel Balustrade',
+        image: 'images/staircase-spiral-02.jpg',
+        priceEstimate: 'Starting at ₦2,350,000',
+        materials: 'Formed Solid Steel Sheet Parapet & Heavy Core',
+        finish: 'ATG Obsidian Black Powder Coat',
+        dimensions: '1.8m Diameter × 3.2m H',
+        description: 'Sculptural closed-panel spiral staircase with integrated seamless curved steel balustrade parapet providing absolute visual solidity.'
+      }
+    ]
+  },
+
+  // 4. Railings & Balustrades
+  {
+    category: 'Railings & Balustrades',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'railing-balcony-steel-glass',
+        name: 'Exterior Balcony Steel Frame Glazed Balustrade',
+        image: 'images/railing-balcony-steel-glass.jpg',
+        priceEstimate: '₦75,000 / metre (Starting at ₦480,000 flight)',
+        materials: 'Powder Coated Steel Stanchions & 10mm Toughened Glass',
+        finish: 'Marine-Grade Polyester Powder Coat',
+        dimensions: '1.0m Finished Height (Custom Lengths)',
+        description: 'Heavy weather-resistant perimeter balcony railing pairing rigid box steel posts with clear safety glass panels for unhindered views.'
+      },
+      {
+        id: 'railing-brass-fluted-spindle',
+        name: 'Bespoke Fluted Brass & Black Iron Spindle Balustrade',
+        image: 'images/railing-brass-fluted-spindle.jpg',
+        priceEstimate: '₦95,000 / metre (Starting at ₦650,000 flight)',
+        materials: 'Solid Drawn Brass Spindles & Blackened Wrought Iron',
+        finish: 'Hand-Finished Satin Brass & Dark Patina',
+        dimensions: '0.95m Finished Height',
+        description: 'Opulent transitional staircase balustrade featuring alternating fluted brass spindles and minimalist square blackened iron balusters.'
+      },
+      {
+        id: 'railing-frameless-glass-shoe',
+        name: 'Frameless Structural Glass Shoe Balustrade',
+        image: 'images/railing-frameless-glass-shoe.jpg',
+        priceEstimate: '₦88,000 / metre (Starting at ₦580,000 flight)',
+        materials: 'Continuous Anodised Aluminium Base Shoe & 12mm SGP Glass',
+        finish: 'Anodised Base Channel with Slim Black Top Cap',
+        dimensions: '1.1m Finished Height',
+        description: 'Clean architectural balustrade system with fully concealed floor base channel and zero vertical posts for maximum transparency.'
+      },
+      {
+        id: 'railing-laser-cut-screen',
+        name: 'Laser-Cut Decorative Geometric Balustrade Screen',
+        image: 'images/railing-laser-cut-screen.jpg',
+        priceEstimate: '₦72,000 / metre (Starting at ₦490,000 flight)',
+        materials: '3mm Laser-Cut Mild Steel & Perimeter Box Framing',
+        finish: 'Electrostatic Powder Coat (Custom Colours)',
+        dimensions: '1.0m Finished Height',
+        description: 'Parametric and geometric laser-profiled steel infill panels providing code-compliant safety with distinctive artistic shadow patterns.'
+      },
+      {
+        id: 'railing-marine-cable',
+        name: 'Marine-Grade 316 Stainless Tension Cable Balustrade',
+        image: 'images/railing-marine-cable.jpg',
+        priceEstimate: '₦68,000 / metre (Starting at ₦440,000 flight)',
+        materials: '316 Marine Stainless Steel Posts & 4mm Cables',
+        finish: 'Brushed Satin Stainless Steel',
+        dimensions: '1.05m Finished Height',
+        description: 'Horizontal tensioned stainless steel wire balustrade offering high tensile strength, minimal wind resistance, and modern nautical aesthetics.'
+      },
+      {
+        id: 'railing-minimal-black-vertical',
+        name: 'Minimalist Precision Vertical Flat-Bar Balustrade',
+        image: 'images/railing-minimal-black-vertical.jpg',
+        priceEstimate: '₦52,000 / metre (Starting at ₦360,000 flight)',
+        materials: '30×8mm Solid Flat Steel Bars & Low Profile Cap',
+        finish: 'ATG Obsidian Matte Black',
+        dimensions: '0.95m Finished Height',
+        description: 'Clean Scandinavian-inspired balustrade composed of rhythmically spaced flat steel bars offering crisp architectural shadow lines.'
+      },
+      {
+        id: 'railing-nordic-flatbar-teak',
+        name: 'Nordic Flat-Bar Balustrade with Seasoned Teak Handrail',
+        image: 'images/railing-nordic-flatbar-teak.jpg',
+        priceEstimate: '₦62,000 / metre (Starting at ₦410,000 flight)',
+        materials: 'Blackened Flat Steel Balusters & Shaped Teak Rail',
+        finish: 'Matte Black Metal & Natural Teak Hardwax',
+        dimensions: '1.0m Finished Height',
+        description: 'Tactile pairing of cold-formed dark steel vertical bars with an organically curved, hand-sanded African teak hardwood top rail.'
+      },
+      {
+        id: 'railing-perforated-barrier',
+        name: 'Perforated Industrial Safety Balustrade Barrier',
+        image: 'images/railing-perforated-barrier.jpg',
+        priceEstimate: '₦58,000 / metre (Starting at ₦380,000 flight)',
+        materials: 'Perforated Zinc-Primed Sheet & Square Box Uprights',
+        finish: 'Epoxy Powder Coat Barrier',
+        dimensions: '1.1m Finished Height',
+        description: 'Industrial-grade perforated sheet balustrade providing reliable edge protection for commercial atriums, ramps, and stairwells.'
+      },
+      {
+        id: 'railing-geometric-lattice-flight',
+        name: 'Architectural Geometric Lattice Staircase Balustrade',
+        image: 'images/staircase-geometric-metal-rail.jpg',
+        priceEstimate: '₦78,000 / metre (Starting at ₦520,000 flight)',
+        materials: 'Hand-Welded Steel Box Lattice & Solid Top Rail',
+        finish: 'ATG Obsidian Black Powder Coat',
+        dimensions: 'Custom Stair Rake & Landing Flight',
+        description: 'Intricate angled steel lattice infill engineered specifically to match the unique pitch and transitions of bespoke staircase runs.'
+      }
+    ]
+  },
+
+  // 5. Metal Fabrication
+  {
+    category: 'Metal Fabrication',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'fab-brass-cladding',
+        name: 'Architectural Brushed Brass Wall & Column Cladding',
+        image: 'images/fab-brass-cladding.jpg',
+        priceEstimate: '₦185,000 / sqm',
+        materials: '1.5mm Architectural Brass Plate & Sub-Frame',
+        finish: 'Hand-Directional Satin Brushed & Wax Sealed',
+        dimensions: 'Modular Panels up to 3.0m H',
+        description: 'Bespoke brass panel cladding for reception feature walls, structural columns, and luxury retail storefront portals.'
+      },
+      {
+        id: 'fab-custom-spiral-column',
+        name: 'Sculptural Custom Spiral Architectural Steel Column',
+        image: 'images/fab-custom-spiral-column.jpg',
+        priceEstimate: 'Starting at ₦680,000',
+        materials: 'Heavy Wall Rolled Steel Tube & Internal Bracing',
+        finish: 'Matte Polyurethane Architectural Coating',
+        dimensions: '3.2m H × 400mm Diameter',
+        description: 'Custom formed twisted steel column providing structural load-bearing capacity while serving as an avant-garde architectural centerpiece.'
+      },
+      {
+        id: 'fab-laser-divider',
+        name: 'Precision Laser-Cut Architectural Room Screen',
+        image: 'images/fab-laser-divider.jpg',
+        priceEstimate: 'Starting at ₦420,000',
+        materials: '3mm Hot-Rolled Steel Sheet & Perimeter Box Frame',
+        finish: 'ATG Obsidian Black or Fine Gold Powder Coat',
+        dimensions: '1.2m W × 2.6m H',
+        description: 'Intricate floor-to-ceiling metal screen offering spatial separation, privacy, and ambient light filtration for living and hotel suites.'
+      },
+      {
+        id: 'fab-mesh-grille',
+        name: 'Industrial Woven Steel Mesh Facade & Window Grille',
+        image: 'images/fab-mesh-grille.jpg',
+        priceEstimate: 'Starting at ₦260,000',
+        materials: 'Heavy Woven Carbon Steel Wire & Welded Frame',
+        finish: 'Hot-Dip Galvanised & Powder Coat',
+        dimensions: 'Bespoke Aperture Dimensions',
+        description: 'Heavy-gauge architectural wire mesh providing security protection, facade ventilation, and authentic industrial character.'
+      },
+      {
+        id: 'fab-balcony-outrigger',
+        name: 'Engineered Cantilevered Balcony Outriggers & Brackets',
+        image: 'images/steel-balcony-outrigger.jpg',
+        priceEstimate: 'Starting at ₦580,000',
+        materials: '150mm Structural Universal Beams & Gusset Plates',
+        finish: 'Heavy Anti-Corrosion Zinc Rich Primer',
+        dimensions: '1.8m Projection (Structural Rating)',
+        description: 'Precision fabricated steel outriggers designed to support suspended architectural balconies, pergolas, and decorative overhangs.'
+      },
+      {
+        id: 'fab-mesh-ceiling-system',
+        name: 'Suspended Architectural Expanded Metal Ceiling System',
+        image: 'images/interior-metal-mesh-ceiling.jpg',
+        priceEstimate: '₦145,000 / sqm',
+        materials: 'Aluminium Expanded Mesh Panels & Concealed T-Grid',
+        finish: 'Matte Obsidian Black',
+        dimensions: 'Modular 600×1200mm Panels',
+        description: 'Demountable architectural ceiling cassette tiles hiding mechanical services while permitting HVAC airflow and acoustic lighting.'
+      },
+      {
+        id: 'fab-perforated-panel-system',
+        name: 'Custom Perforated Steel Retail & Display Panelling',
+        image: 'images/shelf-metal-perforated-mesh.jpg',
+        priceEstimate: 'Starting at ₦310,000',
+        materials: 'Perforated Mild Steel with Circular Aperture Pattern',
+        finish: 'Fine Textured Architectural Powder Coat',
+        dimensions: '1.0m W × 2.4m H Panels',
+        description: 'Custom CNC perforated feature panels adaptable for modular hanging shelving, acoustic backing, and decorative retail facades.'
+      },
+      {
+        id: 'fab-workshop-bench',
+        name: 'Precision Heavy-Gauge Steel Workshop & Tooling Bench',
+        image: 'images/shelf-metal-workshop-coldrolled.jpg',
+        priceEstimate: 'Starting at ₦380,000',
+        materials: '4mm Cold-Rolled Steel Top & Box Frame Legs',
+        finish: 'Hardened Epoxy Industrial Enamel',
+        dimensions: '2.0m L × 0.8m W × 0.9m H',
+        description: 'Indestructible fabrication workbench engineered to endure extreme tool work, welding, and 850kg industrial loads.'
+      },
+      {
+        id: 'fab-reception-plinth-desk',
+        name: 'Bespoke Commercial Reception Desk with Brass Plinth',
+        image: 'images/interior-reception-desk-brass.jpg',
+        priceEstimate: 'Starting at ₦950,000',
+        materials: 'Blackened Steel Plate Body & Brushed Brass Kick-Plate',
+        finish: 'Wax Sealed Raw Steel & Brushed Brass',
+        dimensions: '2.4m W × 0.8m D × 1.1m H',
+        description: 'Architectural monolithic reception counter featuring hand-burnished steel plates, floating reception counter, and brushed brass plinth.'
+      }
+    ]
+  },
+
+  // 6. Structural Steel
+  {
+    category: 'Structural Steel',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'steel-fire-escape',
+        name: 'Multi-Story External Steel Fire Escape Staircase',
+        image: 'images/steel-fire-escape.jpg',
+        priceEstimate: 'Starting at ₦3,200,000',
+        materials: 'Structural Universal Columns & Non-Slip Grating Treads',
+        finish: 'Hot-Dip Galvanised Exterior Grade',
+        dimensions: 'Modular Multi-Flight per Site Elevations',
+        description: 'Fully certified emergency egress staircase featuring serrated steel grating treads, self-closing safety gates, and safety handrails.'
+      },
+      {
+        id: 'steel-balcony-assembly',
+        name: 'Cantilevered Structural Balcony Frame Assembly',
+        image: 'images/steel-balcony-outrigger.jpg',
+        priceEstimate: 'Starting at ₦1,850,000',
+        materials: '200UC Structural Steel Sections & Tie Rods',
+        finish: 'Marine-Grade Two-Pack Polyurethane',
+        dimensions: '4.0m W × 1.8m Projection',
+        description: 'Complete prefabricated cantilevered balcony frame designed for rapid crane lift and bolt-up installation onto concrete structural frames.'
+      },
+      {
+        id: 'steel-covered-walkway',
+        name: 'Architectural Steel Framed Covered Walkway',
+        image: 'images/steel-covered-walkway.jpg',
+        priceEstimate: 'Starting at ₦3,400,000',
+        materials: 'Hollow Section Steel Portals & Glass Roof Framing',
+        finish: 'Polyester Powder Coated Galvanised Steel',
+        dimensions: '12.0m L × 2.4m W × 2.8m H',
+        description: 'Weather-tight pedestrian link canopy connecting residential pavilions, office complexes, and executive drop-off areas.'
+      },
+      {
+        id: 'steel-glass-canopy-portico',
+        name: 'Suspended Structural Steel & Glass Entrance Portico',
+        image: 'images/steel-glass-canopy-portico.jpg',
+        priceEstimate: 'Starting at ₦1,950,000',
+        materials: 'Welded T-Section Cantilever Arms & Laminated Glass',
+        finish: 'ATG Obsidian Black Coating',
+        dimensions: '3.0m W × 1.8m Projection',
+        description: 'Elegant entrance portico featuring stainless steel tie rods, cast spider glass fixings, and internal concealed drainage gutters.'
+      },
+      {
+        id: 'steel-pergola-cantilever',
+        name: 'Heavy Architectural Cantilevered Steel Pergola',
+        image: 'images/steel-pergola-cantilever.jpg',
+        priceEstimate: 'Starting at ₦2,450,000',
+        materials: '150×150mm Structural Box Columns & Louver Blades',
+        finish: 'Architectural Matte Powder Coat',
+        dimensions: '5.0m L × 3.5m W × 2.8m H',
+        description: 'Modern cantilevered patio pergola engineered to shelter luxury outdoor poolside and garden entertaining terraces.'
+      },
+      {
+        id: 'steel-pipe-rack-gantry',
+        name: 'Industrial Pipe Rack Gantry & Equipment Support Frame',
+        image: 'images/steel-pipe-rack-gantry.jpg',
+        priceEstimate: 'Starting at ₦2,850,000',
+        materials: 'Heavy Welded Universal Beams & Cross-Bracing',
+        finish: 'Hot-Dip Galvanised Structural Steel',
+        dimensions: 'Custom Industrial Site Specifications',
+        description: 'Heavy-duty industrial superstructure supporting facility utility lines, generators, cooling towers, and rooftop mechanical equipment.'
+      },
+      {
+        id: 'steel-storage-racking',
+        name: 'High-Bay Heavy Duty Structural Steel Racking System',
+        image: 'images/storage-industrial-open-steel.jpg',
+        priceEstimate: 'Starting at ₦1,250,000',
+        materials: 'Structural Channel Uprights & Roll-Formed Beams',
+        finish: 'Safety Epoxy Coating',
+        dimensions: '3.0m W × 4.5m H × 1.0m D',
+        description: 'Industrial warehouse storage framework with 2,500kg per tier load capacity and bolt-together modular expansion flexibility.'
+      },
+      {
+        id: 'steel-archive-unit',
+        name: 'High-Density Archive & Document Storage Unit',
+        image: 'images/storage-archive-steel-unit.jpg',
+        priceEstimate: 'Starting at ₦850,000',
+        materials: 'Precision Sheet Steel & Reinforced Shelving Decks',
+        finish: 'Durable Textured Powder Coat',
+        dimensions: '2.4m W × 2.4m H × 0.6m D',
+        description: 'Heavy-gauge commercial records archive system engineered for legal firms, medical records, and corporate storerooms.'
+      },
+      {
+        id: 'steel-cleanroom-rack',
+        name: 'Modular Slotted Structural Steel Storage Framework',
+        image: 'images/storage-cleanroom-slotted-rack.jpg',
+        priceEstimate: 'Starting at ₦650,000',
+        materials: 'Electro-Galvanised Perforated Uprights & Steel Pans',
+        finish: 'Clean Powder Coated Finish',
+        dimensions: '2.0m W × 2.2m H × 0.5m D',
+        description: 'Adjustable boltless industrial racking with ventilated steel shelf pans suited for workshops, back-of-house, and distribution.'
+      }
+    ]
+  },
+
+  // 7. Chairs
+  {
+    category: 'Chairs',
+    department: 'Furniture & Interiors',
+    items: [
+      {
+        id: 'chair-armchair-01',
+        name: 'Sculptural Steel Armchair in Textured Bouclé',
+        image: 'images/chair-armchair-01.jpg',
+        priceEstimate: 'Starting at ₦240,000',
+        materials: 'Blackened Steel Rod Frame & High-Resilience Foam',
+        finish: 'Matte Black Steel & Premium Bouclé Fabric',
+        dimensions: '780mm W × 740mm D × 720mm H',
+        description: 'Curvaceous contemporary accent armchair featuring an architectural continuous tubular steel base and plush bouclé upholstery.'
+      },
+      {
+        id: 'chair-bar-stool-minimal',
+        name: 'Minimalist Steel Counter Stool with Solid Timber Seat',
+        image: 'images/chair-bar-stool-minimal.jpg',
+        priceEstimate: 'Starting at ₦95,000',
+        materials: '16mm Solid Round Bar Steel & Turned Iroko Seat',
+        finish: 'ATG Obsidian Black & Natural Hardwax Oil',
+        dimensions: '420mm W × 420mm D × 680mm H',
+        description: 'Understated kitchen counter stool combining a welded tripod steel wire base, integrated circular footrest, and warm hardwood seat.'
+      },
+      {
+        id: 'chair-contemporary-armchair',
+        name: 'Contemporary Architectural Lounge Chair with Saddle Leather',
+        image: 'images/chair-contemporary-armchair.jpg',
+        priceEstimate: 'Starting at ₦280,000',
+        materials: 'Flat-Bar Carbon Steel & Top-Grain Tan Leather',
+        finish: 'Brushed Blackened Steel & Vegetable-Tanned Leather',
+        dimensions: '720mm W × 800mm D × 750mm H',
+        description: 'Ergonomically pitched accent lounge chair featuring heavy stitched saddle leather sling suspended across a rigid flat-bar steel frame.'
+      },
+      {
+        id: 'chair-counter-stool-brass',
+        name: 'Brushed Brass & Charcoal Velvet Luxury Bar Stool',
+        image: 'images/chair-counter-stool-brass.jpg',
+        priceEstimate: 'Starting at ₦145,000',
+        materials: 'Electroplated Brass Steel Frame & Velvet Cushion',
+        finish: 'Satin Brass & Water-Repellent Velvet',
+        dimensions: '440mm W × 440mm D × 750mm H',
+        description: 'Sophisticated bar stool with supportive curved lumbar backrest, high-density velvet seat, and protective brass footrest ring.'
+      },
+      {
+        id: 'chair-leather-blackened-steel',
+        name: 'Blackened Steel Sled-Base Executive Armchair',
+        image: 'images/chair-leather-blackened-steel.jpg',
+        priceEstimate: 'Starting at ₦260,000',
+        materials: '25mm Box Steel Continuous Sled Frame & Black Leather',
+        finish: 'Satin Powder Coat & Full-Grain Leather',
+        dimensions: '650mm W × 680mm D × 800mm H',
+        description: 'Modern cantilevered sled base armchair offering a gentle natural flex, ideal for executive boardrooms, studies, and waiting salons.'
+      },
+      {
+        id: 'chair-low-accent',
+        name: 'Low-Profile Architectural Accent Occasional Chair',
+        image: 'images/chair-low-accent.jpg',
+        priceEstimate: 'Starting at ₦195,000',
+        materials: 'Low Center-of-Gravity Welded Steel & Cream Linen',
+        finish: 'Matte Obsidian Frame & Belgian Linen Cushioning',
+        dimensions: '700mm W × 720mm D × 680mm H',
+        description: 'Deep-seat low accent chair designed for cozy reading corners, minimalist hotel lounges, and luxury bedroom seating areas.'
+      },
+      {
+        id: 'chair-minimalist-dining',
+        name: 'Minimalist Precision Steel Dining Chair (Set Options Available)',
+        image: 'images/chair-minimalist-dining.jpg',
+        priceEstimate: 'Starting at ₦110,000',
+        materials: '12mm Cold-Formed Steel Wire & Contoured Seat',
+        finish: 'Electrostatic Powder Coat (Indoor/Outdoor)',
+        dimensions: '480mm W × 520mm D × 810mm H',
+        description: 'Sculpted lightweight steel wire dining chair engineered for ergonomic posture and stackable storage convenience.'
+      },
+      {
+        id: 'chair-modern-metal-lounge',
+        name: 'Geometric Metal Frame Deep Lounge Chair',
+        image: 'images/chair-modern-metal-lounge.jpg',
+        priceEstimate: 'Starting at ₦225,000',
+        materials: 'Angled Steel Plate Legs & Dense Wool Cushioning',
+        finish: 'Textured Charcoal Coat & Heavy Weave Fabric',
+        dimensions: '820mm W × 850mm D × 760mm H',
+        description: 'Bold architectural armchair displaying pronounced angled steel plate geometry and wide deep cushions for lavish comfort.'
+      },
+      {
+        id: 'chair-sculptural-steel-accent',
+        name: 'Monolithic Sculptural Steel Ribbon Accent Chair',
+        image: 'images/chair-sculptural-steel-accent.jpg',
+        priceEstimate: 'Starting at ₦310,000',
+        materials: '5mm Hot-Rolled Continuous Steel Plate',
+        finish: 'Hand-Waxed Gunmetal Patina',
+        dimensions: '680mm W × 700mm D × 740mm H',
+        description: 'Artistic centerpiece chair precision laser-cut and hand-formed from a single continuous plate of heavy architectural steel.'
+      }
+    ]
+  },
+
+  // 8. Tables
+  {
+    category: 'Tables',
+    department: 'Furniture & Interiors',
+    items: [
+      {
+        id: 'table-boardroom-minimalist',
+        name: 'Executive 10-Seater Steel & Smoked Oak Boardroom Table',
+        image: 'images/table-boardroom-minimalist.jpg',
+        priceEstimate: 'Starting at ₦1,650,000',
+        materials: 'Heavy I-Beam Steel Subframe & Solid Smoked Oak Top',
+        finish: 'Blackened Steel Base & Matte Polyurethane Oak',
+        dimensions: '3.2m L × 1.2m W × 0.76m H',
+        description: 'Grand executive conference table featuring an ultra-rigid steel undercarriage and central pop-up power/data connectivity bays.'
+      },
+      {
+        id: 'table-brass-nero-marquina',
+        name: 'Nero Marquina Black Marble Dining Table with Brass Pedestal',
+        image: 'images/table-brass-nero-marquina.jpg',
+        priceEstimate: 'Starting at ₦1,250,000',
+        materials: 'Polished Nero Marquina Marble & Fluted Brass Base',
+        finish: 'Sealed Marble & Brushed Natural Brass',
+        dimensions: '2.2m L × 1.0m W × 0.76m H',
+        description: 'Statement 8-seater dining table showcasing rich white-veined black Spanish marble supported by dual architectural fluted brass pedestals.'
+      },
+      {
+        id: 'table-coffee-round-wood',
+        name: 'Round Solid Walnut Coffee Table with Steel Tripod Base',
+        image: 'images/table-coffee-round-wood.jpg',
+        priceEstimate: 'Starting at ₦240,000',
+        materials: 'Seasoned Solid Walnut & Matte Black Tapered Legs',
+        finish: 'Hand-Rubbed Organic Oil & Satin Metal',
+        dimensions: '900mm Diameter × 420mm H',
+        description: 'Organic circular coffee table bringing natural wood warmth to living spaces with lightweight structural steel tripod legs.'
+      },
+      {
+        id: 'table-dining-room-luxury',
+        name: 'Bespoke 8-Seater Architectural Dining Table',
+        image: 'images/table-dining-room-luxury.jpg',
+        priceEstimate: 'Starting at ₦950,000',
+        materials: 'Blackened Box Section Steel & Italian Porcelain Slab Top',
+        finish: 'ATG Obsidian Black Base & Matte Calacatta Ceramic',
+        dimensions: '2.4m L × 1.0m W × 0.76m H',
+        description: 'Indestructible luxury dining table immune to stains, knives, and heat, resting on an angled geometric spider steel base.'
+      },
+      {
+        id: 'table-marble-dining',
+        name: 'Calacatta Gold Marble Oval Dining Table',
+        image: 'images/table-marble-dining.jpg',
+        priceEstimate: 'Starting at ₦1,450,000',
+        materials: 'Book-Matched Calacatta Marble & Dual Fluted Steel Bases',
+        finish: 'Honed Marble Surface & Champagne Gold Coating',
+        dimensions: '2.4m L × 1.1m W × 0.76m H',
+        description: 'Graceful oval dining table engineered with smooth radius edges for fluid dinner seating and unmatched dining luxury.'
+      },
+      {
+        id: 'table-meeting-executive',
+        name: 'Conference & Collaboration Steel-Leg Meeting Table',
+        image: 'images/table-meeting-executive.jpg',
+        priceEstimate: 'Starting at ₦880,000',
+        materials: '40mm Timber Surface & Recessed Steel Trapezoid Legs',
+        finish: 'Commercial Grade Hardwood Laminate & Powder Coat',
+        dimensions: '2.6m L × 1.1m W × 0.75m H',
+        description: 'Multi-functional meeting table engineered for dynamic creative agencies, law chambers, and executive board suites.'
+      },
+      {
+        id: 'table-minimal-desk-workspace',
+        name: "Minimalist Architect's Workstation & Writing Desk",
+        image: 'images/table-minimal-desk-workspace.jpg',
+        priceEstimate: 'Starting at ₦340,000',
+        materials: '25mm Square Box Steel & Hardwood Desk Surface',
+        finish: 'Matte Obsidian Frame & Natural Timber Sealer',
+        dimensions: '1.6m L × 0.75m W × 0.75m H',
+        description: 'Refined home office desk designed with integrated pencil drawer, flush rear cable conduit, and minimalist leg geometry.'
+      },
+      {
+        id: 'table-modern-wood-dining',
+        name: 'Solid Live-Edge African Hardwood & Steel Dining Table',
+        image: 'images/table-modern-wood-dining.jpg',
+        priceEstimate: 'Starting at ₦820,000',
+        materials: 'Single Slab Nigerian Hardwood & Heavy Steel Spider Base',
+        finish: 'Natural Live Edge Grain Wax & Blackened Steel',
+        dimensions: '2.2m L × 0.95m W × 0.76m H',
+        description: 'One-of-a-kind organic hardwood dining table celebrating natural bark contours, secured with butterfly keys over heavy steel legs.'
+      },
+      {
+        id: 'table-travertine-console',
+        name: 'Honed Travertine & Raw Steel Entryway Console Table',
+        image: 'images/table-travertine-console.jpg',
+        priceEstimate: 'Starting at ₦480,000',
+        materials: '30mm Roman Travertine Stone & Blackened Flat-Bar Frame',
+        finish: 'Honed Natural Cavities & Wax Sealed Dark Steel',
+        dimensions: '1.4m L × 0.38m W × 0.82m H',
+        description: 'Narrow entryway console table showcasing tactile natural porous travertine atop an airy architectural blackened metal frame.'
+      }
+    ]
+  },
+
+  // 9. Custom Furniture
+  {
+    category: 'Custom Furniture',
+    department: 'Furniture & Interiors',
+    items: [
+      {
+        id: 'furniture-bar-cart-brass',
+        name: 'Brushed Brass & Smoked Glass Mobile Bar Cart',
+        image: 'images/furniture-bar-cart-brass.jpg',
+        priceEstimate: 'Starting at ₦340,000',
+        materials: 'Precision Turned Brass Frame & 8mm Tempered Smoked Glass',
+        finish: 'Hand-Brushed Architectural Brass',
+        dimensions: '850mm L × 480mm W × 820mm H',
+        description: 'Mobile cocktail serving trolley equipped with solid brass lockable castors, integrated stemware racks, and lower bottle guard rails.'
+      },
+      {
+        id: 'furniture-canopy-bed',
+        name: 'Architectural Steel Four-Poster Canopy Bed Frame',
+        image: 'images/furniture-canopy-bed.jpg',
+        priceEstimate: 'Starting at ₦880,000',
+        materials: '40mm Structural Box Steel with Concealed Bolt Assembly',
+        finish: 'ATG Obsidian Matte Black Powder Coat',
+        dimensions: 'King Size (1.8m × 2.0m Mattress Drop)',
+        description: 'Monumental four-poster canopy bed engineered with rigid welded joints that eliminate squeaks, finished in deep matte black.'
+      },
+      {
+        id: 'furniture-floor-mirror',
+        name: 'Full-Length Blackened Steel Leaner Floor Mirror',
+        image: 'images/furniture-floor-mirror.jpg',
+        priceEstimate: 'Starting at ₦240,000',
+        materials: '50mm Deep Steel Angle Frame & 6mm Distortion-Free Mirror',
+        finish: 'Blackened Steel Patina with Clear Lacquer',
+        dimensions: '2.0m H × 0.9m W × 50mm D',
+        description: 'Heavy architectural floor mirror designed to lean securely or wall-mount, reflecting light and amplifying room scale.'
+      },
+      {
+        id: 'furniture-fluted-media-unit',
+        name: 'Fluted Timber & Blackened Steel Media Credenza',
+        image: 'images/furniture-fluted-media-unit.jpg',
+        priceEstimate: 'Starting at ₦680,000',
+        materials: 'Solid Fluted Timber Slats & Steel Surrounds',
+        finish: 'Dark Walnut Stain & Matte Black Metal',
+        dimensions: '2.2m L × 0.48m D × 0.55m H',
+        description: 'Low-profile media sideboard featuring IR-transparent fluted wooden doors that permit remote control signals while hiding electronics.'
+      },
+      {
+        id: 'furniture-leather-steel-bench',
+        name: 'Tufted Top-Grain Leather & Steel Entryway Bench',
+        image: 'images/furniture-leather-steel-bench.jpg',
+        priceEstimate: 'Starting at ₦290,000',
+        materials: 'Hand-Burnished Steel Tube & Premium Caramel Leather',
+        finish: 'Gunmetal Powder Coat & Distressed Aniline Leather',
+        dimensions: '1.5m L × 0.45m W × 0.46m H',
+        description: 'Versatile entryway or bed-end bench with channeled leather cushion, high-density padding, and welded under-bench shoe shelf.'
+      },
+      {
+        id: 'furniture-planter-divider',
+        name: 'Integrated Architectural Metal Planter Room Divider',
+        image: 'images/furniture-planter-divider.jpg',
+        priceEstimate: 'Starting at ₦360,000',
+        materials: 'Welded Waterproof Steel Trough & Vertical Rod Screens',
+        finish: 'Exterior Polyurethane Powder Coat',
+        dimensions: '1.6m L × 0.35m W × 1.8m H',
+        description: 'Dual-function interior divider combining a sealed waterproof planter trough at the base with vertical rod screening for live climbing flora.'
+      },
+      {
+        id: 'furniture-sideboard-travertine',
+        name: 'Travertine Stone Front & Dark Steel Sideboard',
+        image: 'images/furniture-sideboard-travertine.jpg',
+        priceEstimate: 'Starting at ₦920,000',
+        materials: 'Honed Travertine Panels & Matte Powder-Coated Metal Casing',
+        finish: 'Natural Honed Stone & ATG Obsidian Black',
+        dimensions: '1.8m L × 0.5m D × 0.8m H',
+        description: 'Architectural credenza featuring travertine door fronts, soft-closing Blum hardware, and internal adjustable steel shelving.'
+      },
+      {
+        id: 'furniture-corner-cabinet',
+        name: 'Custom Wood & Metal Corner Display Cabinet',
+        image: 'images/shelf-wood-metal-corner-unit.jpg',
+        priceEstimate: 'Starting at ₦420,000',
+        materials: 'Precision Formed Steel & Nigerian Teak Shelves',
+        finish: 'Matte Powder Coat & Teak Hardwax',
+        dimensions: '0.8m × 0.8m Corner × 2.0m H',
+        description: 'Space-optimised corner shelving cabinet providing maximum vertical storage footprint with clean industrial lines.'
+      },
+      {
+        id: 'furniture-fluted-bookcase',
+        name: 'Fluted Panel & Steel Frame Architectural Bookcase',
+        image: 'images/shelf-wood-metal-fluted-bookcase.jpg',
+        priceEstimate: 'Starting at ₦580,000',
+        materials: 'Fluted Back Panel & 20mm Box Steel Framework',
+        finish: 'Blackened Metal Frame & Natural Oak Veneer',
+        dimensions: '1.4m W × 0.4m D × 2.2m H',
+        description: 'High-end library bookcase incorporating vertical acoustic fluting behind floating metal-rimmed display shelves.'
+      }
+    ]
+  },
+
+  // 10. Shelves & Storage
+  {
+    category: 'Shelves & Storage',
+    department: 'Shelving & Storage',
+    items: [
+      {
+        id: 'shelf-display-books-ceramics',
+        name: 'Architectural Open Bookshelf for Ceramics & Curated Objects',
+        image: 'images/shelf-display-books-ceramics.jpg',
+        priceEstimate: 'Starting at ₦450,000',
+        materials: '20mm Satin Black Steel Frame & Premium Oak Planks',
+        finish: 'ATG Obsidian Black & Clear Matte Sealer',
+        dimensions: '1.5m W × 0.38m D × 2.1m H',
+        description: 'Asymmetrically arranged open shelving designed specifically to showcase art volumes, ceramic vessels, and architectural collectibles.'
+      },
+      {
+        id: 'shelf-floating-minimal-oak',
+        name: 'Concealed-Bracket Minimalist Floating White Oak Shelf',
+        image: 'images/shelf-floating-minimal-oak.jpg',
+        priceEstimate: 'Starting at ₦65,000',
+        materials: 'Solid 45mm Seasoned White Oak & Internal Steel Studs',
+        finish: 'Natural Matte Polyurethane Hardwax',
+        dimensions: '1.2m L × 0.25m D × 45mm T',
+        description: 'Clean wall shelf with zero visible brackets, capable of bearing 45kg load thanks to heavy-gauge internal steel wall anchors.'
+      },
+      {
+        id: 'shelf-floating-steel-books',
+        name: 'Heavy Gauge Folded Steel Floating Book Shelf',
+        image: 'images/shelf-floating-steel-books.jpg',
+        priceEstimate: 'Starting at ₦85,000',
+        materials: '3mm Folded Sheet Steel & Matte Powder Coating',
+        finish: 'Fine Textured Black Powder Coat',
+        dimensions: '1.0m L × 0.22m D',
+        description: 'Ultra-thin architectural shelf laser-cut and brake-pressed from single steel plate, giving books an effortless floating appearance.'
+      },
+      {
+        id: 'shelf-floating-thick-oak',
+        name: 'Deep Profile Architectural Timber Floating Ledge',
+        image: 'images/shelf-floating-thick-oak.jpg',
+        priceEstimate: 'Starting at ₦95,000',
+        materials: '60mm Mitered Hardwood Box with Heavy Internal Steel Ribs',
+        finish: 'Danish Oil Hand-Rubbed Finish',
+        dimensions: '1.5m L × 0.30m D × 60mm T',
+        description: 'Substantial floating timber mantle shelf designed for gallery wall displays, framed photographs, and sculpture display.'
+      },
+      {
+        id: 'shelf-industrial-steel',
+        name: 'Industrial Steel Upright Modular Library Shelving',
+        image: 'images/shelf-industrial-steel.jpg',
+        priceEstimate: 'Starting at ₦380,000',
+        materials: 'Hot-Rolled Steel Angle Uprights & Solid Timber Decks',
+        finish: 'Clear Coated Raw Steel & Dark Walnut Stain',
+        dimensions: '1.8m W × 0.4m D × 2.4m H',
+        description: 'Floor-standing modular shelving system with exposed mechanical fasteners, suited for creative studios, home libraries, and wine cellars.'
+      },
+      {
+        id: 'shelf-kitchen-open-brass-rod',
+        name: 'Brushed Brass Rod Ceiling-Suspended Open Kitchen Shelving',
+        image: 'images/shelf-kitchen-open-brass-rod.jpg',
+        priceEstimate: 'Starting at ₦260,000',
+        materials: '16mm Solid Brass Rods & Hardwood / Fluted Glass Base',
+        finish: 'Satin Architectural Brass & Sealed Timber',
+        dimensions: '1.6m L × 0.35m D × 0.9m Drop',
+        description: 'Ceiling-hung open shelving unit mounted above kitchen islands for accessible display of daily cookware, stemware, and spices.'
+      },
+      {
+        id: 'shelf-metal-brass-gold-tower',
+        name: 'Luxury Gold Brass & Glass Etagere Tower Display',
+        image: 'images/shelf-metal-brass-gold-tower.jpg',
+        priceEstimate: 'Starting at ₦480,000',
+        materials: 'Electroplated Gold Steel & 10mm Clear Tempered Glass',
+        finish: 'Polished Brass Gold & Crystal Clear Glass',
+        dimensions: '0.8m W × 0.4m D × 2.0m H',
+        description: 'Five-tier vertical etagere shelf creating a glamorous accent tower in luxury living rooms, walk-in closets, and master bathrooms.'
+      },
+      {
+        id: 'shelf-metal-slimline-divider',
+        name: 'Slimline Steel Floor-to-Ceiling Open Room Divider Shelf',
+        image: 'images/shelf-metal-slimline-divider.jpg',
+        priceEstimate: 'Starting at ₦620,000',
+        materials: 'Welded 20×20mm Steel Profile with Asymmetric Cubes',
+        finish: 'ATG Obsidian Black Powder Coat',
+        dimensions: '2.2m W × 0.35m D × 2.8m H',
+        description: 'Architectural room divider unit anchored between floor and ceiling, defining living zones while preserving transparency and sightlines.'
+      },
+      {
+        id: 'shelf-wood-metal-seasoned-iroko',
+        name: 'Seasoned Iroko & Blackened Iron Heavy-Duty Bookshelf',
+        image: 'images/shelf-wood-metal-seasoned-iroko.jpg',
+        priceEstimate: 'Starting at ₦520,000',
+        materials: 'Local Nigerian Iroko Hardwood & Solid Iron Uprights',
+        finish: 'Deep Blackened Steel & Satin Polyurethane Iroko',
+        dimensions: '1.6m W × 0.4m D × 2.2m H',
+        description: 'Heavy architectural joinery blending dense, termite-resistant Nigerian Iroko hardwood planks with precision welded blackened steel.'
+      }
+    ]
+  },
+
+  // 11. Boutique Garment Racks & Retail Displays
+  {
+    category: 'Boutique Garment Racks & Retail Displays',
+    department: 'Shelving & Storage',
+    items: [
+      {
+        id: 'rack-boutique-freestanding',
+        name: 'Minimalist Freestanding Boutique Apparel Rack',
+        image: 'images/rack-boutique-freestanding.jpg',
+        priceEstimate: 'Starting at ₦165,000',
+        materials: '25mm Heavy Gauge Steel Tubing & Weighted Base',
+        finish: 'ATG Obsidian Black Powder Coat',
+        dimensions: '1.4m L × 0.45m W × 1.6m H',
+        description: 'Freestanding clothing rail designed with solid turned end stops, weighted steel base plate, and high load-bearing garment capacity.'
+      },
+      {
+        id: 'rack-boutique-luxury-store',
+        name: 'Brushed Brass Retail Store Feature Hanging System',
+        image: 'images/rack-boutique-luxury-store.jpg',
+        priceEstimate: 'Starting at ₦240,000',
+        materials: 'Architectural Brass Tubing & Heavy Cast Base Flanges',
+        finish: 'Hand-Brushed Satin Brass Protective Lacquer',
+        dimensions: '1.6m L × 0.5m W × 1.65m H',
+        description: 'Luxury retail garment display rack crafted from warm satin brass, designed to elevate high-end fashion boutiques and bridal salons.'
+      },
+      {
+        id: 'rack-boutique-minimalist-rail',
+        name: 'Ultra-Slimline Architectural Single Rail Wardrobe Rack',
+        image: 'images/rack-boutique-minimalist-rail.jpg',
+        priceEstimate: 'Starting at ₦135,000',
+        materials: 'Satin Black Powder-Coated Steel & Concealed Joints',
+        finish: 'Matte Obsidian Black',
+        dimensions: '1.2m L × 0.4m W × 1.55m H',
+        description: 'Streamlined apparel rack offering an ultra-clean silhouette for boutique merchandising, capsule collections, and guest suites.'
+      },
+      {
+        id: 'rack-boutique-showroom-apparel',
+        name: 'Double-Tier Commercial Retail Display Rack',
+        image: 'images/rack-boutique-showroom-apparel.jpg',
+        priceEstimate: 'Starting at ₦210,000',
+        materials: 'Welded Square Tube Steel & Lower Storage Shelf',
+        finish: 'Commercial Grade Polyurethane Powder Coat',
+        dimensions: '1.5m L × 0.5m W × 2.0m H',
+        description: 'Dual-level hanging rail with lower perforated steel shoe and folded garment platform, maximizing floor space in fashion showrooms.'
+      },
+      {
+        id: 'display-freestanding-double-sided',
+        name: 'Double-Sided Island Merchandising Gondola Display',
+        image: 'images/display-freestanding-double-sided.jpg',
+        priceEstimate: 'Starting at ₦380,000',
+        materials: 'Perforated Metal Center Spine & Modular Hanging Arms',
+        finish: 'Matte Black & Brass Accents',
+        dimensions: '1.4m L × 0.7m W × 1.5m H',
+        description: '360-degree retail center island display unit accommodating both hanging apparel and adjustable accessories shelving.'
+      },
+      {
+        id: 'display-showroom-metal-pedestal',
+        name: 'Geometric Steel Retail Display Pedestal (Trio Set)',
+        image: 'images/display-showroom-metal-pedestal.jpg',
+        priceEstimate: 'Starting at ₦175,000 (Set of 3)',
+        materials: 'Folded Sheet Steel with Internal Corner Bracing',
+        finish: 'ATG Obsidian Black or Fine Gold Powder Coat',
+        dimensions: 'Heights: 600mm, 800mm, 1000mm (300×300mm tops)',
+        description: 'Set of three stepped architectural steel plinths engineered for displaying luxury handbags, perfume collections, or sculpture.'
+      },
+      {
+        id: 'display-wall-luxury-fragrance',
+        name: 'Luxury Wall-Mounted Metal Vitrine for Fragrances & Jewelry',
+        image: 'images/display-wall-luxury-fragrance.jpg',
+        priceEstimate: 'Starting at ₦420,000',
+        materials: 'Satin Brass Frame, Mirrored Back & Integrated LED Halo',
+        finish: 'Brushed Brass & Low-Iron Glass',
+        dimensions: '1.0m W × 0.25m D × 1.6m H',
+        description: 'Secured wall showcase featuring perimeter ambient warm LED illumination, lockable sliding glass, and adjustable glass shelves.'
+      },
+      {
+        id: 'retail-handbag-shoe-tower',
+        name: 'Tiered Steel & Smoked Glass Footwear & Handbag Tower',
+        image: 'images/retail-handbag-shoe-tower.jpg',
+        priceEstimate: 'Starting at ₦310,000',
+        materials: 'Slimline Steel Uprights & Tempered Glass Shelves',
+        finish: 'Matte Black Powder Coat & Smoked Glass',
+        dimensions: '0.6m W × 0.5m D × 1.85m H',
+        description: 'Vertical retail display tower designed for high-density luxury shoe and leather goods merchandising with unobstructed visibility.'
+      },
+      {
+        id: 'retail-custom-pedestal-vitrine',
+        name: 'Illuminated Metal Pedestal Showcase Vitrine',
+        image: 'images/retail-custom-pedestal-vitrine.jpg',
+        priceEstimate: 'Starting at ₦285,000',
+        materials: 'Black Steel Base Column & Ultra-Clear UV Glass Top',
+        finish: 'Matte Obsidian & Mitred Glass Cube',
+        dimensions: '0.45m × 0.45m × 1.25m H',
+        description: 'Museum-standard pedestal showcase with lockable UV-bonded glass bonnet and integrated top micro-LED highlight spotlight.'
+      }
+    ]
+  },
+
+  // 12. Kitchen Cabinets
+  {
+    category: 'Kitchen Cabinets',
+    department: 'Cabinetry & Joinery',
+    items: [
+      {
+        id: 'kitchen-cabinet-01',
+        name: 'Bespoke Contemporary Kitchen Cabinetry Suite',
+        image: 'images/kitchen-cabinet-01.jpg',
+        priceEstimate: 'Starting at ₦2,600,000 (Per Kitchen Run)',
+        materials: 'Moisture-Resistant HDF, Marine Ply & Powdered Steel Framing',
+        finish: 'Matte Anti-Scratch Lacquer & Brass Trim',
+        dimensions: 'Custom Layout to Architectural Site Plan',
+        description: 'Complete high-end kitchen cabinetry suite integrating concealed Blum soft-close hardware, custom pantry towers, and quartz tops.'
+      },
+      {
+        id: 'kitchen-cabinet-02',
+        name: 'Matte Obsidian & Natural Oak Kitchen Pantry Suite',
+        image: 'images/kitchen-cabinet-02.jpg',
+        priceEstimate: 'Starting at ₦2,850,000',
+        materials: 'Anti-Fingerprint Laminate & Solid Oak Open Accents',
+        finish: 'Obsidian Velvet Matte & Natural White Oak',
+        dimensions: 'Custom Architectural Wall Run',
+        description: 'Luxury floor-to-ceiling kitchen suite featuring integrated pull-out larder units, internal LED strip sensors, and hidden breakfast bay.'
+      },
+      {
+        id: 'kitchen-chef-island-brass',
+        name: 'Professional Chef Island with Brass Overhead Gantry',
+        image: 'images/kitchen-chef-island-brass.jpg',
+        priceEstimate: 'Starting at ₦2,200,000',
+        materials: '304 Stainless Worktop & Suspended Brass Utensil Rack',
+        finish: 'Food-Grade Satin Stainless & Brushed Brass',
+        dimensions: '2.8m L × 1.2m W × 0.9m H',
+        description: 'Commercial-inspired residential cooking island featuring a heat-proof stainless steel worktop and overhead brass hanging bridge.'
+      },
+      {
+        id: 'kitchen-contemporary-cabinetry',
+        name: 'Handleless Minimalist Flush Kitchen Cabinetry',
+        image: 'images/kitchen-contemporary-cabinetry.jpg',
+        priceEstimate: 'Starting at ₦3,100,000',
+        materials: 'Integrated J-Pull Aluminium Grooves & Quartz Countertops',
+        finish: 'Seamless Silk Matte Polyurethane',
+        dimensions: 'Custom Site Specifications',
+        description: 'Handleless contemporary kitchen joinery with continuous horizontal finger-pull rails, flush integrated appliances, and under-cabinet glow.'
+      },
+      {
+        id: 'kitchen-luxury-dark-graphite',
+        name: 'Dark Graphite Luxury Kitchen with Waterfall Island',
+        image: 'images/kitchen-luxury-dark-graphite.jpg',
+        priceEstimate: 'Starting at ₦3,450,000',
+        materials: 'Graphite Matte Polyurethane & Sintered Stone Waterfall',
+        finish: 'Dark Graphite & Veined Sintered Stone',
+        dimensions: 'Bespoke Executive Layout',
+        description: 'Monolithic modern kitchen dominated by a 3-metre waterfall stone island, integrated flush-mount induction hob, and downdraft hood.'
+      },
+      {
+        id: 'kitchen-modern-sleek-island',
+        name: 'Monolithic Cantilevered Breakfast Bar Kitchen Island',
+        image: 'images/kitchen-modern-sleek-island.jpg',
+        priceEstimate: 'Starting at ₦2,400,000',
+        materials: 'Internal Structural Steel Cantilever Spine & Composite Stone',
+        finish: 'Matte Composite & Blackened Steel Base',
+        dimensions: '3.0m L × 1.1m W × 0.9m H',
+        description: 'Sculptural island engineered with a concealed steel armature allowing the breakfast bar counter to hover with zero supporting legs.'
+      },
+      {
+        id: 'kitchen-twotone-modern',
+        name: 'Two-Tone Architectural Kitchen Suite (Black Metal & Walnut)',
+        image: 'images/kitchen-twotone-modern.jpg',
+        priceEstimate: 'Starting at ₦2,950,000',
+        materials: 'Black Powder-Coated Metal Cages & Rich Walnut Veneers',
+        finish: 'Satin Black Steel & Sealed American Walnut',
+        dimensions: 'Custom Kitchen Footprint',
+        description: 'Warm modern kitchen featuring contrasting walnut lower cabinets, blackened metal open upper framework, and built-in wine storage.'
+      },
+      {
+        id: 'kitchen-overhead-brass-stemware',
+        name: 'Overhead Suspended Brass Island Stemware Rack',
+        image: 'images/shelf-kitchen-open-brass-rod.jpg',
+        priceEstimate: 'Starting at ₦380,000',
+        materials: 'Brushed Brass Box Tubing & Wine Glass Slotted Rails',
+        finish: 'Clear Protective Coated Brushed Brass',
+        dimensions: '1.8m L × 0.4m W × 0.85m Drop',
+        description: 'Ceiling-suspended island bar rack providing illuminated stemware hanging channels, spirit storage, and integrated downlighting.'
+      },
+      {
+        id: 'kitchen-stainless-storage',
+        name: 'Commercial-Grade 304 Stainless Steel Kitchen Storage Unit',
+        image: 'images/shelf-metal-stainless-kitchen.jpg',
+        priceEstimate: 'Starting at ₦550,000',
+        materials: '1.5mm Food-Grade Stainless Steel & Adjustable Bullet Feet',
+        finish: 'Satin Brushed Stainless Steel',
+        dimensions: '1.8m W × 0.6m D × 1.8m H',
+        description: 'Heavy sanitary stainless storage shelving engineered for high-end residential sculleries, chef prep kitchens, and walk-in pantries.'
+      }
+    ]
+  },
+
+  // 13. Wardrobes
+  {
+    category: 'Wardrobes',
+    department: 'Cabinetry & Joinery',
+    items: [
+      {
+        id: 'wardrobe-bespoke-dressing',
+        name: 'Bespoke Luxury Walk-In Dressing Room Suite',
+        image: 'images/wardrobe-bespoke-dressing.jpg',
+        priceEstimate: 'Starting at ₦3,200,000 (Complete Suite)',
+        materials: 'Moisture-Resistant Engineered Core & Blackened Aluminium Profiles',
+        finish: 'Dark Oak Veneer & Smoked Glass Shelving',
+        dimensions: 'Custom Room Dimensions (3.5m × 3.0m std)',
+        description: 'Complete luxury dressing room featuring bespoke shoe carousels, backlit glass display cabinets, watch winders, and central accessory island.'
+      },
+      {
+        id: 'wardrobe-fluted-cabinet',
+        name: 'Fluted Front Wardrobe with Satin Metal Hardware',
+        image: 'images/wardrobe-fluted-cabinet.jpg',
+        priceEstimate: 'Starting at ₦1,850,000',
+        materials: 'Precision CNC Fluted MDF & Brushed Brass Handles',
+        finish: 'Matte Charcoal Grey & Brushed Brass',
+        dimensions: '2.4m W × 0.65m D × 2.6m H',
+        description: 'Architectural wardrobe with 3-dimensional fluted door fascias, integrated soft-closing drawer packs, and full-height hanging rails.'
+      },
+      {
+        id: 'wardrobe-fluted-mirror-suite',
+        name: 'Full-Height Sliding Mirror & Steel Wardrobe Suite',
+        image: 'images/wardrobe-fluted-mirror-suite.jpg',
+        priceEstimate: 'Starting at ₦2,100,000',
+        materials: 'Heavy Top-Hung Steel Sliding Gear & Bronzed Mirror Glass',
+        finish: 'Bronzed Mirror & ATG Obsidian Frame',
+        dimensions: '3.0m W × 2.7m H',
+        description: 'Floor-to-ceiling sliding wardrobe doors glazed in warm bronzed reflection mirror that magnifies bedroom space and light.'
+      },
+      {
+        id: 'wardrobe-fluted-walnut-suite',
+        name: 'Architectural Fluted Walnut & Matte Black Wardrobe',
+        image: 'images/wardrobe-fluted-walnut-suite.jpg',
+        priceEstimate: 'Starting at ₦2,450,000',
+        materials: 'Walnut Veneer & Steel Perimeter Capping',
+        finish: 'Natural American Walnut & Matte Obsidian',
+        dimensions: '2.8m W × 2.6m H',
+        description: 'Sophisticated bedroom storage suite combining tactile natural walnut texture, recessed black metal handles, and internal LED warm downlights.'
+      },
+      {
+        id: 'wardrobe-luxury-walkin-dressing',
+        name: 'Open Architectural Walk-In Closet with Warm Perimeter Lighting',
+        image: 'images/wardrobe-luxury-walkin-dressing.jpg',
+        priceEstimate: 'Starting at ₦2,750,000',
+        materials: 'Aluminium Stanchion Modular System & Smoked Glass Shelves',
+        finish: 'Anodised Black Aluminium & Leather Drawer Liners',
+        dimensions: 'Bespoke Dressing Room Space',
+        description: 'Contemporary open closet framework with floor-to-ceiling uprights, concealed wiring, and automatic wardrobe PIR light bars.'
+      },
+      {
+        id: 'wardrobe-sensor-lit-organizer',
+        name: 'Smart Sensor-Illuminated Wardrobe Accessory Organiser',
+        image: 'images/wardrobe-sensor-lit-organizer.jpg',
+        priceEstimate: 'Starting at ₦1,650,000',
+        materials: 'Velvet-Lined Jewellery Drawers & Steel Hanging Rods',
+        finish: 'Satin Finish with Microfiber Velvet Liners',
+        dimensions: '2.0m W × 2.4m H',
+        description: 'Dedicated accessory module with custom compartments for belts, watches, sunglasses, and jewellery with glass drawer inspection tops.'
+      },
+      {
+        id: 'wardrobe-pantry-storage-wall',
+        name: 'Custom Wardrobe Shoe & Bag Display Wall',
+        image: 'images/storage-pantry-modular-unit.jpg',
+        priceEstimate: 'Starting at ₦1,450,000',
+        materials: 'Slanted Display Shelves with Brass Retaining Bars',
+        finish: 'Matte Black Lacquer & Brass Trim',
+        dimensions: '1.8m W × 2.4m H × 0.4m D',
+        description: 'Dedicated angled footwear display shelving accommodating up to 48 pairs of shoes with internal warm LED edge illumination.'
+      },
+      {
+        id: 'wardrobe-floor-ceiling-utility',
+        name: 'Floor-to-Ceiling Integrated Utility & Wardrobe System',
+        image: 'images/storage-floor-ceiling-utility.jpg',
+        priceEstimate: 'Starting at ₦1,750,000',
+        materials: 'Full-Height Steel Framed Doors & Deep Linen Storage',
+        finish: 'Matte Powder Coat & Durable Melamine Carcass',
+        dimensions: '2.4m W × 3.0m H',
+        description: 'Maximises vertical ceiling height to provide upper long-term luggage/quilt storage and lower day-to-day apparel organisation.'
+      },
+      {
+        id: 'wardrobe-open-metal-wood-rack',
+        name: 'Minimalist Open-Wardrobe Steel Frame with Timber Drawers',
+        image: 'images/storage-metal-wood-rack.jpg',
+        priceEstimate: 'Starting at ₦920,000',
+        materials: 'Welded Box Section Steel Frame & Solid Teak Drawer Unit',
+        finish: 'Matte Obsidian Frame & Natural Teak',
+        dimensions: '1.6m W × 0.5m D × 2.1m H',
+        description: 'Freestanding modular wardrobe unit combining open industrial steel clothes rails with solid teak soft-close lower drawer chests.'
+      }
+    ]
+  },
+
+  // 14. Aluminium & Glass
+  {
+    category: 'Aluminium & Glass',
+    department: 'Architectural Metalwork',
+    items: [
+      {
+        id: 'glass-sliding-patio-wall',
+        name: 'Floor-to-Ceiling Thermal-Break Aluminium Sliding Patio System',
+        image: 'images/glass-sliding-patio-wall.jpg',
+        priceEstimate: 'Starting at ₦2,450,000 (Multi-Panel System)',
+        materials: 'Heavy-Duty Extruded Aluminium & Double-Glazed Low-E Glass',
+        finish: 'Architectural Obsidian Powder Coat',
+        dimensions: '4.5m W × 2.8m H (Custom Widths)',
+        description: 'High-performance multi-slide glass patio doors with flush floor threshold, smooth stainless steel tandem rollers, and heavy wind seals.'
+      },
+      {
+        id: 'glass-skylight-floor',
+        name: 'Walkable Structural Glass Floor & Overhead Skylight Panel',
+        image: 'images/glass-skylight-floor.jpg',
+        priceEstimate: 'Starting at ₦1,850,000',
+        materials: 'Triple Laminated 32mm Toughened Glass & Steel Curb Frame',
+        finish: 'Galvanised Steel Frame & Anti-Slip Ceramic Frit Glass',
+        dimensions: '2.0m × 1.2m Panel Span',
+        description: 'Load-bearing architectural glass floor panel channeling daylight into basement levels or serving as an overhead glass roof terrace.'
+      },
+      {
+        id: 'glass-fluted-privacy-screen',
+        name: 'Reeded Architectural Fluted Glass Metal Partition',
+        image: 'images/glass-fluted-privacy-screen.jpg',
+        priceEstimate: 'Starting at ₦520,000',
+        materials: '10mm Fluted Tempered Glass & Ultra-Slim Steel Perimeter',
+        finish: 'ATG Obsidian Black Matte',
+        dimensions: '1.2m W × 2.6m H',
+        description: 'Interior privacy divider pairing reeded glass with minimal metal framing to obscure sightlines while distributing daylight evenly.'
+      },
+      {
+        id: 'glass-wine-cellar-enclosure',
+        name: 'Climate-Controlled Glass & Steel Wine Cellar Enclosure',
+        image: 'images/glass-wine-cellar-enclosure.jpg',
+        priceEstimate: 'Starting at ₦2,650,000',
+        materials: 'Argon-Filled Double Glazing, Thermal Breaks & Custom Steel Racks',
+        finish: 'Matte Black Anodised Frame & Warm LED Internal Racks',
+        dimensions: 'Custom Enclosure Dimensions',
+        description: 'Airtight hermetically sealed architectural glass enclosure with climate control unit integration and bottle capacity from 250+ bottles.'
+      },
+      {
+        id: 'glass-acoustic-office-screen',
+        name: 'Acoustic Glazed Office Partition with Black Framework',
+        image: 'images/glass-acoustic-office-screen.jpg',
+        priceEstimate: 'Starting at ₦680,000',
+        materials: '12.8mm Acoustic Laminated Glass & Modular Aluminium Frame',
+        finish: 'Satin Architectural Black',
+        dimensions: '3.0m W × 2.7m H',
+        description: 'Commercial interior glass wall system providing 42dB acoustic isolation for executive conference rooms and meeting suites.'
+      },
+      {
+        id: 'glass-casement-black-aluminium',
+        name: 'Architectural Black Aluminium Casement Window Suite',
+        image: 'images/glass-casement-black-aluminium.jpg',
+        priceEstimate: 'Starting at ₦420,000',
+        materials: 'High-Grade Thermal Aluminium Profiles & Multi-Point Locks',
+        finish: 'Polyester Powder Coat (Anti-Fade)',
+        dimensions: '1.2m W × 1.5m H',
+        description: 'Slim sightline exterior casement windows with friction stays, perimeter EPDM weatherstripping, and high security espagnolettes.'
+      },
+      {
+        id: 'glass-french-door-interior',
+        name: 'Interior Slimline Steel Glazed Pocket Double Door',
+        image: 'images/glass-french-door-interior.jpg',
+        priceEstimate: 'Starting at ₦850,000',
+        materials: 'Ultra-Slim 20mm Sightline Steel & Clear Glass',
+        finish: 'Matte Black Powder Coat',
+        dimensions: '1.6m W × 2.3m H',
+        description: 'Space-efficient double pocket sliding door sliding seamlessly into wall cavities to connect living and dining zones.'
+      },
+      {
+        id: 'glass-partition-crittall-door',
+        name: 'Crittall Studio Partition with Integrated Swing Door',
+        image: 'images/glass-partition-crittall-door.jpg',
+        priceEstimate: 'Starting at ₦920,000',
+        materials: 'Welded T-Section Mild Steel & Acoustic Glass',
+        finish: 'Satin Architectural Black',
+        dimensions: '2.4m W × 2.6m H',
+        description: 'Bespoke room-dividing screen with single central active door leaf, offering 38dB acoustic reduction for home offices.'
+      },
+      {
+        id: 'glass-pivot-architectural-door',
+        name: 'Architectural Fluted Glass Steel Pivot Door',
+        image: 'images/glass-pivot-architectural-door.jpg',
+        priceEstimate: 'Starting at ₦1,050,000',
+        materials: 'Reeded Architectural Glass & Satin Black Steel',
+        finish: 'ATG Obsidian Powder Coat',
+        dimensions: '1.2m W × 2.5m H',
+        description: 'Interior feature pivot door fitted with vertical fluted texture glass that softly diffuses interior light while ensuring privacy.'
+      }
+    ]
+  },
+
+  // 15. Interior Solutions
+  {
+    category: 'Interior Solutions',
+    department: 'Furniture & Interiors',
+    items: [
+      {
+        id: 'interior-modern-fireplace',
+        name: 'Architectural Blackened Steel & Stone Bioethanol Fireplace',
+        image: 'images/interior-modern-fireplace.jpg',
+        priceEstimate: 'Starting at ₦950,000',
+        materials: '4mm Heat-Resistant Plate Steel & Fluted Stone Surround',
+        finish: 'Heat-Tolerant Blackened Patina & Honed Limestone',
+        dimensions: '2.0m W × 0.45m D × 1.2m H',
+        description: 'Ventless luxury fireplace unit powered by eco-friendly bioethanol, wrapped in precision mitered blackened plate steel and stone.'
+      },
+      {
+        id: 'interior-metal-mesh-ceiling',
+        name: 'Suspended Architectural Metal Mesh Feature Ceiling',
+        image: 'images/interior-metal-mesh-ceiling.jpg',
+        priceEstimate: '₦145,000 / sqm',
+        materials: 'Expanded Aluminium Mesh & Integrated Lighting Channels',
+        finish: 'Matte Obsidian Black',
+        dimensions: 'Modular Grid per Ceiling Plan',
+        description: 'Contemporary commercial and hospitality ceiling feature providing acoustic absorption, concealed lighting, and high industrial style.'
+      },
+      {
+        id: 'interior-acoustic-slat-media-wall',
+        name: 'Acoustic Slatted Timber & Metal Media Feature Wall',
+        image: 'images/interior-acoustic-slat-media-wall.jpg',
+        priceEstimate: 'Starting at ₦850,000',
+        materials: 'Seasoned Fluted Timber Slats on Black Acoustic Felt Backing',
+        finish: 'Natural Teak / Walnut & Dark Acoustic Polyester',
+        dimensions: '3.6m W × 2.8m H',
+        description: 'Full-wall media feature panel eliminating room echo and reverberation, complete with concealed wiring channels and LED cove accents.'
+      },
+      {
+        id: 'interior-acoustic-crittall-pod',
+        name: 'Acoustic Office Collaboration Pod with Steel Glass Enclosure',
+        image: 'images/interior-acoustic-crittall-pod.jpg',
+        priceEstimate: 'Starting at ₦2,850,000',
+        materials: 'Modular Steel Frame, Acoustic Glazing & Sound-Absorbing Panels',
+        finish: 'Architectural Black Powder Coat & Soundproof Felt',
+        dimensions: '2.2m W × 2.2m D × 2.4m H',
+        description: 'Freestanding acoustic focus room for open-plan offices, featuring air ventilation filtration, task lighting, and power connectivity.'
+      },
+      {
+        id: 'interior-reception-desk-brass',
+        name: 'Commercial Concierge & Reception Desk with Brass Plinth',
+        image: 'images/interior-reception-desk-brass.jpg',
+        priceEstimate: 'Starting at ₦1,150,000',
+        materials: 'Blackened Steel Plate Body & Hand-Brushed Brass Kickplate',
+        finish: 'Wax Sealed Raw Steel & Brushed Brass',
+        dimensions: '2.6m W × 0.85m D × 1.1m H',
+        description: 'Sculptural reception desk with recessed lighting, integrated document storage, and heavy architectural brass plinth for corporate foyers.'
+      },
+      {
+        id: 'interior-fluted-divider-screen',
+        name: 'Architectural Fluted Glass Divider Screen',
+        image: 'images/glass-fluted-privacy-screen.jpg',
+        priceEstimate: 'Starting at ₦480,000',
+        materials: 'Textured Reeded Glass & Matte Black Minimal Frame',
+        finish: 'Matte Black Anodised Aluminium',
+        dimensions: '1.1m W × 2.5m H',
+        description: 'Interior feature divider screen softly partitioning dining and living spaces without blocking natural sunlight.'
+      },
+      {
+        id: 'interior-glazed-partition-wall',
+        name: 'Floor-to-Ceiling Interior Glazed Room Partition',
+        image: 'images/glass-acoustic-office-screen.jpg',
+        priceEstimate: 'Starting at ₦620,000',
+        materials: 'High Clarity Toughened Glass & Architectural Black Trims',
+        finish: 'ATG Obsidian Black',
+        dimensions: '2.8m W × 2.7m H',
+        description: 'Minimalist interior glass partition providing visual connectivity between living rooms, home libraries, and courtyards.'
+      },
+      {
+        id: 'interior-floating-media-credenza',
+        name: 'Wall-Mounted Architectural Media Credenza',
+        image: 'images/furniture-fluted-media-unit.jpg',
+        priceEstimate: 'Starting at ₦640,000',
+        materials: 'Fluted Hardwood Fascia & Heavy Steel Anchor Subframe',
+        finish: 'Walnut Stain & Matte Obsidian Metal',
+        dimensions: '2.4m L × 0.4m D × 0.45m H',
+        description: 'Suspended floating media console with hidden cable pass-throughs, push-latch doors, and cantilevered wall installation.'
+      },
+      {
+        id: 'interior-biophilic-planter-screen',
+        name: 'Architectural Greenery Planter & Steel Screen Divider',
+        image: 'images/furniture-planter-divider.jpg',
+        priceEstimate: 'Starting at ₦380,000',
+        materials: 'Powder-Coated Metal Planter Box with Vertical Rod Screen',
+        finish: 'ATG Obsidian Black Powder Coat',
+        dimensions: '1.5m L × 0.35m W × 1.8m H',
+        description: 'Biophilic interior screen combining an integrated floor planter box with vertical trellis rods to create living acoustic green partitions.'
+      }
+    ]
+  }
+];
+
+const allDesigns = [];
+categoriesData.forEach(cat => {
+  cat.items.forEach(item => {
+    allDesigns.push({
+      id: item.id,
+      name: item.name,
+      category: cat.category,
+      department: cat.department,
+      image: item.image,
+      featured: true,
+      priceEstimate: item.priceEstimate,
+      materials: item.materials,
+      finish: item.finish,
+      dimensions: item.dimensions,
+      description: item.description
+    });
+  });
+});
+
+console.log('Categories count:', categoriesData.length);
+console.log('Total designs:', allDesigns.length);
+
+const code = `/**
+ * ATG Metal Works & Interiors — Official Design Catalogue Data
+ * High-Precision Master Catalogue
+ * 15 Verified Architectural Categories × Exactly 9 Featured Designs = 135 Designs
+ * Calibrated with Real Architectural Imagery, Exact Matching Specs & Realistic Nigerian Market Pricing
+ */
+
+(function () {
+    'use strict';
+
+    window.ATG_CATEGORIES = ${JSON.stringify(categoriesMeta, null, 4)};
+
+    window.ATG_CATALOGUE_DATA = ${JSON.stringify(allDesigns, null, 4)};
+
+    // Helper to fetch designs by category
+    window.ATG_GET_DESIGNS_BY_CATEGORY = function(categoryName) {
+        if (!categoryName || categoryName === 'all') return window.ATG_CATALOGUE_DATA;
+        return window.ATG_CATALOGUE_DATA.filter(function(d) {
+            return d.category.toLowerCase() === categoryName.toLowerCase();
+        });
+    };
+
+    // Helper to get exactly 9 featured designs per category for Services Overview
+    window.ATG_GET_FEATURED_BY_CATEGORY = function(categoryName) {
+        var pool = window.ATG_GET_DESIGNS_BY_CATEGORY(categoryName);
+        return pool.slice(0, 9);
+    };
+})();
+`;
+
+fs.writeFileSync('JS/catalogue-data.js', code, 'utf8');
+console.log('SUCCESS: JS/catalogue-data.js has been generated.');
+

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ATG Metal Works & Interior Design</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/contact.css">
+    <link rel="stylesheet" href="CSS/atg-transitions.css">
+</head>
+
+<body>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">ATG</a>
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-item">Home</a>
+            <a href="services.html" class="mobile-nav-item">Services</a>
+
+            <div class="mobile-accordion">
+                <button class="mobile-accordion-btn">Gallery <span class="arrow">▼</span></button>
+                <div class="mobile-accordion-content">
+                    <a href="gallery.html">All Projects</a>
+                    <a href="gallery.html?category=Metal%20Fabrication">Metal Fabrication</a>
+                    <a href="gallery.html?category=Interior%20Projects">Interior Projects</a>
+                    <a href="gallery.html?category=Furniture%20%26%20Joinery">Furniture &amp; Joinery</a>
+                    <a href="gallery.html?category=Commercial%20Projects">Commercial Projects</a>
+                    <a href="gallery.html?category=Residential%20Projects">Residential Projects</a>
+                </div>
+            </div>
+
+            <a href="company.html" class="mobile-nav-item">Company</a>
+
+            <a href="insights.html" class="mobile-nav-item">Insights</a>
+            <a href="contact.html" class="mobile-nav-item active">Contact</a>
+        </div>
+        <div class="mobile-menu-footer">
+            <a href="start-your-project.html" class="btn btn-primary full-width">
+                Start Your Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Navbar -->
+    <header class="navbar-wrapper" id="navbarWrapper">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                ATG
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="gallery.html" class="nav-link">Gallery <svg class="dropdown-arrow" width="10" height="10"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg></a>
+                    <div class="dropdown-menu image-dropdown">
+                        <div class="image-dropdown-inner">
+                            <div class="menu-column">
+                                <a href="gallery.html" class="dropdown-link">All Projects</a>
+                                <a href="gallery.html?category=Metal%20Fabrication" class="dropdown-link">Metal Fabrication</a>
+                                <a href="gallery.html?category=Interior%20Projects" class="dropdown-link">Interior Projects</a>
+                                <a href="gallery.html?category=Furniture%20%26%20Joinery" class="dropdown-link">Furniture &amp; Joinery</a>
+                                <a href="gallery.html?category=Commercial%20Projects" class="dropdown-link">Commercial Projects</a>
+                                <a href="gallery.html?category=Residential%20Projects" class="dropdown-link">Residential Projects</a>
+                                <a href="gallery.html" class="dropdown-link view-all">View All Projects <svg width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg></a>
+                            </div>
+                            <div class="dropdown-featured-image">
+                                <img src="images/dropdown_portfolio.png" alt="Featured Project Gallery">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="company.html" class="nav-link">Company</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="insights.html" class="nav-link">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="start-your-project.html" class="btn btn-primary">
+                    Start Your Project
+                    <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact-page-main">
+        <!-- Section 1: Hero Banner -->
+        <section class="cp-hero">
+            <div class="cp-hero-bg">
+                <div class="cp-hero-overlay"></div>
+            </div>
+            <div class="cp-hero-content animate-fade-up">
+                <span class="cp-hero-eyebrow">GET IN TOUCH</span>
+                <h1 class="cp-hero-title">Let's Build Something Exceptional Together</h1>
+                <p class="cp-hero-desc">Whether you're planning a residential, commercial or industrial project, our team is ready to help bring your vision to life.</p>
+                <div class="cp-hero-cta">
+                    <a href="tel:+2348023358828" class="btn btn-primary">
+                        Call Us
+                        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact-form" class="btn btn-secondary smooth-scroll">
+                        Request a Quote
+                    </a>
+                </div>
+            </div>
+            <div class="cp-hero-shapes">
+                <div class="cp-shape cp-shape-1"></div>
+                <div class="cp-shape cp-shape-2"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: Contact Information Cards -->
+        <section class="cp-info-cards-section">
+            <div class="cp-container">
+                <div class="cp-info-cards-grid cp-stagger-fade-up">
+                    <a href="tel:+2348023358828" class="cp-info-card cp-animate-item">
+                        <div class="cp-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+234 802 335 8828</p>
+                    </a>
+                    <a href="mailto:info@atgmetalworks.com" class="cp-info-card cp-animate-item">
+                        <div class="cp-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>info@atgmetalworks.com</p>
+                    </a>
+                    <div class="cp-info-card cp-animate-item">
+                        <div class="cp-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Jabi<br>Abuja<br>Nigeria</p>
+                    </div>
+                    <div class="cp-info-card cp-animate-item">
+                        <div class="cp-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3>Business Hours</h3>
+                        <p>Monday–Thursday<br>7:00 AM–5:30 PM<br><br>Friday<br>9:00 AM–5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Contact Form + Map -->
+        <section class="cp-form-map-section" id="contact-form">
+            <div class="cp-container">
+                <div class="cp-split-layout">
+                    <!-- Left: Form -->
+                    <div class="cp-form-wrapper cp-animate-fade-left">
+                        <form id="premiumContactForm" class="cp-form" novalidate>
+                            <h2 class="cp-section-title">Send a Message</h2>
+                            
+                            <div class="cp-form-row">
+                                <div class="cp-input-group">
+                                    <input type="text" id="fullName" name="fullName" placeholder=" " required>
+                                    <label for="fullName">Full Name</label>
+                                    <span class="cp-error-msg">Please enter your full name.</span>
+                                </div>
+                            </div>
+
+                            <div class="cp-form-row two-cols">
+                                <div class="cp-input-group">
+                                    <input type="email" id="emailAddr" name="emailAddr" placeholder=" " required>
+                                    <label for="emailAddr">Email Address</label>
+                                    <span class="cp-error-msg">Please enter a valid email address.</span>
+                                </div>
+                                <div class="cp-input-group">
+                                    <input type="tel" id="phoneNum" name="phoneNum" placeholder=" " required>
+                                    <label for="phoneNum">Phone Number</label>
+                                    <span class="cp-error-msg">Please enter a valid phone number.</span>
+                                </div>
+                            </div>
+
+                            <div class="cp-form-row">
+                                <div class="cp-input-group">
+                                    <input type="text" id="companyName" name="companyName" placeholder=" ">
+                                    <label for="companyName">Company Name (Optional)</label>
+                                </div>
+                            </div>
+
+                            <div class="cp-form-row">
+                                <div class="cp-input-group select-group">
+                                    <select id="serviceReq" name="serviceReq" required>
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="residential">Residential Architecture</option>
+                                        <option value="commercial">Commercial Development</option>
+                                        <option value="metal_fab">Metal Fabrication</option>
+                                        <option value="interior">Interior Design</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <label for="serviceReq">Service Required</label>
+                                    <svg class="select-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    <span class="cp-error-msg">Please select a service.</span>
+                                </div>
+                            </div>
+
+                            <div class="cp-form-row">
+                                <div class="cp-input-group textarea-group">
+                                    <textarea id="projectMsg" name="projectMsg" rows="4" placeholder=" " required></textarea>
+                                    <label for="projectMsg">Message</label>
+                                    <span class="cp-error-msg">Please provide some details about your project.</span>
+                                </div>
+                            </div>
+
+                            <div class="cp-form-row cp-checkbox-row">
+                                <div class="cp-checkbox-group">
+                                    <input type="checkbox" id="privacyPolicy" name="privacyPolicy" required>
+                                    <label for="privacyPolicy">I agree to the privacy policy.</label>
+                                    <span class="cp-error-msg">You must agree to the privacy policy.</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary cp-submit-btn">
+                                <span class="btn-text">Request Consultation</span>
+                                <span class="btn-loader"></span>
+                                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                            <div class="cp-form-success">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Message sent successfully! We will contact you soon.</span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right: Map -->
+                    <div class="cp-map-wrapper cp-animate-fade-right">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126084.72149594411!2d7.340919363025078!3d9.033872583808795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bff6ccbba9c5cb!2sJabi%2C%20Abuja%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Our Office -->
+        <section class="cp-office-section cp-animate-blur">
+            <div class="cp-container">
+                <div class="cp-office-grid">
+                    <div class="cp-office-image cp-animate-zoom">
+                        <div class="cp-office-img-placeholder"></div>
+                    </div>
+                    <div class="cp-office-content cp-animate-fade-left">
+                        <h2 class="cp-section-title">Visit Our Workshop</h2>
+                        <p class="cp-section-desc">Experience our craftsmanship firsthand. Our state-of-the-art facility in Jabi is where visions are transformed into tangible luxury.</p>
+                        
+                        <div class="cp-office-details">
+                            <div class="cp-office-detail-card">
+                                <h4>Office Address</h4>
+                                <p>Jabi, Abuja, Nigeria</p>
+                            </div>
+                            <div class="cp-office-detail-card">
+                                <h4>Phone</h4>
+                                <p>+234 802 335 8828</p>
+                            </div>
+                            <div class="cp-office-detail-card">
+                                <h4>Email</h4>
+                                <p>info@atgmetalworks.com</p>
+                            </div>
+                            <div class="cp-office-detail-card">
+                                <h4>Working Hours</h4>
+                                <p>Mon–Fri: 7:00 AM - 5:30 PM</p>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-secondary">Get Directions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Our Process -->
+        <section class="cp-process-section">
+            <div class="cp-container">
+                <div class="cp-section-header cp-text-center cp-animate-fade-up">
+                    <span class="cp-hero-eyebrow">HOW WE WORK</span>
+                    <h2 class="cp-section-title">Our Process</h2>
+                </div>
+                
+                <div class="cp-process-timeline cp-stagger-fade-up">
+                    <div class="cp-process-line"></div>
+                    
+                    <div class="cp-process-step cp-animate-item">
+                        <div class="cp-process-number">01</div>
+                        <h3 class="cp-process-name">Contact Us</h3>
+                    </div>
+                    <div class="cp-process-step cp-animate-item">
+                        <div class="cp-process-number">02</div>
+                        <h3 class="cp-process-name">Consultation</h3>
+                    </div>
+                    <div class="cp-process-step cp-animate-item">
+                        <div class="cp-process-number">03</div>
+                        <h3 class="cp-process-name">Quotation</h3>
+                    </div>
+                    <div class="cp-process-step cp-animate-item">
+                        <div class="cp-process-number">04</div>
+                        <h3 class="cp-process-name">Fabrication</h3>
+                    </div>
+                    <div class="cp-process-step cp-animate-item">
+                        <div class="cp-process-number">05</div>
+                        <h3 class="cp-process-name">Installation</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Frequently Asked Questions -->
+        <section class="cp-faq-section">
+            <div class="cp-container">
+                <div class="cp-section-header cp-text-center cp-animate-fade-up">
+                    <h2 class="cp-section-title">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="cp-accordion-wrapper cp-animate-fade-up">
+                    <!-- Item 1 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">How long does fabrication take?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>Fabrication timelines vary depending on the complexity and scale of your project. We typically provide a precise schedule during the quotation phase.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">Do you offer free quotations?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>Yes, we provide complimentary initial consultations and standard quotations for all prospective projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">Can I request a site visit?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>Absolutely. Site visits are crucial for accurate measurements and understanding spatial constraints, especially for architectural installations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">Do you work outside Abuja?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>Yes, we handle premium residential and commercial projects across Nigeria depending on the scope of work.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">Do you manufacture custom furniture?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>We specialize in bespoke interiors, fabricating custom metal and hybrid furniture tailored precisely to your design requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="cp-accordion-item">
+                        <button class="cp-accordion-trigger">
+                            <span class="cp-accordion-title">Can you handle large commercial projects?</span>
+                            <span class="cp-accordion-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            </span>
+                        </button>
+                        <div class="cp-accordion-content">
+                            <div class="cp-accordion-content-inner">
+                                <p>Yes, our facility and team are equipped to manage and deliver large-scale commercial developments and industrial structural steelworks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Call-To-Action Banner -->
+        <section class="cp-cta-section cp-animate-fade-up">
+            <div class="cp-container">
+                <div class="cp-cta-banner">
+                    <h2 class="cp-section-title">Ready to Start Your Project?</h2>
+                    <p class="cp-section-desc">Reach out today and let's craft an environment that leaves a lasting impression.</p>
+                    <div class="cp-cta-actions">
+                        <a href="#contact-form" class="btn btn-primary cp-btn-glow smooth-scroll">Request a Quote</a>
+                        <a href="#" class="btn btn-secondary">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Newsletter -->
+        <section class="cp-newsletter-section cp-animate-fade-up">
+            <div class="cp-container">
+                <div class="cp-newsletter-inner">
+                    <h2 class="cp-section-title">Stay Updated</h2>
+                    <p class="cp-section-desc">Join our newsletter to receive the latest updates on our projects and industry insights.</p>
+                    <form id="cpNewsletterForm" class="cp-newsletter-form">
+                        <div class="cp-newsletter-input-group">
+                            <input type="email" id="nlEmail" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <div class="cp-newsletter-success">Thanks for subscribing!</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-massive-text">ATG METAL WORKS</div>
+        <div class="footer-container">
+            <div class="footer-top">
+                <!-- Brand -->
+                <div class="footer-column brand-column">
+                    <a href="index.html" class="footer-logo">ATG</a>
+                    <p class="footer-bio">Elevating architectural visions with uncompromising quality, precision metal fabrication, and luxury interior solutions across Nigeria.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Design Catalogue</a></li>
+                        <li><a href="services.html?category=Gates%20%26%20Fencing">Gates &amp; Fencing</a></li>
+                        <li><a href="services.html?category=Railings%20%26%20Staircases">Railings &amp; Staircases</a></li>
+                        <li><a href="services.html?category=Metal%20Fabrication">Metal Fabrication</a></li>
+                        <li><a href="services.html?category=Structural%20Steel">Structural Steel</a></li>
+                        <li><a href="services.html?category=Custom%20Furniture">Custom Furniture</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="company.html">About ATG</a></li>
+                        <li><a href="company.html#approach">Our Process</a></li>
+                        <li><a href="favourites.html">Saved Designs</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2348023358828">+234 802 335 8828</a></li>
+                        <li><a href="https://wa.me/2348023358828" target="_blank" rel="noopener">WhatsApp Us</a></li>
+                        <li><a href="mailto:info@atgmetalworks.com">info@atgmetalworks.com</a></li>
+                        <li class="footer-address">Jabi, Abuja 900108<br>FCT, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 ATG Metal Works & Interior Design. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top (Contact page specific) -->
+    <button class="cp-scroll-top-btn" id="cpScrollTopBtn" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="JS/index.js"></script>
+    <script src="JS/catalogue-data.js"></script>
+    <script src="JS/favourites.js"></script>
+    <script src="JS/contact.js"></script>
+    <script src="JS/atg-transitions.js"></script>
+</body>
+
+</html>

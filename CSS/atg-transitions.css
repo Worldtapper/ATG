@@ -1,0 +1,244 @@
+/* ============================================================
+   ATG Metal Works & Interiors — Page Transition System
+   Concept: Material Reveal (Concept 03)
+   Brand: black #010102 · cream #FCE7CC · gold #F4D194
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --atg-black: #010102;
+  --atg-ink-1: #050507;
+  --atg-ink-2: #07070a;
+  --atg-ink-3: #030304;
+  --atg-cream: #FCE7CC;
+  --atg-gold: #F4D194;
+  --atg-gold-soft: rgba(244, 209, 148, .45);
+  --atg-ease: cubic-bezier(.76, 0, .24, 1);
+  --atg-ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ---------- shared overlay root ---------- */
+
+.atg-tx-root {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  overflow: hidden;
+  pointer-events: all;
+}
+.atg-tx-root--fixed {
+  position: fixed;
+  z-index: 99999;
+}
+.atg-tx-root[hidden] {
+  display: none;
+}
+
+.atg-tx {
+  position: absolute;
+  inset: 0;
+  background: var(--atg-black);
+  color: var(--atg-cream);
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+}
+.atg-tx--fade {
+  opacity: 0;
+}
+
+.atg-tx__wordmark {
+  font-family: "Marcellus", "Times New Roman", serif;
+  letter-spacing: .42em;
+  text-indent: .42em; /* optical centering with tracking */
+  color: var(--atg-cream);
+}
+.atg-tx__caption {
+  font-size: clamp(9px, 1.1vw, 11px);
+  letter-spacing: .34em;
+  text-indent: .34em;
+  text-transform: uppercase;
+  color: rgba(252, 231, 204, .55);
+}
+
+/* ============================================================
+   CONCEPT 03 — MATERIAL REVEAL (SELECTED PRODUCTION CONCEPT)
+   A soft gold highlight sweeps a dark metal surface, revealing
+   a fine crafted pattern and the ATG label.
+   ============================================================ */
+
+.atg-tx--material-reveal {
+  background: transparent;
+}
+
+.tx3-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--atg-ink-2) 0%, var(--atg-black) 55%, var(--atg-ink-3) 100%);
+  opacity: 0;
+}
+.is-enter .tx3-bg {
+  animation: tx3-bgIn .5s var(--atg-ease-out) forwards;
+}
+@keyframes tx3-bgIn {
+  to { opacity: 1; }
+}
+
+.tx3-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(244, 209, 148, .055) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(45deg, rgba(252, 231, 204, .03) 0 1px, transparent 1px 28px);
+  opacity: 0;
+}
+.is-enter .tx3-pattern {
+  animation: tx3-patternIn 1.1s ease-out .55s forwards;
+}
+@keyframes tx3-patternIn {
+  to { opacity: 1; }
+}
+
+.tx3-sheen {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 34%;
+  background: linear-gradient(100deg,
+    transparent 0%,
+    rgba(244, 209, 148, .10) 32%,
+    rgba(244, 209, 148, .34) 50%,
+    rgba(252, 231, 204, .12) 66%,
+    transparent 100%);
+  filter: blur(4px);
+  transform: translateX(-140%) skewX(-16deg);
+  mix-blend-mode: screen;
+}
+.is-enter .tx3-sheen {
+  animation: tx3-sweep 1.5s cubic-bezier(.45, .05, .35, 1) .35s forwards;
+}
+@keyframes tx3-sweep {
+  to { transform: translateX(430%) skewX(-16deg); }
+}
+
+.tx3-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.tx3-rule {
+  width: 120px;
+  height: 1px;
+  background: var(--atg-gold);
+  transform: scaleX(0);
+}
+.is-enter .tx3-rule--t {
+  animation: tx3-ruleIn .7s var(--atg-ease-out) 1.25s forwards;
+  transform-origin: right;
+}
+.is-enter .tx3-rule--b {
+  animation: tx3-ruleIn .7s var(--atg-ease-out) 1.35s forwards;
+  transform-origin: left;
+}
+@keyframes tx3-ruleIn {
+  to { transform: scaleX(1); }
+}
+
+.tx3-wordmark {
+  font-size: clamp(22px, 4.6vmin, 36px);
+  opacity: 0;
+}
+.is-enter .tx3-wordmark {
+  animation: tx3-markIn .8s var(--atg-ease-out) 1.3s forwards;
+}
+@keyframes tx3-markIn {
+  from { opacity: 0; letter-spacing: .7em; }
+  to   { opacity: 1; letter-spacing: .42em; }
+}
+
+.tx3-caption {
+  opacity: 0;
+}
+.is-enter .tx3-caption {
+  animation: tx3-capIn .7s ease-out 1.55s forwards;
+}
+@keyframes tx3-capIn {
+  to { opacity: 1; }
+}
+
+/* exit: surface slides away downward */
+.is-exit .atg-tx--material-reveal {
+  animation: tx-exit-down 1s var(--atg-ease) .05s forwards;
+}
+@keyframes tx-exit-down {
+  to { transform: translateY(101%); }
+}
+
+/* Incoming reveal & covered exit state: all visual elements fully present as the surface slides away */
+.atg-tx-root.is-exit .tx3-bg,
+.atg-tx-root.is-covered .tx3-bg {
+  opacity: 1;
+  animation: none;
+}
+.atg-tx-root.is-exit .tx3-pattern,
+.atg-tx-root.is-covered .tx3-pattern {
+  opacity: 1;
+  animation: none;
+}
+.atg-tx-root.is-exit .tx3-rule,
+.atg-tx-root.is-covered .tx3-rule {
+  transform: scaleX(1);
+  animation: none;
+}
+.atg-tx-root.is-exit .tx3-wordmark,
+.atg-tx-root.is-covered .tx3-wordmark {
+  opacity: 1;
+  letter-spacing: .42em;
+  animation: none;
+}
+.atg-tx-root.is-exit .tx3-caption,
+.atg-tx-root.is-covered .tx3-caption {
+  opacity: 1;
+  animation: none;
+}
+
+/* ============================================================
+   Reduced-motion fallback: a simple, fast fade for every concept.
+   ============================================================ */
+
+.atg-tx--fade {
+  background: var(--atg-black);
+}
+.atg-tx--fade .atg-tx__wordmark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(20px, 4vmin, 32px);
+}
+.is-enter .atg-tx--fade {
+  animation: tx-fadeIn .18s linear forwards;
+}
+.is-exit .atg-tx--fade {
+  animation: tx-fadeOut .28s linear forwards;
+}
+@keyframes tx-fadeIn {
+  to { opacity: 1; }
+}
+@keyframes tx-fadeOut {
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atg-tx *, .atg-tx {
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
