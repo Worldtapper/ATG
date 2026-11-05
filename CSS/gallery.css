@@ -502,19 +502,31 @@
     justify-content: space-between;
 }
 
-.view-project-link {
+.view-project-link,
+.view-project-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 8px 18px;
+    background: rgba(244, 209, 148, 0.12);
+    border: 1px solid rgba(244, 209, 148, 0.4);
+    border-radius: 999px;
     font-size: 0.84rem;
     font-weight: 600;
+    font-family: inherit;
     color: var(--clr-gold);
-    transition: transform var(--transition-fast), color var(--transition-fast);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-fast);
 }
 
-.gallery-project-card:hover .view-project-link {
+.gallery-project-card:hover .view-project-link,
+.gallery-project-card:hover .view-project-btn,
+.view-project-btn:hover {
+    background: var(--clr-gold);
+    color: var(--clr-black);
+    border-color: var(--clr-gold);
     transform: translateX(4px);
-    color: #fff;
 }
 
 /* Empty State */
@@ -1074,29 +1086,68 @@
         min-height: 380px;
     }
 
+    .atg-project-modal-backdrop {
+        padding: 12px 10px;
+    }
+
+    .atg-project-modal-container {
+        max-height: 94vh;
+        border-radius: 16px;
+    }
+
     .prj-modal-hero {
-        height: 260px;
+        height: 240px;
     }
 
     .prj-modal-hero-badges {
-        left: 20px;
-        bottom: 16px;
+        left: 16px;
+        bottom: 14px;
     }
 
     .prj-modal-body-grid {
-        padding: 20px 18px 12px;
+        padding: 20px 16px 12px;
     }
 
     .prj-modal-title {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
+    }
+
+    .atg-modal-close-btn {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
     }
 
     .prj-modal-related {
-        padding: 20px 18px 0;
+        padding: 20px 16px 0;
     }
 
     .prj-related-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .atg-project-modal-backdrop {
+        padding: 8px 6px;
+    }
+
+    .atg-project-modal-container {
+        max-height: 96vh;
+        border-radius: 14px;
+    }
+
+    .prj-modal-hero {
+        height: 200px;
+    }
+
+    .prj-modal-body-grid {
+        padding: 16px 12px 10px;
+    }
+
+    .prj-modal-title {
+        font-size: 1.25rem;
     }
 }
 

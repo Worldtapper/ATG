@@ -1872,4 +1872,13 @@
         var pool = window.ATG_GET_DESIGNS_BY_CATEGORY(categoryName);
         return pool.slice(0, 9);
     };
+
+    // Helper to lookup a specific design by ID
+    window.getATGDesignById = function(designId) {
+        if (!designId || !window.ATG_CATALOGUE_DATA) return null;
+        var target = String(designId).toLowerCase().trim();
+        return window.ATG_CATALOGUE_DATA.find(function(d) {
+            return d.id && d.id.toLowerCase() === target;
+        }) || null;
+    };
 })();

@@ -604,7 +604,17 @@
     function openDesignModal(designId, triggerEl = null) {
         ensureModalDOM();
 
-        const design = window.getATGDesignById ? window.getATGDesignById(designId) : null;
+        if (typeof window.getATGDesignById !== 'function') {
+            window.getATGDesignById = function(id) {
+                if (!id || !window.ATG_CATALOGUE_DATA) return null;
+                var t = String(id).toLowerCase().trim();
+                return window.ATG_CATALOGUE_DATA.find(function(d) {
+                    return d.id && d.id.toLowerCase() === t;
+                }) || null;
+            };
+        }
+
+        const design = window.getATGDesignById(designId);
         if (!design) {
             console.warn('[ATG] Design not found for ID:', designId);
             return;
@@ -855,6 +865,19 @@ Please share availability for technical review and CAD shop drawings.`
                     openDesignModal(id, detailsBtn);
                 }
                 return;
+            }
+
+            // 4. Click on Card Media or Title to View Details
+            const cardClickTarget = e.target.closest('.card-media-wrapper, .card-title');
+            if (cardClickTarget) {
+                const card = cardClickTarget.closest('.atg-design-card');
+                if (card) {
+                    const id = card.getAttribute('data-id');
+                    if (id) {
+                        openDesignModal(id, cardClickTarget);
+                    }
+                    return;
+                }
             }
         });
     }
