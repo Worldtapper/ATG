@@ -7,6 +7,9 @@
     window.ATG_GALLERY_PROJECTS = [
     {
         "id": "atg-proj-01",
+        "division": "Metal Fabrication",
+        "category": "Gates & Portals",
+        "status": "Completed",
         "title": "The Guzape Monolith Pivot Portal",
         "subtitle": "Architectural Automated Bi-Fold & Pivot Entrance Portal",
         "categories": [
@@ -36,10 +39,14 @@
             "atg-proj-06",
             "atg-proj-14",
             "atg-proj-03"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-02",
+        "division": "Interiors",
+        "category": "Architectural Partitions",
+        "status": "Completed",
         "title": "Victoria Island Executive Crittall Partitions",
         "subtitle": "Ultra-Slim Structural Glass & Acoustic Steel Grid Walls",
         "categories": [
@@ -69,10 +76,14 @@
             "atg-proj-07",
             "atg-proj-08",
             "atg-proj-18"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-03",
+        "division": "Metal Fabrication",
+        "category": "Staircases",
+        "status": "Completed",
         "title": "Maitama Cantilevered Floating Staircase",
         "subtitle": "Sculptural Central Spine Staircase & Seamless Glass Balustrade",
         "categories": [
@@ -102,10 +113,14 @@
             "atg-proj-01",
             "atg-proj-09",
             "atg-proj-15"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-04",
+        "division": "Interiors",
+        "category": "Wardrobes & Dressing",
+        "status": "Completed",
         "title": "Ikoyi Penthouse Smoked Glass Dressing Suite",
         "subtitle": "Architectural Walk-In Wardrobe with Integrated Illumination",
         "categories": [
@@ -136,10 +151,14 @@
             "atg-proj-17",
             "atg-proj-11",
             "atg-proj-02"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-05",
+        "division": "Interiors",
+        "category": "Boutique Displays",
+        "status": "Completed",
         "title": "Wuse II Flagship Luxury Retail Fixtures",
         "subtitle": "Boutique Apparel Hanging Systems & Marble Presentation Vitrines",
         "categories": [
@@ -173,6 +192,9 @@
     },
     {
         "id": "atg-proj-06",
+        "division": "Metal Fabrication",
+        "category": "Pergolas & Canopies",
+        "status": "Completed",
         "title": "Asokoro Architectural Steel Pergola & Portico",
         "subtitle": "Cantilevered Heavy Structural Steel Shade Architecture",
         "categories": [
@@ -202,10 +224,14 @@
             "atg-proj-01",
             "atg-proj-13",
             "atg-proj-16"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-07",
+        "division": "Interiors",
+        "category": "Interior Solutions",
+        "status": "Completed",
         "title": "CBD Executive Reception & Acoustic Slat Wall",
         "subtitle": "Sculptural Curved Brass Reception Desk & Timber Media Backdrop",
         "categories": [
@@ -240,6 +266,9 @@
     },
     {
         "id": "atg-proj-08",
+        "division": "Interiors",
+        "category": "Tables & Desks",
+        "status": "Completed",
         "title": "Banana Island Nero Marquina & Brass Boardroom Table",
         "subtitle": "14-Seater Monolithic Natural Marble & Sculptural Trestle Table",
         "categories": [
@@ -269,10 +298,14 @@
             "atg-proj-07",
             "atg-proj-05",
             "atg-proj-12"
-        ]
+        ],
+        "curated": true
     },
     {
         "id": "atg-proj-09",
+        "division": "Metal Fabrication",
+        "category": "Balustrades & Railings",
+        "status": "Completed",
         "title": "Jabi Lakefront Marine Cable Balustrade",
         "subtitle": "Marine Grade 316 Stainless Post & Cable Barrier System",
         "categories": [
@@ -306,6 +339,9 @@
     },
     {
         "id": "atg-proj-10",
+        "division": "Metal Fabrication",
+        "category": "Structural Steel",
+        "status": "Completed",
         "title": "Garki Industrial Warehouse Slotted Rack Facility",
         "subtitle": "Heavy-Duty Modular Cold-Rolled Industrial Storage Infrastructure",
         "categories": [
@@ -339,6 +375,9 @@
     },
     {
         "id": "atg-proj-11",
+        "division": "Interiors",
+        "category": "Kitchen Cabinetry",
+        "status": "Completed",
         "title": "Eko Atlantic Chef Island & Culinary Steel Joinery",
         "subtitle": "Commercial 304 Stainless Steel & Brass Culinary Monolith",
         "categories": [
@@ -372,6 +411,9 @@
     },
     {
         "id": "atg-proj-12",
+        "division": "Interiors",
+        "category": "Boutique Displays",
+        "status": "Completed",
         "title": "Lekki Phase 1 Luxury Fashion House Retail Island",
         "subtitle": "Bespoke Brass Apparel Towers & Floating Accessory Shelving",
         "categories": [
@@ -405,6 +447,9 @@
     },
     {
         "id": "atg-proj-13",
+        "division": "Metal Fabrication",
+        "category": "Laser Screens & Cladding",
+        "status": "Completed",
         "title": "Katampe Extension Laser-Cut Privacy Screen & Canopy",
         "subtitle": "Parametric CNC Perforated Facade Architecture",
         "categories": [
@@ -438,6 +483,9 @@
     },
     {
         "id": "atg-proj-14",
+        "division": "Metal Fabrication",
+        "category": "Gates & Portals",
+        "status": "Completed",
         "title": "Diplomatic Zone High-Security Palisade & Bi-Fold Barrier",
         "subtitle": "Heavy Automated Perimeter Security & Monumental Gate",
         "categories": [
@@ -471,6 +519,9 @@
     },
     {
         "id": "atg-proj-15",
+        "division": "Interiors",
+        "category": "Custom Furniture",
+        "status": "Completed",
         "title": "Mabushi Luxury Villa Architectural Four-Poster Suite",
         "subtitle": "Handcrafted Steel Canopy Bed & Bench Collection",
         "categories": [
@@ -504,6 +555,9 @@
     },
     {
         "id": "atg-proj-16",
+        "division": "Metal Fabrication",
+        "category": "Structural Steel",
+        "status": "Completed",
         "title": "Airport Road Logistics Hangar Steel Gantry & Walkway",
         "subtitle": "Commercial Canopy, Covered Walkway & Industrial Gantry",
         "categories": [
@@ -537,6 +591,9 @@
     },
     {
         "id": "atg-proj-17",
+        "division": "Interiors",
+        "category": "Shelves & Storage",
+        "status": "Completed",
         "title": "Old Ikoyi Fluted Media Wall & Concealed Bookcase",
         "subtitle": "Seasoned Hardwood & Steel Library with Secret Pivot Passage",
         "categories": [
@@ -571,6 +628,9 @@
     },
     {
         "id": "atg-proj-18",
+        "division": "Interiors",
+        "category": "Boutique Displays",
+        "status": "Completed",
         "title": "Victoria Island Luxury Clinic Display Vitrines",
         "subtitle": "Champagne Bronze Metal & Glass Architectural Display Vitrines",
         "categories": [
@@ -604,30 +664,4 @@
         ]
     }
 ];
-
-    /**
-     * Retrieve a specific project by its stable unique ID
-     * @param {string} projectId
-     * @returns {object|null}
-     */
-    window.getATGProjectById = function (projectId) {
-        if (!projectId) return null;
-        return window.ATG_GALLERY_PROJECTS.find(function (p) {
-            return p.id.toLowerCase() === projectId.toLowerCase();
-        }) || null;
-    };
-
-    /**
-     * Get all unique categories across projects
-     * @returns {Array<string>}
-     */
-    window.getATGProjectCategories = function () {
-        const cats = new Set();
-        window.ATG_GALLERY_PROJECTS.forEach(function (p) {
-            if (Array.isArray(p.categories)) {
-                p.categories.forEach(function (c) { cats.add(c); });
-            }
-        });
-        return Array.from(cats);
-    };
 })();

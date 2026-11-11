@@ -1,688 +1,474 @@
-# ATG METAL WORKS & INTERIORS
-# SERVICES PAGE — PREMIUM DESIGN DISCOVERY & PRODUCT CATALOGUE EXPANSION
 
-## THE TASK
+# ATG METAL WORKS & INTERIORS — WEBSITE RESPONSIVENESS, COMPANY PAGE IMPROVEMENT, PRELOADER AUDIT & VIEW DETAILS MODALS
 
-I have already built the Services page for my ATG Metal Works & Interiors website.
+You are working on my existing ATG Metal Works & Interiors website.
 
-I now want you to **develop and expand the existing Services page** into a premium, full-page design-shopping experience inspired by modern furniture, interior design and e-commerce websites.
+I want you to perform a careful website-wide improvement covering four major tasks:
 
-Customers should be able to browse ATG’s metalwork, furniture, fabrication and interior product designs through clear categories.
+1. Improve the responsiveness and responsive design of the entire website.
+2. Redesign and improve the **Our Methodology** section on the Company page, with particular attention to mobile devices.
+3. Audit every page for the existing Material Reveal page-transition preloader and add it wherever it is missing.
+4. Implement functional and visually polished **View Details** modals on the relevant website cards.
 
-The experience should work like a premium online furniture store:
-
-1. The customer enters the Services page.
-2. They browse the category navigation.
-3. They select the category they are interested in.
-4. They explore many different designs in that category.
-5. Each design card displays its main image, name and price or quotation status.
-6. They click View Details to learn about the design, materials, finish and other specifications.
-7. They can save designs to the existing Favourites system.
-8. They can add selected designs to the existing Start Your Project enquiry.
-
-**This is an expansion of my existing Services page—not a replacement website.**
-
-Do not create a separate website or rebuild the existing page from scratch.
+This is an implementation task, not just an analysis or recommendation task. Inspect the existing project, understand its structure, make the necessary changes, and test the result.
 
 ---
 
-# 1. INSPECT THE EXISTING PROJECT FIRST
+# 1. GLOBAL WEBSITE RESPONSIVENESS
 
-Before coding, inspect the actual project files.
+Conduct a complete responsiveness audit of the entire ATG website.
 
-Identify:
+Do not focus only on the homepage. Inspect every HTML page, including:
 
-- Existing Services page and filename.
-- Current layout, styles and functionality.
-- Existing design cards and catalogue data.
-- Existing design details modal.
-- Existing Favourites system and storage mechanism.
-- Existing Start Your Project page.
-- Global navbar and footer.
-- Existing CSS variables, typography and animations.
-- Existing image assets and folder structure.
+- Home
+- Services
+- Gallery
+- Company
+- Insights
+- Contact
+- Start Your Project
+- Favorites
+- Any other existing page discovered in the project
 
-Reuse the existing code and components wherever possible.
+The objective is to make the website feel professionally designed on desktop, tablet, and mobile—not simply to shrink the desktop layout.
 
-Do not create duplicate pages, duplicate design data or a second Favourites system.
+## Responsive design requirements
 
-If a feature already exists, improve and extend it instead of replacing it.
+### Navigation bar
+
+Review the navbar across every page.
+
+- Make it properly responsive on mobile and tablet.
+- Prevent navigation links from overflowing or becoming cramped.
+- Implement a polished mobile navigation menu if one does not already exist.
+- Ensure menu opening and closing work correctly.
+- Make dropdowns usable on touchscreens, not only on hover.
+- Make the Start Your Project CTA accessible and appropriately positioned.
+- Preserve the existing ATG navbar identity, colors, branding, and desktop appearance.
+- Make sure the mobile menu does not cover content incorrectly or create horizontal scrolling.
+
+The navbar must remain consistent across all pages.
+
+### Hero sections
+
+Inspect every page's hero section.
+
+- Correct oversized text on smaller screens.
+- Ensure headings wrap naturally.
+- Adjust text alignment, spacing, and content widths.
+- Resize hero images and backgrounds appropriately.
+- Prevent text from overlapping images or important visual elements.
+- Keep buttons properly sized and accessible.
+- Preserve the visual hierarchy and premium appearance.
+
+### Cards and content sections
+
+Inspect all card layouts, including Services designs, Gallery projects, Insight articles, and other content cards.
+
+- Use responsive grid layouts.
+- Adjust the number of columns according to available screen width.
+- Ensure cards do not become excessively narrow or oversized.
+- Maintain consistent spacing and alignment.
+- Make images fill their containers properly without distortion.
+- Prevent long titles, descriptions, and prices from breaking layouts.
+- Ensure card buttons remain visible and usable.
+
+### Forms and interactive components
+
+Review all forms, search fields, filters, dropdowns, and interactive sections.
+
+- Ensure inputs fit the screen width.
+- Make labels and buttons readable.
+- Prevent horizontal overflow.
+- Make form controls comfortable to use on touchscreens.
+- Keep validation messages properly positioned.
+- Preserve existing form functionality.
+
+### Images, typography, and spacing
+
+Across the website:
+
+- Use responsive image sizing.
+- Preserve image aspect ratios where appropriate.
+- Avoid stretched or distorted images.
+- Use responsive typography rather than oversized fixed text.
+- Adjust section padding and margins at smaller screen sizes.
+- Maintain sufficient spacing between elements.
+- Ensure text remains readable without excessive zooming.
+
+### Footer
+
+Review the footer on desktop and mobile.
+
+- Improve column stacking on smaller screens.
+- Ensure links do not overflow.
+- Keep contact information readable.
+- Make social media icons appropriately sized.
+- Preserve the existing footer design and brand identity.
+
+## Responsive testing sizes
+
+Test the website at approximately these viewport widths:
+
+| Device category | Width |
+|---|---:|
+| Small mobile | 320px |
+| Standard mobile | 375px |
+| Large mobile | 430px |
+| Tablet | 768px |
+| Small laptop | 1024px |
+| Desktop | 1440px |
+| Large desktop | 1920px |
+
+These are testing widths, not rigid breakpoint requirements.
+
+Choose sensible CSS breakpoints based on where the actual layouts need to change.
+
+**Important:** Eliminate unintended horizontal scrolling, clipped content, overlapping elements, and unusable controls.
 
 ---
 
-# 2. MAINTAIN ATG’S EXISTING DESIGN QUALITY
+# 2. COMPANY PAGE — IMPROVE THE OUR METHODOLOGY SECTION
 
-Use the established ATG brand colours:
+Locate the Company page and find the section titled **Our Methodology**.
+
+Inspect its current HTML structure, CSS, images, layout, and JavaScript before changing anything.
+
+I specifically want this section improved because its current design implementation needs attention, particularly on mobile.
+
+## Design direction
+
+Create a premium, modern, architectural presentation that communicates the way ATG approaches metal fabrication, interior projects, design, and execution.
+
+The section should feel carefully crafted and visually connected to the ATG brand.
+
+Use the existing brand colors:
 
 - Black: `#010102`
 - Cream: `#FCE7CC`
 - Gold: `#F4D194`
 
-Maintain the existing:
+## Improve the design
 
-- Typography.
-- Navbar design.
-- Button styles.
-- Spacing system.
-- Border treatments.
-- Image presentation.
-- Animation quality.
-- Responsive behaviour.
+Review the current section and improve:
 
-The Services page must feel like a premium architectural metalwork, furniture and interior design catalogue.
+- Overall section composition.
+- Heading and introductory text.
+- Step or process presentation.
+- Visual hierarchy.
+- Alignment and spacing.
+- Icons, visual connectors, and supporting images where appropriate.
+- Background treatments and subtle decorative elements.
+- Transitions and animations.
 
-Use:
+If the methodology is represented by multiple steps, present them in a clear and visually connected process.
 
-- Large, high-quality product imagery.
-- Refined typography.
-- Elegant layouts.
-- Clear visual hierarchy.
-- Premium spacing.
-- Restrained gold accents.
-- Smooth transitions.
-- User-friendly category navigation.
+Make the steps easy to understand and visually distinguishable without filling the section with unnecessary decorations.
 
-Do not make the page look like a generic online shop template.
+## Mobile-specific improvements
 
-Do not introduce unrelated fonts, colours or design systems.
+Do not simply reduce the desktop design.
 
----
+Consider a better mobile composition:
 
-# 3. CREATE A FULL DESIGN-SHOPPING EXPERIENCE
+- Stack the methodology steps vertically when appropriate.
+- Keep the process order visually clear.
+- Make connectors and decorative lines work with the mobile layout.
+- Prevent text and icons from overlapping.
+- Ensure headings and descriptions wrap naturally.
+- Provide balanced spacing between steps.
+- Keep the section visually engaging without making it unnecessarily long.
 
-The Services page should include:
+The mobile version should look deliberately designed, not like a broken desktop layout.
 
-1. Premium introductory hero.
-2. Category navigation.
-3. Dedicated browsing experience for each category.
-4. Many different designs within each category.
-5. Search and filtering.
-6. Premium design cards.
-7. View Details modal.
-8. Existing Favourites integration.
-9. Existing Start Your Project integration.
-
-Do not limit the page to a small number of generic service cards.
+Preserve the actual methodology content. Do not invent company processes, awards, certifications, or claims about ATG.
 
 ---
 
-# 4. CATEGORY NAVIGATION
+# 3. AUDIT AND COMPLETE THE MATERIAL REVEAL PRELOADER
 
-Create a modern horizontal category navigation similar to a premium furniture and interior design store.
+I previously created four page-transition concepts and selected **Material Reveal (Concept 03)**.
 
-Use the following proposed categories, adapting them to the existing project structure where appropriate.
+This is the exact preloader design I want used throughout the website.
 
-### METALWORK & ARCHITECTURAL DESIGNS
+The existing concept is identified in the transition code as:
 
-- All Designs
-- Gates & Entrance Designs
-- Staircases
-- Railings & Balustrades
-- Metal Fabrication
-- Structural Steel
+`material-reveal`
 
-### FURNITURE
+Inspect the existing transition implementation, especially:
 
-- Chairs
-- Tables
-- Custom Furniture
+- `assets/js/atg-transitions.js`
+- `assets/css/atg-transitions.css`
+- The existing transition showcase files
+- Any existing shared transition markup
+- Every website page's scripts and stylesheets
 
-### SHELVING & DISPLAY SOLUTIONS
+## Exact visual appearance
 
-- Wall Shelves
-- Floating Shelves
-- Metal Shelves
-- Metal-and-Wood Shelves
-- Storage Shelving
-- Display Shelves
-- Boutique Garment Racks
-- Retail Display Stands
+Use the existing Material Reveal design. Do not redesign it or substitute another concept.
 
-### INTERIOR SOLUTIONS
+Preserve its:
 
-- Kitchen Cabinets
-- Wardrobes
-- Aluminium & Glass
-- Interior Solutions
+- Dark material-inspired surface.
+- Subtle sweeping gold sheen.
+- Fine crafted texture or pattern.
+- ATG wordmark.
+- "Architectural Metalwork" subtitle.
+- Existing animation sequence and exit motion.
+- Existing ATG brand palette.
+- Visual proportions and animation character.
 
-These categories are intended to organise the catalogue. Inspect the existing website and adapt the categories to ATG’s actual or planned services.
+The live website must look like the original Material Reveal preview.
 
-Do not publish categories unrelated to ATG.
+## Conduct a complete page-by-page audit
 
-### Category navigation behaviour
+Check every website page and establish whether the transition system has been correctly integrated.
 
-- Every category must be clickable.
-- Selecting a category displays the relevant designs.
-- The active category must be visually distinct.
-- Category changes should feel smooth.
-- Search and category filtering must work together.
-- Customers must be able to return to All Designs.
-- The navigation must remain usable on mobile.
+For each eligible page, verify:
 
-If the existing architecture uses separate category pages, extend that structure.
+- The correct transition stylesheet is loaded.
+- The correct JavaScript controller is loaded.
+- Required overlay markup is available.
+- The selected concept is `material-reveal`.
+- Internal navigation activates the transition.
+- The destination page completes the reveal properly.
+- There are no duplicate overlays or duplicate scripts.
 
-If the existing architecture uses dynamic filtering within the Services page, preserve that approach unless there is a clear technical reason to change it.
+If a page is missing the transition integration, add it.
 
-The experience must feel like entering a dedicated category, even if it is rendered dynamically within the existing page.
+If a page has an incomplete or incorrectly configured implementation, fix it.
 
----
+Do not assume every page has the same asset path. Check each page's folder structure and use the correct relative paths.
 
-# 5. ADD A SUBSTANTIAL VARIETY OF DESIGNS TO EACH CATEGORY
+## Important exception: index page
 
-Each major category should contain approximately **8–12 distinct design entries where suitable**.
+The existing `index` page has its own initial page-load preloader.
 
-Do not simply duplicate the same card and change its name.
+Preserve it exactly as it currently works.
 
-Every design should have a distinct:
+- Do not remove it.
+- Do not redesign it.
+- Do not replace it with Material Reveal.
+- Do not display two preloaders on the initial homepage load.
+- Do not interfere with its existing scripts or animations.
 
-- Name.
-- Image.
-- Description.
-- Category.
-- Materials.
-- Finish.
-- Design characteristics.
+Material Reveal should be used for the intended internal page-transition experience across the rest of the site.
 
-If the project does not yet contain enough verified ATG designs, use clearly identified **design concepts or inspiration examples** rather than presenting them as completed ATG projects.
+Handle navigation involving the homepage carefully so the existing initial preloader and the page-transition system do not conflict.
 
-Keep catalogue data separate from rendering logic so I can replace demo entries later.
+## Transition reliability
 
----
+Verify that:
 
-# 6. SHELVES, STORAGE AND BOUTIQUE DISPLAY PRODUCTS
+- Internal links trigger the transition correctly.
+- External links are not incorrectly intercepted.
+- Same-page anchors work normally.
+- Downloads and new-tab links retain their behavior.
+- Browser back and forward navigation work.
+- Rapid clicks cannot create multiple overlays.
+- A failsafe prevents the transition from becoming stuck.
+- Reduced-motion preferences are respected.
 
-This is an important addition to the catalogue.
-
-Create dedicated categories for shelving and display solutions.
-
-## A. WALL SHELVES
-
-Include varied concepts such as:
-
-- Minimalist wall-mounted metal shelf.
-- Industrial metal-and-wood wall shelf.
-- Geometric decorative shelf.
-- Multi-tier wall shelving.
-- Modern floating wall shelf.
-- Custom wall shelf.
-- Contemporary storage shelf.
-- Premium architectural wall shelving.
-
-## B. FLOATING SHELVES
-
-Include:
-
-- Minimalist floating shelf.
-- Metal-supported floating shelf.
-- Metal-and-wood floating shelf.
-- Multi-level floating shelf.
-- Decorative floating shelf.
-- Custom-size floating shelf.
-
-## C. METAL & STORAGE SHELVING
-
-Include:
-
-- Industrial storage shelving.
-- Modern open metal shelving.
-- Metal-and-wood storage unit.
-- Heavy-duty shelving concept.
-- Multi-tier storage rack.
-- Custom storage shelving.
-
-Do not make unsupported claims about weight capacity, load limits or structural performance. These specifications must be verified before publication.
-
-## D. DISPLAY SHELVES & RETAIL DISPLAY STANDS
-
-Include:
-
-- Boutique display shelf.
-- Retail product display stand.
-- Decorative display rack.
-- Metal-and-wood display unit.
-- Freestanding display shelving.
-- Wall-mounted retail display.
-- Custom showroom display.
-- Premium product presentation stand.
-
-## E. BOUTIQUE GARMENT RACKS
-
-These are the stands and racks boutiques use to hang clothes.
-
-Include varied concepts such as:
-
-- Minimalist metal garment rack.
-- Freestanding boutique clothing rack.
-- Wall-mounted garment rail.
-- Double-rail clothing rack.
-- Metal-and-wood garment rack.
-- Luxury retail clothing display.
-- Rolling garment rack.
-- Custom boutique display rack.
-- Contemporary showroom garment stand.
-- Space-saving garment rack.
-
-The designs should be visually distinct and suitable for boutique, showroom or retail environments.
-
-Do not use generic images of clothing stores when the card is supposed to show the actual rack design.
-
-The image should clearly show the product or display structure.
+Do not include the transition showcase's preview-only scripts or styles on live pages unless genuinely required. The live website should use the shared transition implementation, not the demo interface.
 
 ---
 
-# 7. DESIGN CARD REQUIREMENTS
+# 4. IMPLEMENT FUNCTIONAL VIEW DETAILS MODALS ON WEBSITE CARDS
 
-Each card must display:
+Audit the existing cards throughout the website, especially:
 
-1. Main design image.
-2. Design name.
-3. Category.
-4. Price, starting price or quotation status.
-5. Favourite button.
-6. View Details button.
+- Services design cards.
+- Gallery project cards.
+- Other cards that are intended to provide additional information about a particular item.
 
-Example:
+Where a card is supposed to provide more information, implement a polished and functional **View Details** modal.
 
-**Modern Boutique Garment Rack**
+Do not add unnecessary View Details buttons to cards that do not need a detailed view.
 
-Category: Boutique Garment Racks
+## Card interaction
 
-Price: Starting from ₦XXX,XXX  
-or  
-Request a Quote
+Every relevant card should provide a clear View Details action.
 
-Buttons:
+When a visitor clicks it:
 
-- View Details
-- Favourite
+- Open a modal displaying information about the exact card they selected.
+- Do not display identical placeholder information for every card.
+- Ensure the correct title, image, description, and other available information are displayed.
+- Make the modal visually consistent with the ATG website.
 
-### Card design
+## Services design details
 
-- Large, high-quality images.
-- Consistent image ratios.
-- No distorted images.
-- Elegant typography.
-- Consistent spacing.
-- Subtle hover effects.
-- Smooth image transitions.
-- Accessible Favourite button.
-- Clear View Details button.
-- Responsive card layout.
-
-Do not overload cards with too much information.
-
----
-
-# 8. HIGH-QUALITY IMAGE RESEARCH
-
-Images are extremely important.
-
-For each design card, search for a suitable high-quality image online or use an appropriate existing project asset.
-
-### Image requirements
-
-- Image must match the design name and category.
-- High resolution.
-- Professional product or architectural photography quality.
-- No blurry images.
-- No unrelated images.
-- Avoid heavily watermarked images.
-- Avoid reusing one image for multiple different designs.
-- Prefer realistic product photography over artificial-looking images.
-- Maintain consistent visual quality across the catalogue.
-
-### Image sourcing
-
-- Prefer reputable sources and images that can legally be used.
-- Use licensed, royalty-free or properly permitted images where possible.
-- Do not use images requiring unauthorised access.
-- Avoid unreliable hotlinked image URLs where a stable local asset is available.
-- Download and organise suitable assets into the project’s existing image folder when appropriate.
-- Use descriptive filenames.
-
-If an exact ATG product image is unavailable, use a relevant **reference or inspiration image** and clearly identify the design as a concept or inspiration example.
-
-Do not present reference images as actual completed ATG projects.
-
----
-
-# 9. PRICING AND MATERIALS ACCURACY
-
-Do not invent exact prices or represent an estimate as an official ATG quotation.
-
-For every design, use one of these pricing formats:
-
-- Verified fixed price.
-- Defensible starting price.
-- Defensible price range.
-- Request a Quote.
-
-### Estimation requirements
-
-If an estimated price is included:
-
-- Research relevant materials.
-- Consider dimensions and complexity.
-- Consider fabrication and finishing.
-- Consider installation or delivery if relevant.
-- Use a reasonable, defensible estimate.
-- Store the assumptions in the catalogue data.
-- Clearly label it as an estimate.
-
-If the price cannot be estimated reliably, use:
-
-**Request a Quote**
-
-Do not block a design from being displayed simply because its final price is unknown.
-
-### Materials requirements
-
-Provide realistic materials where sufficient information exists.
-
-Possible materials include:
-
-- Mild steel.
-- Stainless steel.
-- Aluminium.
-- Tempered glass.
-- Hardwood.
-- MDF or suitable engineered wood.
-- Upholstery.
-- Powder-coated metal finish.
-- Stainless steel finish.
-- Wood veneer.
-
-For concept designs, use **Suggested Materials** rather than claiming the materials are confirmed for an actual ATG product.
-
-If the exact materials cannot be determined confidently, state that final material selection is subject to confirmation.
-
----
-
-# 10. VIEW DETAILS — FUNCTIONAL DESIGN MODAL
-
-The View Details button must open a premium modal for the exact design selected.
-
-The modal must load its content using the selected design’s unique ID and catalogue data.
-
-### Modal content
-
-Include:
-
-1. Large main image.
-2. Design name.
-3. Category.
-4. Detailed description.
-5. Materials used or suggested materials.
-6. Finish.
-7. Price, estimate or quotation status.
-8. Dimensions, if available.
-9. Customisation possibilities.
-10. Design status, where relevant.
-11. Favourite button.
-12. Start Your Project or Enquire button.
-
-### Modal description
-
-Explain:
-
-- What the design is.
-- Its visual style.
-- Its intended use.
-- Its main design characteristics.
-- Why a customer might choose it.
-
-Avoid repetitive generic descriptions.
-
-### Modal interaction requirements
-
-- Correct design loads.
-- Close button works.
-- Clicking outside closes the modal where appropriate.
-- Escape key closes the modal.
-- Keyboard focus is managed correctly.
-- Background scrolling is controlled.
-- Focus returns to the original View Details button.
-- Modal works on mobile.
-- Content scrolls correctly on small screens.
-
-Maintain ATG’s established design quality.
-
----
-
-# 11. FAVOURITES INTEGRATION
-
-Reuse the existing ATG Favourites system.
-
-Customers must be able to save designs from every category.
-
-Implement:
-
-- Working Favourite buttons on every card.
-- Correct saved and unsaved states.
-- Existing global Favourites icon integration.
-- Existing Favourites page integration.
-- Duplicate prevention.
-- Stable design IDs.
-- Safe handling of outdated or missing IDs.
-
-Do not create a second Favourites system.
-
-When a design is saved, it must appear in the existing Favourites page.
-
-When a design is removed, its state must update throughout the website.
-
----
-
-# 12. START YOUR PROJECT INTEGRATION
-
-This is essential.
-
-The existing **Start Your Project** page must receive selected designs from the Services catalogue.
-
-When a customer clicks Start Your Project or Enquire on a design:
-
-- Pass the correct design ID.
-- Open the existing Start Your Project page.
-- Preselect the selected design.
-- Display its image, name, category and pricing status.
-- Preserve the selection throughout the project form.
-
-Customers must also be able to select multiple designs from Favourites and add them to one enquiry.
-
-Do not create a new project enquiry page.
-
-Do not rename the existing Start Your Project page.
-
-Do not break its current form structure or styling.
-
----
-
-# 13. SEARCH, FILTERING AND SORTING
-
-Maintain and improve the existing search functionality.
-
-Customers should be able to search by:
+For Services design cards, the modal should display the available information, such as:
 
 - Design name.
+- Large design image.
 - Category.
-- Description.
-- Material.
-- Finish.
-- Style.
-- Relevant keywords.
+- Design description.
+- Materials used or proposed materials.
+- Finish or customization information where available.
+- Price or starting price where available.
+- Relevant design features.
+- Customization availability.
+- Favorite action.
+- Start Your Project action.
 
-Search must be case-insensitive and update without a page reload.
+Clearly distinguish confirmed material specifications from suggested materials.
 
-Implement:
+Do not invent prices, material specifications, or technical details.
 
-- Category filtering.
-- Search and category filtering together.
-- Clear filters.
-- Result count.
-- Empty search state.
-- Sorting by name.
-- Sorting by price only when prices are comparable and valid.
+If a design has no fixed price, display the existing quote-request wording or an appropriate Request a Quote option instead of inventing a price.
 
-Do not sort quotation-only designs as though they have numeric prices.
+The Start Your Project action should pass the correct design identifier and details into the existing project enquiry flow where supported.
 
----
+## Gallery project details
 
-# 14. RESPONSIVE DESIGN
+For Gallery cards, use a project-focused modal rather than blindly copying the Services modal.
 
-Test and optimise:
+Display available information such as:
 
-- Desktop.
-- Laptop.
-- Tablet.
-- Mobile.
+- Project name.
+- Project image or images.
+- Project category.
+- Project description.
+- Location or project type, only where existing data provides it.
+- Other existing project information.
 
-Ensure:
+Do not present concept designs as completed projects or invent client names and project details.
 
-- Responsive card grid.
-- Mobile-friendly category navigation.
-- No horizontal overflow.
-- Readable card text.
-- Accessible Favourite buttons.
-- Proper modal positioning.
-- Comfortable touch targets.
-- No content hidden behind the navbar.
-- Smooth performance on mobile.
+## Modal appearance
 
----
+Create a premium modal that follows the existing ATG visual identity.
 
-# 15. ANIMATION AND INTERACTION QUALITY
+The modal should:
 
-Maintain the existing ATG animation quality.
+- Use a refined dark, cream, and gold treatment.
+- Have a clear heading and close control.
+- Present images without distortion.
+- Use a balanced layout on desktop.
+- Adapt into a comfortable full-screen or near-full-screen layout on mobile where appropriate.
+- Have readable typography and comfortable spacing.
+- Use subtle, smooth entrance and exit animations.
+- Avoid excessive decorative effects.
 
-Implement or refine:
+On desktop, a two-column layout with the image on one side and information on the other may be appropriate.
 
-- Smooth category transitions.
-- Subtle card hover effects.
-- Image reveal or zoom effects.
-- Modal entrance and exit transitions.
-- Favourite interaction feedback.
-- Smooth search and filtering transitions.
-- Section reveal animations where appropriate.
+On mobile, stack the image and information vertically and ensure the close control remains accessible.
 
-Use restrained, professional animation.
+## Modal functionality
 
-Do not make browsing slower.
+Implement all required interactions:
 
-Respect `prefers-reduced-motion`.
+- Open the modal for the selected card.
+- Close using the close button.
+- Close when clicking the backdrop, where appropriate.
+- Close using the Escape key.
+- Prevent background scrolling while open.
+- Restore scrolling when closed.
+- Ensure the modal does not open multiple times.
+- Keep interactions isolated so one modal cannot interfere with another.
+- Make controls keyboard accessible.
+- Manage focus appropriately when opening and closing the modal.
 
----
+Use the existing card data and functionality wherever possible.
 
-# 16. CODE STRUCTURE AND MAINTAINABILITY
-
-Keep catalogue information separate from rendering logic.
-
-Each design should use a clear data structure containing:
-
-- Unique ID.
-- Name.
-- Category.
-- Image path.
-- Description.
-- Price type.
-- Price or estimate.
-- Estimate assumptions.
-- Materials.
-- Finish.
-- Dimensions.
-- Customisation information.
-- Design status.
-- Search keywords.
-
-Use reusable functions for:
-
-- Design cards.
-- Category navigation.
-- Design details modal.
-- Favourite state.
-- Search and filtering.
-
-Do not hardcode a separate modal for every design.
-
-Make it easy for me to replace names, images, prices, descriptions and materials later.
+If the project already has a modal system, improve and reuse it instead of creating a competing implementation.
 
 ---
 
-# 17. STRICT PRESERVATION REQUIREMENTS
+# 5. CODE QUALITY AND PROJECT PROTECTION
 
-Do not break:
+The existing ATG website already has several implemented features. Do not break them while completing these tasks.
 
-- Global navbar.
-- Our Work dropdown.
-- Direct Services navigation.
-- Direct Company navigation.
-- Start Your Project page.
-- Favourites page.
-- Floating Favourites icon.
-- Scroll-to-top button.
-- Homepage.
-- Company page.
-- Insights page.
-- Contact page.
-- Global footer.
+Before editing:
 
-Do not redesign completed pages unnecessarily.
+1. Inspect the complete project structure.
+2. Identify shared stylesheets and JavaScript files.
+3. Understand which scripts are loaded on each page.
+4. Identify existing responsive rules.
+5. Identify existing modal, card, favorite, and transition logic.
+6. Check for duplicate styles or conflicting event listeners.
 
-Do not remove existing functionality to simplify implementation.
+Implementation constraints:
 
----
+- Use HTML, CSS, and Vanilla JavaScript only.
+- Do not introduce React, Vue, Bootstrap, Tailwind, or another framework.
+- Reuse existing assets and components where possible.
+- Avoid unnecessary file duplication.
+- Keep CSS organized and avoid excessive `!important`.
+- Do not use broad selectors that accidentally change unrelated sections.
+- Preserve existing IDs, classes, data attributes, and routes unless a change is necessary.
+- Keep the code compatible with the current project structure.
+- Avoid changing unrelated content or redesigning entire pages unnecessarily.
 
-# 18. REQUIRED TESTING
-
-After implementation, test:
-
-1. Services page loads correctly.
-2. Every category can be selected.
-3. Each category displays the correct designs.
-4. Each major category contains a varied selection of designs.
-5. Shelves and display categories work.
-6. Boutique garment racks display relevant designs.
-7. Search works.
-8. Search and category filtering work together.
-9. Clear filters works.
-10. Every card displays the correct image, name and price status.
-11. Every View Details button opens the correct design.
-12. Modal materials and description match the selected design.
-13. Modal close controls work.
-14. Favourite buttons work.
-15. Favourites appear in the existing Favourites page.
-16. Start Your Project receives the correct selected design.
-17. Multiple designs can be added to one enquiry.
-18. Mobile layout works.
-19. Existing website pages continue working.
-
-Fix any issues discovered during testing.
+Do not delete existing functionality just because it is easier to rebuild it.
 
 ---
 
-# 19. FINAL IMPLEMENTATION REPORT
+# 6. FINAL TESTING AND VERIFICATION
 
-When the work is complete, provide a concise report containing:
+After implementation, test the actual website rather than assuming the changes work.
 
-- Files inspected.
-- Files created.
-- Files modified.
-- Categories implemented.
-- Approximate number of designs per category.
-- Shelving and boutique garment rack categories implemented.
-- Image sources or image sourcing method.
-- Pricing approach and estimates requiring verification.
-- Materials data approach.
-- Favourites integration status.
-- Start Your Project integration status.
-- Tests performed.
-- Remaining issues.
+## Responsiveness
 
-Do not claim a feature is complete unless it has actually been implemented and tested.
+Check the major pages at the specified screen widths.
 
-## FINAL OBJECTIVE
+Verify that:
 
-Transform the existing ATG Services page into a premium, full-page design-shopping experience where customers can browse a wide variety of metalwork, furniture, shelving, storage, boutique garment racks and fabrication designs by category.
+- There is no unintended horizontal overflow.
+- Navbar navigation works.
+- Cards resize properly.
+- Text is readable.
+- Images display correctly.
+- Forms are usable.
+- Modals fit mobile screens.
+- The methodology section is properly arranged.
+- Footer content does not overflow.
 
-Customers must be able to inspect detailed design information, understand materials and pricing status, save favourites and seamlessly start a project enquiry.
+## Preloader
 
-**Actually implement the changes in my existing project. Do not just provide a plan, mockup or code snippets. Preserve the existing ATG website, its design quality and all completed functionality.**
+Visit every page directly and through internal navigation.
+
+Confirm that the selected Material Reveal transition works correctly, that no eligible page is missing the integration, and that the homepage's original initial preloader is preserved.
+
+## View Details
+
+Open several different Services and Gallery cards.
+
+Confirm that each modal displays the correct selected item's details and that all controls work.
+
+## Regression testing
+
+Check that these existing features still work:
+
+- Navbar and dropdowns.
+- Favorites system.
+- Scroll-to-top.
+- Services search and category filtering.
+- Gallery navigation and filtering.
+- Start Your Project workflow.
+- Existing forms and validation.
+- Footer navigation.
+- Existing page animations.
+
+Check the browser console for JavaScript errors and inspect the network tab for missing CSS, JavaScript, image, or font files.
+
+---
+
+# 7. COMPLETION REPORT
+
+Do not stop after writing a plan. Complete the implementation.
+
+When finished, provide a clear report containing:
+
+1. All pages tested for responsiveness.
+2. The improvements made to the Company page's Our Methodology section.
+3. The pages where Material Reveal was already present.
+4. The pages where Material Reveal integration was added or corrected.
+5. Confirmation that the original index preloader was preserved.
+6. The cards that now have functional View Details modals.
+7. Any files created or modified.
+8. Any problems that could not be resolved.
+
+**Final quality requirement:** The finished ATG website must look professionally designed on mobile, tablet, and desktop. The Company page's Our Methodology section must look substantially better on mobile, Material Reveal must remain visually identical to the selected preview, and the View Details modals must be genuinely functional and display the correct card information.
+
+Prioritize quality, consistency, and preserving the functionality of the existing website. Do not sacrifice the current desktop design while improving mobile responsiveness.

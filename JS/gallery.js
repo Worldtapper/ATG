@@ -1,684 +1,103 @@
 /**
- * ATG Metal Works & Interiors — Gallery Portfolio Controller
- * Vanilla JavaScript Engine for Editorial Architectural Portfolio,
- * Dynamic Multi-Category Filtering, Deep-linking, and Project Detail Modal.
+ * ATG Metal Works & Interiors — Gallery & Architectural Portfolio Engine
+ * Clean, Luxury, Minimalist Portfolio Controller
+ * 
+ * Features:
+ * - Simple 3-tier division filtering (All Projects, Metal Fabrication, Interiors)
+ * - Focused curated project showcase (3 per division, easily fed from future backend API)
+ * - Smooth fade-and-slide card transitions
+ * - Interactive multi-photo lightbox modal with carousel navigation and thumbnail strip
+ * - Keyboard navigation (Esc to close, Left/Right arrows for photos)
+ * - Clean URL query synchronization (?division=...&project=...)
+ * - Zero pricing leaks anywhere
  */
 
 (function () {
     'use strict';
 
-    // State
+    // Application State
     const state = {
-        activeCategory: 'all',
-        activeProjectId: null,
-        projects: window.ATG_GALLERY_PROJECTS || []
+        activeDivision: 'all',    // 'all' | 'Metal Fabrication' | 'Interiors'
+        currentProject: null,     // Currently active modal project object
+        currentPhotoIndex: 0      // Currently displayed photo index in modal
     };
 
-    let modalElement = null;
-    let lastActiveTrigger = null;
+    // DOM Elements Cache
+    let gridEl = null;
+    let emptyEl = null;
+    let filterButtons = [];
+    let modalEl = null;
+    let modalContainerEl = null;
+    let modalCloseBtn = null;
+    let modalViewerImg = null;
+    let modalPrevBtn = null;
+    let modalNextBtn = null;
+    let modalCounterEl = null;
+    let modalThumbsStrip = null;
+    let modalBadgeEl = null;
+    let modalTitleEl = null;
+    let modalSubtitleEl = null;
+    let modalOverviewEl = null;
+    let modalLocationEl = null;
+    let modalMaterialsEl = null;
+    let modalFinishEl = null;
+    let modalStatusEl = null;
+    let modalNotesList = null;
+    let modalActionBtn = null;
 
-    document.addEventListener('DOMContentLoaded', initGallery);
+    /* ==========================================================================
+       1. DATA ACCESS (BACKEND-READY)
+       ========================================================================== */
 
-    function initGallery() {
-        if (!state.projects || state.projects.length === 0) {
-            console.warn('[ATG Gallery] No gallery projects loaded.');
-            return;
+    /**
+     * Retrieve all projects from data source.
+     * Ready for drop-in replacement with an async fetch('/api/projects') later.
+     */
+    function getAllProjects() {
+        if (!window.ATG_GALLERY_PROJECTS || !Array.isArray(window.ATG_GALLERY_PROJECTS)) {
+            return [];
+        }
+        return window.ATG_GALLERY_PROJECTS;
+    }
+
+    /**
+     * Get curated projects (3 per division = 6 total for clean minimalist design).
+     * If curated flags exist, use those; otherwise slice up to 3 per division.
+     */
+    function getCuratedProjects() {
+        const all = getAllProjects();
+        const flagged = all.filter(p => p.curated);
+        if (flagged.length > 0) {
+            return flagged;
         }
 
-        // Cache DOM elements
-        const gridContainer = document.getElementById('galleryGrid');
-        const countBadge = document.getElementById('galleryTotalCount');
-        const emptyState = document.getElementById('galleryEmptyState');
-        const heroExploreBtn = document.getElementById('heroExploreBtn');
+        // Fallback: take top 3 Metal Fabrication + top 3 Interiors
+        const metal = all.filter(p => p.division && p.division.toLowerCase() === 'metal fabrication').slice(0, 3);
+        const interiors = all.filter(p => p.division && p.division.toLowerCase() === 'interiors').slice(0, 3);
+        return [...metal, ...interiors];
+    }
 
-        // Initialise URL Parameters
-        parseInitialUrl();
+    /**
+     * Get project by ID (searches all projects so direct links work)
+     */
+    function getProjectById(id) {
+        return getAllProjects().find(p => p.id === id) || null;
+    }
 
-        // Calculate and Render Category Badges
-        initCategoryFilterUI();
-
-        // Render Initial Grid
-        renderProjectsGrid();
-
-        // Bind Category Tab Clicks
-        bindCategoryTabs();
-
-        // Ensure Project Modal DOM is ready
-        ensureProjectModalDOM();
-
-        // Check if direct project modal was requested in URL
-        checkDirectProjectModal();
-
-        // Hero Smooth Scroll
-        if (heroExploreBtn) {
-            heroExploreBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.getElementById('galleryExplore');
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+    /**
+     * Filter projects by active division ('all' | 'Metal Fabrication' | 'Interiors')
+     */
+    function getFilteredProjects() {
+        const curated = getCuratedProjects();
+        if (!state.activeDivision || state.activeDivision.toLowerCase() === 'all') {
+            return curated;
         }
+        return curated.filter(p => p.division && p.division.toLowerCase() === state.activeDivision.toLowerCase());
     }
 
     /* ==========================================================================
-       1. URL PARAMETER SYNCHRONIZATION
+       2. STRING SANITIZATION HELPERS
        ========================================================================== */
-    function parseInitialUrl() {
-        const urlParams = new URLSearchParams(window.location.search);
-
-        if (urlParams.has('category')) {
-            const cat = urlParams.get('category').trim();
-            if (isValidCategory(cat)) {
-                state.activeCategory = cat;
-            }
-        }
-    }
-
-    function syncUrl() {
-        if (!window.history || !window.history.replaceState) return;
-
-        const params = new URLSearchParams();
-        if (state.activeCategory !== 'all') {
-            params.set('category', state.activeCategory);
-        }
-        if (state.activeProjectId) {
-            params.set('project', state.activeProjectId);
-        }
-
-        const queryString = params.toString();
-        const newUrl = window.location.pathname + (queryString ? '?' + queryString : '');
-        window.history.replaceState({ atgGalleryState: state }, '', newUrl);
-    }
-
-    function isValidCategory(catName) {
-        if (!catName || catName.toLowerCase() === 'all') return true;
-        const valid = [
-            'metal fabrication',
-            'interior projects',
-            'furniture & joinery',
-            'commercial projects',
-            'residential projects'
-        ];
-        return valid.includes(catName.toLowerCase());
-    }
-
-    /* ==========================================================================
-       2. CATEGORY FILTER TABS & COUNT BADGES
-       ========================================================================== */
-    function initCategoryFilterUI() {
-        const counts = {
-            all: state.projects.length,
-            'metal fabrication': 0,
-            'interior projects': 0,
-            'furniture & joinery': 0,
-            'commercial projects': 0,
-            'residential projects': 0
-        };
-
-        state.projects.forEach(p => {
-            if (Array.isArray(p.categories)) {
-                p.categories.forEach(c => {
-                    const low = c.toLowerCase();
-                    if (counts[low] !== undefined) {
-                        counts[low]++;
-                    }
-                });
-            }
-        });
-
-        // Update count badges inside category tabs
-        document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
-            const cat = btn.getAttribute('data-category') || 'all';
-            const countSpan = btn.querySelector('.tab-count');
-            const low = cat.toLowerCase();
-
-            if (countSpan && counts[low] !== undefined) {
-                countSpan.textContent = counts[low];
-            }
-
-            // Sync active state
-            const isMatch = low === state.activeCategory.toLowerCase();
-            btn.classList.toggle('is-active', isMatch);
-            btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-        });
-    }
-
-    function bindCategoryTabs() {
-        const tabs = document.querySelectorAll('.gallery-tab-btn');
-        tabs.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const cat = btn.getAttribute('data-category') || 'all';
-
-                tabs.forEach(t => {
-                    t.classList.remove('is-active');
-                    t.setAttribute('aria-selected', 'false');
-                });
-                btn.classList.add('is-active');
-                btn.setAttribute('aria-selected', 'true');
-
-                state.activeCategory = cat;
-                renderProjectsGrid();
-                syncUrl();
-
-                // Scroll tab into view if overflowing on mobile
-                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            });
-        });
-    }
-
-    /* ==========================================================================
-       3. EDITORIAL PROJECT GRID RENDERING
-       ========================================================================== */
-    function renderProjectsGrid() {
-        const gridContainer = document.getElementById('galleryGrid');
-        const emptyState = document.getElementById('galleryEmptyState');
-        const activeCountEl = document.getElementById('galleryActiveCount');
-        const catTitleEl = document.getElementById('galleryCurrentCatTitle');
-
-        if (!gridContainer) return;
-
-        // Filter projects
-        let filtered = state.projects;
-        if (state.activeCategory !== 'all') {
-            const target = state.activeCategory.toLowerCase();
-            filtered = state.projects.filter(p => {
-                return Array.isArray(p.categories) && p.categories.some(c => c.toLowerCase() === target);
-            });
-        }
-
-        // Update Count
-        if (activeCountEl) {
-            activeCountEl.textContent = `${filtered.length} Curated Project${filtered.length === 1 ? '' : 's'}`;
-        }
-        if (catTitleEl) {
-            catTitleEl.textContent = state.activeCategory === 'all' ? 'All Portfolio Works' : state.activeCategory;
-        }
-
-        // Empty state check
-        if (filtered.length === 0) {
-            gridContainer.innerHTML = '';
-            gridContainer.style.display = 'none';
-            if (emptyState) emptyState.style.display = 'block';
-            return;
-        }
-
-        if (emptyState) emptyState.style.display = 'none';
-        gridContainer.style.display = 'grid';
-
-        // Render Cards with editorial asymmetrical layout classes
-        gridContainer.innerHTML = filtered.map((project, idx) => {
-            return createProjectCardMarkup(project, idx);
-        }).join('');
-
-        // Delegate clicks on project cards
-        bindProjectCardEvents(gridContainer);
-    }
-
-    function createProjectCardMarkup(project, index) {
-        const aspectClass = project.aspect ? `item--${project.aspect}` : 'item--standard';
-        const primaryCat = Array.isArray(project.categories) && project.categories.length > 0
-            ? project.categories[0]
-            : 'Architectural';
-
-        const categoryPills = Array.isArray(project.categories)
-            ? project.categories.map(c => `<span class="proj-badge-pill">${escapeHtml(c)}</span>`).join('')
-            : '';
-
-        return `
-            <article class="gallery-project-card ${aspectClass}" data-project-id="${escapeHtml(project.id)}" tabindex="0" role="button" aria-label="View project details: ${escapeHtml(project.title)}">
-                <div class="card-media-shell">
-                    <img 
-                        src="${escapeHtml(project.image)}" 
-                        alt="${escapeHtml(project.title)}" 
-                        class="card-project-img" 
-                        loading="lazy"
-                        onerror="this.onerror=null; this.src='images/dropdown_portfolio.png';"
-                    >
-                    <div class="card-editorial-scrim"></div>
-
-                    ${project.video ? `
-                        <div class="card-motion-indicator" title="Includes workshop motion progression">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                            <span>Motion</span>
-                        </div>
-                    ` : ''}
-
-                    <div class="card-top-badges">
-                        <div class="badges-wrap">
-                            ${categoryPills}
-                        </div>
-                        <span class="location-badge">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            ${escapeHtml(project.location)}
-                        </span>
-                    </div>
-
-                    <div class="card-editorial-meta">
-                        <div class="meta-headline-row">
-                            <span class="meta-sector">${escapeHtml(project.sector || 'ATG Bespoke Works')}</span>
-                            <span class="meta-ref">${escapeHtml(project.id.toUpperCase())}</span>
-                        </div>
-                        <h3 class="meta-project-title">${escapeHtml(project.title)}</h3>
-                        <p class="meta-project-desc">${escapeHtml(truncate(project.overview, 110))}</p>
-
-                        <div class="meta-action-row">
-                            <button type="button" class="view-project-btn" data-action="view-details" data-project-id="${escapeHtml(project.id)}" aria-label="View details for ${escapeHtml(project.title)}">
-                                View Details
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        `;
-    }
-
-    function bindProjectCardEvents(container) {
-        container.querySelectorAll('.gallery-project-card').forEach(card => {
-            const id = card.getAttribute('data-project-id');
-
-            // Click
-            card.addEventListener('click', (e) => {
-                e.preventDefault();
-                openProjectDetailModal(id, card);
-            });
-
-            // Keyboard Enter / Space
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openProjectDetailModal(id, card);
-                }
-            });
-        });
-    }
-
-    /* ==========================================================================
-       4. INTERACTIVE PROJECT DETAIL MODAL
-       ========================================================================== */
-    function ensureProjectModalDOM() {
-        if (document.getElementById('atgProjectDetailModal')) {
-            modalElement = document.getElementById('atgProjectDetailModal');
-            return;
-        }
-
-        const modal = document.createElement('div');
-        modal.className = 'atg-project-modal-backdrop';
-        modal.id = 'atgProjectDetailModal';
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('aria-hidden', 'true');
-        modal.setAttribute('aria-labelledby', 'prjModalTitle');
-
-        modal.innerHTML = `
-            <div class="atg-project-modal-container" id="prjModalContainer" tabIndex="-1">
-                <button type="button" class="atg-modal-close-btn" id="prjModalCloseBtn" aria-label="Close project modal">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-
-                <div class="prj-modal-scrollable">
-                    <!-- Modal Hero Banner -->
-                    <div class="prj-modal-hero">
-                        <img id="prjModalHeroImg" src="" alt="Project view" class="prj-modal-hero-img">
-                        <div class="prj-modal-hero-overlay"></div>
-                        <div class="prj-modal-hero-badges">
-                            <span class="prj-hero-sector" id="prjModalSector">Sector</span>
-                            <span class="prj-hero-location" id="prjModalLocation">Location</span>
-                        </div>
-                    </div>
-
-                    <!-- Modal Body Grid -->
-                    <div class="prj-modal-body-grid">
-                        <!-- Main Left Column -->
-                        <div class="prj-modal-main-col">
-                            <div class="prj-modal-header">
-                                <div class="prj-ref-row">
-                                    <span class="prj-modal-ref" id="prjModalRef">REF: ATG-PRJ-00</span>
-                                    <div class="prj-categories-wrap" id="prjModalCategoriesWrap"></div>
-                                </div>
-                                <h2 class="prj-modal-title" id="prjModalTitle">Project Title</h2>
-                                <p class="prj-modal-subtitle" id="prjModalSubtitle">Architectural Subtitle</p>
-                            </div>
-
-                            <div class="prj-modal-section">
-                                <h4 class="prj-section-title">Architectural Scope &amp; Brief</h4>
-                                <p class="prj-modal-overview" id="prjModalOverview"></p>
-                            </div>
-
-                            <!-- Additional Gallery Media Strip -->
-                            <div class="prj-modal-section" id="prjModalGallerySection">
-                                <h4 class="prj-section-title">Project Perspectives &amp; Execution Photos</h4>
-                                <div class="prj-modal-gallery-strip" id="prjModalGalleryStrip"></div>
-                            </div>
-
-                            <!-- Execution & Engineering Notes -->
-                            <div class="prj-modal-section">
-                                <h4 class="prj-section-title">Precision Engineering &amp; Execution Highlights</h4>
-                                <ul class="prj-details-list" id="prjModalDetailsList"></ul>
-                            </div>
-                        </div>
-
-                        <!-- Sidebar Right Column: Specifications & CTA -->
-                        <div class="prj-modal-side-col">
-                            <div class="prj-specs-card">
-                                <h4 class="prj-specs-title">
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                    Technical Specifications
-                                </h4>
-                                <div class="prj-spec-item">
-                                    <span class="prj-spec-label">Structural Materials</span>
-                                    <span class="prj-spec-val" id="prjModalMaterials"></span>
-                                </div>
-                                <div class="prj-spec-item">
-                                    <span class="prj-spec-label">Architectural Finish</span>
-                                    <span class="prj-spec-val" id="prjModalFinish"></span>
-                                </div>
-                                <div class="prj-spec-item">
-                                    <span class="prj-spec-label">Project Execution</span>
-                                    <span class="prj-spec-val">Turnkey Workshop Fabrication &amp; Site Erection by ATG</span>
-                                </div>
-                                <div class="prj-spec-item">
-                                    <span class="prj-spec-label">Engineering Standards</span>
-                                    <span class="prj-spec-val">Full CAD Shop Drawings &bull; Certified Weld Tolerances</span>
-                                </div>
-                            </div>
-
-                            <!-- Start Your Project CTA Card -->
-                            <div class="prj-cta-card">
-                                <h5>Bring This Standard to Your Space</h5>
-                                <p>Initiate a technical consultation, site survey, or blueprint takeoff inspired by this project.</p>
-                                <a href="#" class="btn btn-primary full-width" id="prjModalStartBtn">
-                                    Start Project with This Reference
-                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </a>
-                                <a href="#" target="_blank" rel="noopener" class="btn modal-whatsapp-btn full-width" id="prjModalWhatsAppBtn">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                                    Direct WhatsApp Inquiry
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Related Projects Footer Section -->
-                    <div class="prj-modal-related" id="prjModalRelatedSection">
-                        <h4 class="prj-related-title">Related Completed Projects</h4>
-                        <div class="prj-related-grid" id="prjModalRelatedGrid"></div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-        modalElement = modal;
-
-        bindModalEvents();
-    }
-
-    function bindModalEvents() {
-        if (!modalElement) return;
-
-        const closeBtn = document.getElementById('prjModalCloseBtn');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeProjectDetailModal);
-        }
-
-        // Close on backdrop click (outside container)
-        modalElement.addEventListener('click', (e) => {
-            if (e.target === modalElement) {
-                closeProjectDetailModal();
-            }
-        });
-
-        // Close on Escape & trap focus
-        document.addEventListener('keydown', (e) => {
-            if (!modalElement.classList.contains('is-open')) return;
-
-            if (e.key === 'Escape') {
-                e.preventDefault();
-                closeProjectDetailModal();
-                return;
-            }
-
-            // Tab trap
-            if (e.key === 'Tab') {
-                const focusable = modalElement.querySelectorAll(
-                    'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-                );
-                if (focusable.length === 0) return;
-
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
-
-                if (e.shiftKey) {
-                    if (document.activeElement === first) {
-                        e.preventDefault();
-                        last.focus();
-                    }
-                } else {
-                    if (document.activeElement === last) {
-                        e.preventDefault();
-                        first.focus();
-                    }
-                }
-            }
-        });
-    }
-
-    function openProjectDetailModal(projectId, triggerEl = null) {
-        ensureProjectModalDOM();
-
-        const project = window.getATGProjectById ? window.getATGProjectById(projectId) : null;
-        if (!project) {
-            console.warn('[ATG Gallery] Project not found for ID:', projectId);
-            return;
-        }
-
-        lastActiveTrigger = triggerEl || document.activeElement;
-        state.activeProjectId = project.id;
-        syncUrl();
-
-        // Populate modal fields
-        const heroImg = document.getElementById('prjModalHeroImg');
-        const sectorEl = document.getElementById('prjModalSector');
-        const locationEl = document.getElementById('prjModalLocation');
-        const refEl = document.getElementById('prjModalRef');
-        const categoriesWrap = document.getElementById('prjModalCategoriesWrap');
-        const titleEl = document.getElementById('prjModalTitle');
-        const subtitleEl = document.getElementById('prjModalSubtitle');
-        const overviewEl = document.getElementById('prjModalOverview');
-        const galleryStrip = document.getElementById('prjModalGalleryStrip');
-        const detailsList = document.getElementById('prjModalDetailsList');
-        const materialsEl = document.getElementById('prjModalMaterials');
-        const finishEl = document.getElementById('prjModalFinish');
-        const startBtn = document.getElementById('prjModalStartBtn');
-        const whatsAppBtn = document.getElementById('prjModalWhatsAppBtn');
-        const relatedGrid = document.getElementById('prjModalRelatedGrid');
-
-        if (heroImg) {
-            heroImg.src = project.image;
-            heroImg.alt = project.title;
-        }
-        if (sectorEl) sectorEl.textContent = project.sector || 'ATG Bespoke Works';
-        if (locationEl) locationEl.textContent = project.location || 'Nigeria';
-        if (refEl) refEl.textContent = `REF: ${project.id.toUpperCase()}`;
-        if (titleEl) titleEl.textContent = project.title;
-        if (subtitleEl) subtitleEl.textContent = project.subtitle || project.sector || '';
-        if (overviewEl) overviewEl.textContent = project.overview || '';
-        if (materialsEl) materialsEl.textContent = project.materials || 'High-tensile structural specification';
-        if (finishEl) finishEl.textContent = project.finish || 'Custom architectural multi-stage finish';
-
-        // Category Badges
-        if (categoriesWrap) {
-            categoriesWrap.innerHTML = '';
-            if (Array.isArray(project.categories)) {
-                project.categories.forEach(c => {
-                    const span = document.createElement('span');
-                    span.className = 'prj-cat-pill';
-                    span.textContent = c;
-                    categoriesWrap.appendChild(span);
-                });
-            }
-        }
-
-        // Additional Image Gallery
-        if (galleryStrip) {
-            galleryStrip.innerHTML = '';
-            const allImages = Array.isArray(project.gallery) && project.gallery.length > 0
-                ? project.gallery
-                : [project.image];
-
-            allImages.forEach((imgSrc, idx) => {
-                const thumb = document.createElement('button');
-                thumb.type = 'button';
-                thumb.className = `prj-thumb-item ${idx === 0 ? 'is-active' : ''}`;
-                thumb.setAttribute('aria-label', `View perspective ${idx + 1}`);
-                thumb.innerHTML = `<img src="${imgSrc}" alt="Perspective ${idx + 1}" onerror="this.src='images/dropdown_portfolio.png'">`;
-
-                thumb.addEventListener('click', () => {
-                    galleryStrip.querySelectorAll('.prj-thumb-item').forEach(b => b.classList.remove('is-active'));
-                    thumb.classList.add('is-active');
-                    if (heroImg) {
-                        heroImg.style.opacity = '0.35';
-                        setTimeout(() => {
-                            heroImg.src = imgSrc;
-                            heroImg.style.opacity = '1';
-                        }, 120);
-                    }
-                });
-
-                galleryStrip.appendChild(thumb);
-            });
-        }
-
-        // Execution Details Bullet List
-        if (detailsList) {
-            detailsList.innerHTML = '';
-            if (Array.isArray(project.details) && project.details.length > 0) {
-                project.details.forEach(itemText => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<span class="detail-bullet">&#x2713;</span><div>${escapeHtml(itemText)}</div>`;
-                    detailsList.appendChild(li);
-                });
-            } else {
-                detailsList.innerHTML = `<li><span class="detail-bullet">&#x2713;</span><div>Fully customized fabrication to architectural specifications.</div></li>`;
-            }
-        }
-
-        // Start Your Project Pre-selection CTA Link
-        if (startBtn) {
-            startBtn.href = `start-your-project.html?project=${encodeURIComponent(project.id)}`;
-        }
-
-        // WhatsApp Direct Link
-        if (whatsAppBtn) {
-            const waMsg = encodeURIComponent(
-                `Hello ATG Metal Works & Interiors,
-
-I am consulting regarding the completed gallery project:
-*${project.title}*
-Ref Code: ${project.id.toUpperCase()}
-Location: ${project.location}
-
-Please share availability for an architectural consultation and site review.`
-            );
-            whatsAppBtn.href = `https://wa.me/2348023358828?text=${waMsg}`;
-        }
-
-        // Related Projects
-        if (relatedGrid) {
-            relatedGrid.innerHTML = '';
-            if (Array.isArray(project.related) && project.related.length > 0) {
-                project.related.forEach(relId => {
-                    const relProject = window.getATGProjectById ? window.getATGProjectById(relId) : null;
-                    if (relProject) {
-                        const item = document.createElement('div');
-                        item.className = 'prj-related-card';
-                        item.innerHTML = `
-                            <div class="related-img-wrap">
-                                <img src="${escapeHtml(relProject.image)}" alt="${escapeHtml(relProject.title)}" loading="lazy">
-                            </div>
-                            <div class="related-meta">
-                                <span class="related-cat">${escapeHtml(relProject.categories[0] || 'ATG Work')}</span>
-                                <h5 class="related-title">${escapeHtml(relProject.title)}</h5>
-                            </div>
-                        `;
-                        item.addEventListener('click', () => {
-                            openProjectDetailModal(relProject.id);
-                            const modalScrollable = document.querySelector('.prj-modal-scrollable');
-                            if (modalScrollable) modalScrollable.scrollTop = 0;
-                        });
-                        relatedGrid.appendChild(item);
-                    }
-                });
-            }
-        }
-
-        // Open modal & lock background scroll
-        document.body.style.overflow = 'hidden';
-        modalElement.classList.add('is-open');
-        modalElement.setAttribute('aria-hidden', 'false');
-
-        // Scroll modal to top
-        const scrollBox = modalElement.querySelector('.prj-modal-scrollable');
-        if (scrollBox) scrollBox.scrollTop = 0;
-
-        // Focus close button
-        setTimeout(() => {
-            const closeBtn = document.getElementById('prjModalCloseBtn');
-            if (closeBtn) closeBtn.focus();
-        }, 80);
-    }
-
-    function closeProjectDetailModal() {
-        if (!modalElement || !modalElement.classList.contains('is-open')) return;
-
-        modalElement.classList.remove('is-open');
-        modalElement.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-
-        state.activeProjectId = null;
-        syncUrl();
-
-        if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
-            lastActiveTrigger.focus();
-        }
-    }
-
-    function checkDirectProjectModal() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('project')) {
-            const prjId = urlParams.get('project').trim();
-            if (prjId) {
-                setTimeout(() => {
-                    openProjectDetailModal(prjId);
-                }, 150);
-            }
-        }
-    }
-
-    /* ==========================================================================
-       UTILITIES
-       ========================================================================== */
-    function truncate(str, max) {
-        if (!str) return '';
-        if (str.length <= max) return str;
-        return str.substring(0, max).trim() + '...';
-    }
 
     function escapeHtml(str) {
         if (!str) return '';
@@ -690,15 +109,427 @@ Please share availability for an architectural consultation and site review.`
             .replace(/'/g, '&#39;');
     }
 
-    // Expose Global API
-    window.ATG_GALLERY = {
-        openProject: openProjectDetailModal,
-        closeProject: closeProjectDetailModal,
-        setCategory: function (cat) {
-            state.activeCategory = cat;
-            initCategoryFilterUI();
-            renderProjectsGrid();
-            syncUrl();
+    function escapeAttr(str) {
+        if (!str) return '';
+        return String(str).replace(/"/g, '&quot;');
+    }
+
+    /* ==========================================================================
+       3. GRID RENDERING & FILTERING
+       ========================================================================== */
+
+    function renderGrid() {
+        if (!gridEl) return;
+
+        const projects = getFilteredProjects();
+
+        if (projects.length === 0) {
+            gridEl.innerHTML = '';
+            if (emptyEl) emptyEl.style.display = 'block';
+            return;
         }
+
+        if (emptyEl) emptyEl.style.display = 'none';
+
+        const html = projects.map(proj => {
+            const photoCount = proj.gallery && Array.isArray(proj.gallery) ? proj.gallery.length : 1;
+            const subtitlePart = proj.category ? escapeHtml(proj.category) : escapeHtml(proj.division);
+            const locationPart = proj.location ? escapeHtml(proj.location) : 'Nigeria';
+
+            return `
+                <article class="project-card" data-id="${escapeAttr(proj.id)}" tabindex="0" role="button" aria-label="View ${escapeHtml(proj.title)} architectural details">
+                    <div class="project-card-thumb">
+                        <img 
+                            src="${escapeAttr(proj.image)}" 
+                            alt="${escapeHtml(proj.title)}" 
+                            class="project-card-img" 
+                            loading="lazy"
+                        >
+                        <span class="project-card-badge">${escapeHtml(proj.division)}</span>
+                        <span class="project-card-photo-pill">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            ${photoCount} Photos
+                        </span>
+                    </div>
+
+                    <div class="project-card-content">
+                        <div class="project-card-meta">${locationPart} &bull; ${subtitlePart}</div>
+                        <h3 class="project-card-title">${escapeHtml(proj.title)}</h3>
+                        <p class="project-card-desc">${escapeHtml(proj.overview)}</p>
+                        
+                        <div class="project-card-footer">
+                            <span class="project-card-link">
+                                View Project Details
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        gridEl.innerHTML = html;
+
+        // Attach click & enter key handlers to cards
+        gridEl.querySelectorAll('.project-card').forEach(card => {
+            const id = card.getAttribute('data-id');
+            card.addEventListener('click', () => openModal(id));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(id);
+                }
+            });
+        });
+    }
+
+    /**
+     * Switch division filter with smooth animation
+     */
+    function setDivision(division) {
+        state.activeDivision = division || 'all';
+
+        // Update button active states
+        filterButtons.forEach(btn => {
+            const btnDiv = btn.getAttribute('data-division');
+            const isActive = (state.activeDivision.toLowerCase() === 'all' && (!btnDiv || btnDiv.toLowerCase() === 'all')) ||
+                             (btnDiv && btnDiv.toLowerCase() === state.activeDivision.toLowerCase());
+
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // URL Query Sync
+        syncUrlParams();
+
+        // Animate grid change
+        if (gridEl) {
+            gridEl.classList.add('is-animating-out');
+            setTimeout(() => {
+                renderGrid();
+                gridEl.classList.remove('is-animating-out');
+                gridEl.classList.add('is-animating-in');
+                setTimeout(() => {
+                    gridEl.classList.remove('is-animating-in');
+                }, 250);
+            }, 180);
+        } else {
+            renderGrid();
+        }
+    }
+
+    /**
+     * Update counts on filter buttons
+     */
+    function updateCounts() {
+        const allCurated = getCuratedProjects();
+        const metalCount = allCurated.filter(p => p.division && p.division.toLowerCase() === 'metal fabrication').length;
+        const interiorsCount = allCurated.filter(p => p.division && p.division.toLowerCase() === 'interiors').length;
+
+        const countAll = document.getElementById('countAll');
+        const countMetal = document.getElementById('countMetal');
+        const countInteriors = document.getElementById('countInteriors');
+
+        if (countAll) countAll.textContent = allCurated.length;
+        if (countMetal) countMetal.textContent = metalCount;
+        if (countInteriors) countInteriors.textContent = interiorsCount;
+    }
+
+    /* ==========================================================================
+       4. INTERACTIVE LIGHTBOX MODAL
+       ========================================================================== */
+
+    function openModal(projectId) {
+        const proj = getProjectById(projectId);
+        if (!proj || !modalEl) return;
+
+        state.currentProject = proj;
+        state.currentPhotoIndex = 0;
+
+        // Populate text content
+        if (modalBadgeEl) {
+            modalBadgeEl.textContent = `${proj.division}${proj.category ? ' • ' + proj.category : ''}`;
+        }
+        if (modalTitleEl) modalTitleEl.textContent = proj.title || 'Architectural Project';
+        if (modalSubtitleEl) modalSubtitleEl.textContent = proj.subtitle || '';
+        if (modalOverviewEl) modalOverviewEl.textContent = proj.overview || '';
+        if (modalLocationEl) modalLocationEl.textContent = proj.location || 'Nigeria';
+        if (modalMaterialsEl) modalMaterialsEl.textContent = proj.materials || 'Architectural specification';
+        if (modalFinishEl) modalFinishEl.textContent = proj.finish || 'Standard ATG protective coating';
+        if (modalStatusEl) modalStatusEl.textContent = proj.status || 'Completed Commission';
+
+        // Engineering Notes list
+        if (modalNotesList) {
+            if (proj.details && Array.isArray(proj.details) && proj.details.length > 0) {
+                modalNotesList.innerHTML = proj.details.map(d => `<li>${escapeHtml(d)}</li>`).join('');
+                modalNotesList.style.display = 'block';
+            } else {
+                modalNotesList.style.display = 'none';
+            }
+        }
+
+        // Commission CTA button link pre-filled with project title
+        if (modalActionBtn) {
+            const projectParam = encodeURIComponent(proj.title || '');
+            modalActionBtn.href = `start-your-project.html?project=${projectParam}`;
+        }
+
+        // Setup image gallery
+        renderModalGallery();
+
+        // Show modal
+        modalEl.classList.add('is-open');
+        modalEl.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        // URL sync with project ID
+        syncUrlParams(proj.id);
+    }
+
+    function closeModal() {
+        if (!modalEl) return;
+        modalEl.classList.remove('is-open');
+        modalEl.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        state.currentProject = null;
+
+        // Remove project param from URL
+        syncUrlParams(null);
+    }
+
+    function getGalleryImages() {
+        if (!state.currentProject) return [];
+        if (state.currentProject.gallery && Array.isArray(state.currentProject.gallery) && state.currentProject.gallery.length > 0) {
+            return state.currentProject.gallery;
+        }
+        if (state.currentProject.image) {
+            return [state.currentProject.image];
+        }
+        return [];
+    }
+
+    function renderModalGallery() {
+        const images = getGalleryImages();
+        const total = images.length;
+
+        if (total === 0) return;
+
+        if (state.currentPhotoIndex >= total) {
+            state.currentPhotoIndex = 0;
+        }
+
+        const currentImgUrl = images[state.currentPhotoIndex];
+
+        // Main Viewer Image
+        if (modalViewerImg) {
+            modalViewerImg.src = currentImgUrl;
+            modalViewerImg.alt = `${state.currentProject.title} — Photograph ${state.currentPhotoIndex + 1}`;
+        }
+
+        // Counter
+        if (modalCounterEl) {
+            modalCounterEl.textContent = `${state.currentPhotoIndex + 1} / ${total}`;
+        }
+
+        // Thumbnails Strip
+        if (modalThumbsStrip) {
+            if (total <= 1) {
+                modalThumbsStrip.style.display = 'none';
+            } else {
+                modalThumbsStrip.style.display = 'flex';
+                modalThumbsStrip.innerHTML = images.map((imgUrl, idx) => `
+                    <button 
+                        type="button" 
+                        class="modal-thumb-item ${idx === state.currentPhotoIndex ? 'is-active' : ''}" 
+                        data-index="${idx}" 
+                        aria-label="View photo ${idx + 1}"
+                    >
+                        <img src="${escapeAttr(imgUrl)}" alt="Thumbnail ${idx + 1}">
+                    </button>
+                `).join('');
+
+                modalThumbsStrip.querySelectorAll('.modal-thumb-item').forEach(thumb => {
+                    thumb.addEventListener('click', () => {
+                        const idx = parseInt(thumb.getAttribute('data-index'), 10);
+                        if (!isNaN(idx)) {
+                            state.currentPhotoIndex = idx;
+                            renderModalGallery();
+                        }
+                    });
+                });
+            }
+        }
+
+        // Arrows visibility (hide if only 1 image)
+        if (modalPrevBtn) modalPrevBtn.style.display = total > 1 ? 'flex' : 'none';
+        if (modalNextBtn) modalNextBtn.style.display = total > 1 ? 'flex' : 'none';
+    }
+
+    function nextPhoto() {
+        const images = getGalleryImages();
+        if (images.length <= 1) return;
+        state.currentPhotoIndex = (state.currentPhotoIndex + 1) % images.length;
+        renderModalGallery();
+    }
+
+    function prevPhoto() {
+        const images = getGalleryImages();
+        if (images.length <= 1) return;
+        state.currentPhotoIndex = (state.currentPhotoIndex - 1 + images.length) % images.length;
+        renderModalGallery();
+    }
+
+    /* ==========================================================================
+       5. URL QUERY PARAMS SYNCHRONIZATION
+       ========================================================================== */
+
+    function syncUrlParams(projectId) {
+        if (!window.history || !window.history.replaceState) return;
+
+        const url = new URL(window.location.href);
+
+        // Division param
+        if (state.activeDivision && state.activeDivision.toLowerCase() !== 'all') {
+            url.searchParams.set('division', state.activeDivision);
+        } else {
+            url.searchParams.delete('division');
+        }
+
+        // Project param
+        if (projectId) {
+            url.searchParams.set('project', projectId);
+        } else if (projectId === null) {
+            url.searchParams.delete('project');
+        }
+
+        window.history.replaceState(null, '', url.toString());
+    }
+
+    function initFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const divParam = urlParams.get('division');
+        const projParam = urlParams.get('project');
+
+        if (divParam) {
+            const valid = ['metal fabrication', 'interiors', 'all'];
+            if (valid.includes(divParam.toLowerCase())) {
+                state.activeDivision = divParam.toLowerCase() === 'metal fabrication' ? 'Metal Fabrication' :
+                                       divParam.toLowerCase() === 'interiors' ? 'Interiors' : 'all';
+            }
+        }
+
+        // Open specific project if specified in URL
+        if (projParam) {
+            setTimeout(() => {
+                openModal(projParam);
+            }, 100);
+        }
+    }
+
+    /* ==========================================================================
+       6. INITIALIZATION & EVENT LISTENERS
+       ========================================================================== */
+
+    function init() {
+        // Cache DOM elements
+        gridEl = document.getElementById('galleryGrid');
+        emptyEl = document.getElementById('galleryEmpty');
+        filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+
+        modalEl = document.getElementById('atgProjectModal');
+        modalContainerEl = document.getElementById('modalContainer');
+        modalCloseBtn = document.getElementById('modalCloseBtn');
+        modalViewerImg = document.getElementById('modalViewerImg');
+        modalPrevBtn = document.getElementById('modalPrevBtn');
+        modalNextBtn = document.getElementById('modalNextBtn');
+        modalCounterEl = document.getElementById('modalCounter');
+        modalThumbsStrip = document.getElementById('modalThumbsStrip');
+        modalBadgeEl = document.getElementById('modalBadge');
+        modalTitleEl = document.getElementById('modalTitle');
+        modalSubtitleEl = document.getElementById('modalSubtitle');
+        modalOverviewEl = document.getElementById('modalOverview');
+        modalLocationEl = document.getElementById('modalLocation');
+        modalMaterialsEl = document.getElementById('modalMaterials');
+        modalFinishEl = document.getElementById('modalFinish');
+        modalStatusEl = document.getElementById('modalStatus');
+        modalNotesList = document.getElementById('modalNotesList');
+        modalActionBtn = document.getElementById('modalActionBtn');
+
+        // Setup filter button listeners
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const div = btn.getAttribute('data-division') || 'all';
+                setDivision(div);
+            });
+        });
+
+        // Setup Modal Listeners
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeModal);
+        }
+
+        if (modalEl) {
+            modalEl.addEventListener('click', (e) => {
+                // If clicked on backdrop outside container, close
+                if (e.target === modalEl) {
+                    closeModal();
+                }
+            });
+        }
+
+        if (modalPrevBtn) {
+            modalPrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevPhoto();
+            });
+        }
+
+        if (modalNextBtn) {
+            modalNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextPhoto();
+            });
+        }
+
+        // Global Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modalEl || !modalEl.classList.contains('is-open')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                prevPhoto();
+            } else if (e.key === 'ArrowRight') {
+                nextPhoto();
+            }
+        });
+
+        // Initialize state from URL params
+        initFromUrl();
+
+        // Update counts and render grid
+        updateCounts();
+        setDivision(state.activeDivision);
+    }
+
+    // Expose Global API for inline hooks
+    window.ATG_GALLERY = {
+        setDivision: setDivision,
+        openModal: openModal,
+        closeModal: closeModal
     };
+
+    // Run on DOM Ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();

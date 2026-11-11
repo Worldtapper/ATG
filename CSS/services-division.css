@@ -1,0 +1,1350 @@
+/* ==========================================================================
+   ATG Metal Works & Interiors — Services & Divisions Stylesheet
+   Architecture: Two Major Divisions (Metal Fabrication & Interiors)
+   Brand Identity: Cream #FCE7CC | Black #010102 | Gold #F4D194
+   ========================================================================== */
+
+/* --- Services Page Scope & Global Wrappers --- */
+.services-division-page {
+    position: relative;
+    padding-top: 96px;
+    background-color: var(--clr-black);
+    color: var(--clr-cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.sd-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Subtle Reveal Animations */
+.sd-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sd-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay helpers */
+.sd-delay-1 { transition-delay: 100ms; }
+.sd-delay-2 { transition-delay: 200ms; }
+.sd-delay-3 { transition-delay: 300ms; }
+.sd-delay-4 { transition-delay: 400ms; }
+
+/* Eyebrows & Badges */
+.sd-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 14px;
+}
+
+.sd-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--clr-gold);
+    box-shadow: 0 0 8px rgba(244, 209, 148, 0.6);
+}
+
+.sd-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(244, 209, 148, 0.08);
+    border: 1px solid rgba(244, 209, 148, 0.25);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+}
+
+/* Section Common Header */
+.sd-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 52px;
+}
+
+.sd-section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--clr-cream);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.sd-section-desc {
+    font-size: 1.05rem;
+    color: rgba(252, 231, 204, 0.75);
+    line-height: 1.65;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   SECTION 01: HERO SECTION
+   ========================================================================== */
+.sd-hero {
+    position: relative;
+    padding: 40px 0 60px;
+    overflow: hidden;
+}
+
+.sd-hero-container {
+    position: relative;
+}
+
+.sd-hero-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    background: radial-gradient(circle at 10% 20%, rgba(244, 209, 148, 0.08), transparent 60%),
+                linear-gradient(135deg, #101013 0%, #08080a 100%);
+    border: 1px solid rgba(244, 209, 148, 0.18);
+    padding: 56px 48px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(244, 209, 148, 0.15);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sd-hero-glow {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(244, 209, 148, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(40px);
+}
+
+.sd-hero-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(252, 231, 204, 0.5);
+    margin-bottom: 20px;
+}
+
+.sd-hero-breadcrumbs a {
+    color: var(--clr-gold);
+    transition: color var(--transition-fast);
+}
+
+.sd-hero-breadcrumbs a:hover {
+    color: #fff;
+}
+
+.sd-hero-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.75rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.08;
+    color: var(--clr-cream);
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+}
+
+.sd-hero-title span.sd-title-accent {
+    color: var(--clr-gold);
+    background: linear-gradient(135deg, #FFF1DB 0%, #F4D194 60%, #D4A359 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sd-hero-desc {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: rgba(252, 231, 204, 0.8);
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 580px;
+}
+
+.sd-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.sd-btn-hero-primary {
+    background: var(--clr-gold);
+    color: var(--clr-black);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(244, 209, 148, 0.3);
+}
+
+.sd-btn-hero-primary:hover {
+    background: #f8dfb1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(244, 209, 148, 0.5);
+}
+
+.sd-btn-hero-secondary {
+    background: rgba(252, 231, 204, 0.05);
+    border: 1px solid rgba(252, 231, 204, 0.2);
+    color: var(--clr-cream);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    padding: 14px 24px;
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sd-btn-hero-secondary:hover {
+    background: rgba(252, 231, 204, 0.12);
+    border-color: var(--clr-gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Hero Visual Montage */
+.sd-hero-visual {
+    position: relative;
+}
+
+.sd-hero-frame {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    border: 1px solid rgba(244, 209, 148, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    aspect-ratio: 4/3;
+    background: #141418;
+}
+
+.sd-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) contrast(1.05);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sd-hero-frame:hover .sd-hero-img {
+    transform: scale(1.04);
+}
+
+.sd-hero-frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(1, 1, 2, 0.85) 100%);
+    pointer-events: none;
+}
+
+.sd-hero-frame-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: rgba(12, 12, 14, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(244, 209, 148, 0.2);
+    border-radius: var(--border-radius-sm);
+}
+
+.sd-hero-frame-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+}
+
+.sd-hero-frame-sub {
+    font-size: 0.85rem;
+    color: var(--clr-cream);
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   SECTION 02: CHOOSE YOUR DIVISION (THE PRIMARY VISUAL FOCUS)
+   ========================================================================== */
+.sd-divisions-section {
+    position: relative;
+    padding: 70px 0 100px;
+    background: radial-gradient(circle at 50% 0%, rgba(244, 209, 148, 0.05) 0%, transparent 70%);
+}
+
+.sd-division-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.sd-div-hero-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 580px;
+    padding: 48px 44px;
+    text-decoration: none;
+    color: var(--clr-cream);
+    border: 1px solid rgba(244, 209, 148, 0.22);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(244, 209, 148, 0.2);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease,
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    background: #08080a;
+}
+
+.sd-div-hero-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(244, 209, 148, 0.65);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(244, 209, 148, 0.22);
+}
+
+/* Background image and overlays */
+.sd-div-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.sd-div-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.85) contrast(1.08);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.sd-div-hero-card:hover .sd-div-hero-img {
+    transform: scale(1.07);
+    filter: brightness(0.95) contrast(1.12);
+}
+
+.sd-div-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, 
+                rgba(1, 1, 2, 0.2) 0%, 
+                rgba(1, 1, 2, 0.45) 45%, 
+                rgba(1, 1, 2, 0.94) 100%);
+    transition: background 0.5s ease;
+}
+
+.sd-div-hero-card:hover .sd-div-hero-overlay {
+    background: linear-gradient(180deg, 
+                rgba(1, 1, 2, 0.1) 0%, 
+                rgba(1, 1, 2, 0.4) 40%, 
+                rgba(1, 1, 2, 0.92) 100%);
+}
+
+.sd-div-hero-sheen {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 100%, rgba(244, 209, 148, 0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.sd-div-hero-card:hover .sd-div-hero-sheen {
+    opacity: 1;
+}
+
+/* Content */
+.sd-div-hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sd-div-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 6px 14px;
+    background: rgba(1, 1, 2, 0.75);
+    border: 1px solid rgba(244, 209, 148, 0.35);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sd-div-hero-text {
+    margin-bottom: 32px;
+}
+
+.sd-div-hero-title {
+    font-size: clamp(2.1rem, 3.2vw, 2.85rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--clr-cream);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.sd-div-hero-card:hover .sd-div-hero-title {
+    color: #ffffff;
+}
+
+.sd-div-hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(252, 231, 204, 0.85);
+    font-weight: 300;
+    max-width: 440px;
+}
+
+/* Elegant CTA link container */
+.sd-div-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    align-self: flex-start;
+    padding: 14px 24px;
+    background: rgba(12, 12, 16, 0.75);
+    border: 1px solid rgba(244, 209, 148, 0.35);
+    border-radius: var(--border-radius-sm);
+    color: var(--clr-cream);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sd-div-cta-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-gold);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.sd-div-hero-card:hover .sd-div-hero-cta {
+    background: var(--clr-gold);
+    color: var(--clr-black);
+    border-color: var(--clr-gold);
+    box-shadow: 0 8px 24px rgba(244, 209, 148, 0.4);
+    transform: translateY(-2px);
+}
+
+.sd-div-hero-card:hover .sd-div-cta-icon {
+    color: var(--clr-black);
+    transform: translateX(6px);
+}
+
+
+/* ==========================================================================
+   SECTION 03: EXPLORE WHAT WE OFFER (GROUPED & UNMIXED)
+   ========================================================================== */
+.sd-offer-section {
+    position: relative;
+    padding: 90px 0;
+    background: #09090c;
+    border-top: 1px solid rgba(252, 231, 204, 0.06);
+    border-bottom: 1px solid rgba(252, 231, 204, 0.06);
+}
+
+.sd-offer-group {
+    background: rgba(18, 18, 22, 0.6);
+    border: 1px solid rgba(252, 231, 204, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: 44px 40px;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.sd-offer-group:last-child {
+    margin-bottom: 0;
+}
+
+.sd-offer-group-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(252, 231, 204, 0.08);
+}
+
+.sd-offer-group-info {
+    max-width: 680px;
+}
+
+.sd-offer-group-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 8px;
+}
+
+.sd-offer-group-title {
+    font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--clr-cream);
+    margin-bottom: 8px;
+}
+
+.sd-offer-group-desc {
+    font-size: 0.95rem;
+    color: rgba(252, 231, 204, 0.7);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.sd-offer-group-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--clr-gold);
+    border-bottom: 1px solid rgba(244, 209, 148, 0.4);
+    padding-bottom: 4px;
+    transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sd-offer-group-link:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: translateX(3px);
+}
+
+/* Category Grid */
+.sd-offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.sd-cat-card {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    background: rgba(10, 10, 12, 0.85);
+    border: 1px solid rgba(252, 231, 204, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    text-decoration: none;
+}
+
+.sd-cat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(244, 209, 148, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.sd-cat-media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: #141418;
+}
+
+.sd-cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.9);
+}
+
+.sd-cat-card:hover .sd-cat-img {
+    transform: scale(1.06);
+    filter: brightness(1);
+}
+
+.sd-cat-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sd-cat-title {
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-cream);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sd-cat-title svg {
+    color: var(--clr-gold);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.sd-cat-card:hover .sd-cat-title svg {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sd-cat-desc {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: rgba(252, 231, 204, 0.65);
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   SECTION 04: ATG'S APPROACH TO QUALITY
+   ========================================================================== */
+.sd-quality-section {
+    position: relative;
+    padding: 90px 0;
+}
+
+.sd-quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.sd-quality-card {
+    background: linear-gradient(180deg, rgba(20, 20, 24, 0.7) 0%, rgba(12, 12, 14, 0.8) 100%);
+    border: 1px solid rgba(244, 209, 148, 0.12);
+    border-radius: var(--border-radius-md);
+    padding: 36px 30px;
+    position: relative;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sd-quality-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(244, 209, 148, 0.35);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.sd-quality-number {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--clr-gold);
+    margin-bottom: 18px;
+    display: inline-block;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(244, 209, 148, 0.3);
+}
+
+.sd-quality-card-title {
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-cream);
+    margin-bottom: 12px;
+}
+
+.sd-quality-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(252, 231, 204, 0.75);
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   SECTION 05: SELECTED WORK PREVIEW
+   ========================================================================== */
+.sd-work-section {
+    position: relative;
+    padding: 90px 0;
+    background: #08080a;
+}
+
+.sd-work-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 44px;
+}
+
+.sd-work-card {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    background: #121216;
+    border: 1px solid rgba(252, 231, 204, 0.1);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.sd-work-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(244, 209, 148, 0.4);
+}
+
+.sd-work-media {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    background: #141418;
+}
+
+.sd-work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.92);
+}
+
+.sd-work-card:hover .sd-work-img {
+    transform: scale(1.08);
+    filter: brightness(1.02);
+}
+
+.sd-work-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(1, 1, 2, 0.85);
+    border: 1px solid rgba(244, 209, 148, 0.3);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    z-index: 2;
+}
+
+.sd-work-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sd-work-location {
+    font-size: 0.75rem;
+    color: var(--clr-gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.sd-work-title {
+    font-size: 1.05rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-cream);
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.sd-work-meta {
+    font-size: 0.8rem;
+    color: rgba(252, 231, 204, 0.6);
+    line-height: 1.5;
+    margin-top: auto;
+}
+
+.sd-work-cta-wrap {
+    text-align: center;
+}
+
+/* ==========================================================================
+   SECTION 06: START YOUR PROJECT CTA BANNER
+   ========================================================================== */
+.sd-cta-section {
+    position: relative;
+    padding: 60px 0 100px;
+}
+
+.sd-cta-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    background: radial-gradient(circle at 80% 20%, rgba(244, 209, 148, 0.12), transparent 50%),
+                linear-gradient(135deg, #121216 0%, #08080a 100%);
+    border: 1px solid rgba(244, 209, 148, 0.25);
+    padding: 64px 48px;
+    text-align: center;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(244, 209, 148, 0.2);
+    overflow: hidden;
+}
+
+.sd-cta-content {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.sd-cta-title {
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--clr-cream);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+}
+
+.sd-cta-desc {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: rgba(252, 231, 204, 0.85);
+    font-weight: 300;
+    margin-bottom: 36px;
+}
+
+.sd-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ==========================================================================
+   DEDICATED DIVISION PAGES STYLES (metal-fabrication.html & interiors.html)
+   ========================================================================== */
+.sd-division-hero {
+    position: relative;
+    padding: 40px 0 60px;
+}
+
+.sd-div-hero-banner {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    background: radial-gradient(circle at 20% 30%, rgba(244, 209, 148, 0.1), transparent 60%),
+                linear-gradient(135deg, #101013 0%, #060608 100%);
+    border: 1px solid rgba(244, 209, 148, 0.2);
+    padding: 56px 48px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sd-division-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(18, 18, 22, 0.8);
+    border: 1px solid rgba(252, 231, 204, 0.1);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 48px;
+}
+
+.sd-div-nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--clr-gold);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sd-div-nav-back:hover {
+    color: #fff;
+    transform: translateX(-3px);
+}
+
+.sd-div-nav-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(252, 231, 204, 0.7);
+    padding: 8px 16px;
+    border-radius: var(--border-radius-sm);
+    background: rgba(252, 231, 204, 0.05);
+    border: 1px solid rgba(252, 231, 204, 0.12);
+    transition: all var(--transition-fast);
+}
+
+.sd-div-nav-switch:hover {
+    color: var(--clr-gold);
+    border-color: rgba(244, 209, 148, 0.4);
+    background: rgba(244, 209, 148, 0.08);
+}
+
+/* Division Specific Capabilities Grid */
+.sd-div-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 28px;
+    margin-bottom: 60px;
+}
+
+.sd-spec-card {
+    background: rgba(16, 16, 20, 0.85);
+    border: 1px solid rgba(252, 231, 204, 0.1);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sd-spec-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(244, 209, 148, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.sd-spec-media {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative;
+    background: #0e0e12;
+}
+
+.sd-spec-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.92);
+}
+
+.sd-spec-card:hover .sd-spec-img {
+    transform: scale(1.06);
+    filter: brightness(1);
+}
+
+.sd-spec-body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sd-spec-title {
+    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--clr-cream);
+    margin-bottom: 10px;
+}
+
+.sd-spec-desc {
+    font-size: 0.92rem;
+    color: rgba(252, 231, 204, 0.75);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.sd-spec-list {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: rgba(252, 231, 204, 0.85);
+}
+
+.sd-spec-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+}
+
+.sd-spec-list li::before {
+    content: "•";
+    color: var(--clr-gold);
+    position: absolute;
+    left: 4px;
+    font-weight: bold;
+}
+
+.sd-spec-footer {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(252, 231, 204, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sd-spec-cta {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--clr-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sd-spec-cta:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* Division Quality Standards Banner */
+.sd-standards-banner {
+    background: radial-gradient(circle at 10% 50%, rgba(244, 209, 148, 0.08), transparent 70%),
+                rgba(14, 14, 18, 0.9);
+    border: 1px solid rgba(244, 209, 148, 0.18);
+    border-radius: var(--border-radius-lg);
+    padding: 44px 40px;
+    margin: 60px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.sd-standard-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.sd-standard-title {
+    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-cream);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sd-standard-title svg {
+    color: var(--clr-gold);
+    flex-shrink: 0;
+}
+
+.sd-standard-desc {
+    font-size: 0.88rem;
+    color: rgba(252, 231, 204, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   START YOUR PROJECT DIVISION ADAPTATION
+   ========================================================================== */
+.syp-division-picker-section {
+    margin-bottom: 40px;
+}
+
+.syp-division-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.syp-division-choice {
+    position: relative;
+    background: rgba(18, 18, 22, 0.75);
+    border: 2px solid rgba(252, 231, 204, 0.12);
+    border-radius: var(--border-radius-md);
+    padding: 24px 28px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.syp-division-choice:hover {
+    border-color: rgba(244, 209, 148, 0.35);
+    background: rgba(24, 24, 30, 0.85);
+}
+
+.syp-division-choice.is-active {
+    border-color: var(--clr-gold);
+    background: radial-gradient(circle at top left, rgba(244, 209, 148, 0.12), transparent 80%),
+                rgba(24, 24, 30, 0.95);
+    box-shadow: 0 0 25px rgba(244, 209, 148, 0.15);
+}
+
+.syp-div-choice-info {
+    max-width: 85%;
+}
+
+.syp-div-choice-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.syp-div-choice-title {
+    font-size: 1.35rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--clr-cream);
+    margin-bottom: 4px;
+}
+
+.syp-div-choice-sub {
+    font-size: 0.84rem;
+    color: rgba(252, 231, 204, 0.7);
+    line-height: 1.5;
+}
+
+.syp-div-radio-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(252, 231, 204, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.syp-division-choice.is-active .syp-div-radio-indicator {
+    border-color: var(--clr-gold);
+    background: var(--clr-gold);
+}
+
+.syp-div-radio-indicator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clr-black);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.syp-division-choice.is-active .syp-div-radio-indicator::after {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .sd-hero-card {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 44px 36px;
+    }
+
+    .sd-quality-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sd-work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sd-div-hero-banner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .sd-standards-banner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-division-page {
+        padding-top: 80px;
+    }
+
+    .sd-hero-card {
+        padding: 32px 24px;
+    }
+
+    .sd-hero-title {
+        font-size: 2.25rem;
+    }
+
+    .sd-division-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .sd-div-body {
+        padding: 28px 24px 30px;
+    }
+
+    .sd-offer-group {
+        padding: 30px 20px;
+    }
+
+    .sd-offer-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .sd-quality-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sd-work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sd-cta-card {
+        padding: 44px 24px;
+    }
+
+    .syp-division-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sd-division-nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .sd-div-spec-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sd-hero-card {
+        padding: 24px 16px;
+    }
+
+    .sd-hero-title {
+        font-size: clamp(1.85rem, 8vw, 2.2rem);
+    }
+
+    .sd-hero-desc {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .sd-div-body {
+        padding: 22px 16px;
+    }
+
+    .sd-div-name {
+        font-size: 1.5rem;
+    }
+
+    .sd-cta-card {
+        padding: 36px 16px;
+    }
+
+    .sd-cta-title {
+        font-size: clamp(1.8rem, 7.5vw, 2.3rem);
+    }
+}
+
+@media (max-width: 360px) {
+    .sd-hero-title {
+        font-size: 1.7rem;
+    }
+
+    .sd-section-title {
+        font-size: 1.65rem;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .sd-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .sd-hero-img,
+    .sd-div-img,
+    .sd-cat-img,
+    .sd-work-img,
+    .sd-spec-img {
+        transition: none !important;
+        transform: none !important;
+    }
+    .sd-division-card,
+    .sd-cat-card,
+    .sd-quality-card,
+    .sd-work-card,
+    .sd-spec-card {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+

@@ -72,10 +72,12 @@
 }
 
 .ip-hero-title {
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-size: clamp(2.1rem, 7vw, 6.5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: var(--clr-white);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .ip-hero-desc {
@@ -448,7 +450,7 @@
 
 .ip-knowledge-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 24px;
 }
 
@@ -866,7 +868,11 @@
 
 @media (max-width: 768px) {
     .ip-hero {
-        padding: 140px 0 80px;
+        padding: 130px 0 70px;
+    }
+
+    .ip-hero-title {
+        font-size: clamp(2rem, 7.5vw, 3.2rem);
     }
 
     .ip-hero-cta, .ip-cta-actions {
@@ -880,6 +886,67 @@
     }
 
     .ip-featured-content, .ip-newsletter-card {
-        padding: 32px 24px;
+        padding: 32px 20px;
+    }
+
+    .ip-knowledge-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .ip-knowledge-card {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ip-hero {
+        padding: 110px 16px 50px;
+    }
+
+    .ip-hero-title {
+        font-size: clamp(1.85rem, 8vw, 2.4rem);
+    }
+
+    .ip-hero-desc {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .ip-featured-content {
+        padding: 22px 16px;
+    }
+
+    .ip-newsletter-card {
+        padding: 28px 16px;
+    }
+
+    .ip-knowledge-card {
+        padding: 20px 16px;
+    }
+
+    .ip-category-chips {
+        gap: 8px;
+    }
+
+    .ip-scroll-top-btn {
+        width: 46px;
+        height: 46px;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .ip-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .ip-section-title {
+        font-size: 1.75rem;
+    }
+
+    .ip-newsletter-title {
+        font-size: 1.6rem;
     }
 }
